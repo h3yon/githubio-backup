@@ -1,21 +1,21 @@
+---
 #-------------------------------
 # General Site Settings
 
-title: Kross
-logo: 
-author: themefisher
-description: this is meta description
-email: steve.fruits@email.com
-phone: +880 2544 658 256
-address: 125/A, CA Commercial Area, California, USA
+title: H3yon
+logo:
+author: h3yon
+description: this is h3yon's github blog
+email: ktjktj11@naver.com
+phone: +82 010-3354-3945
+address: Seoul, Korea
 copyright: Copyright &copy; 2020 Designed by [Themefisher](https://themefisher.com) & Developed by [Getjekyllthemes](https://getjekyllthemes.com)
 
 menu:
-- {name: About, link: '/about'}
-- {name: Blog, link: '/blog'}
-- {name: Portfolio, link: '/portfolio'}
-- {name: Contact, link: '/contact'}
-
+  - { name: About, link: "/about" }
+  - { name: Blog, link: "/blog" }
+  - { name: Portfolio, link: "/portfolio" }
+  - { name: Contact, link: "/contact" }
 
 #-------------------------------
 # Google Analytics Section
@@ -27,67 +27,53 @@ menu:
 
 google-analytics: # UA-XXXXXX-X
 
-
 #-------------------------------
 # Comment Section (Disqus)
 
 disqus-identifier: # Add your shortname for Disqus Comment. For example mr-brown
 
-
 #-------------------------------
 # Hero Section
 
 hero:
-  hero-title: Hi! I’m <br> Christoher <br> UX designer
+  hero-title: Hi! I’m <br> h3yon <br> Backend Engineer
 
 social:
-- {icon: "ti-facebook", link: "#"}
-- {icon: "ti-instagram", link: "#"}
-- {icon: "ti-dribbble", link: "#"}
-- {icon: "ti-twitter", link: "#"}
-
+  - { icon: "ti-facebook", link: "#" }
+  - { icon: "ti-instagram", link: "#" }
+  - { icon: "ti-dribbble", link: "#" }
+  - { icon: "ti-twitter", link: "#" }
 
 #-------------------------------
 # About (Section and Page)
 
 # About Section
-blurb:
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+blurb: 안녕하세요! h3yon's 블로그입니다.
 
-blurb-btn-link: '/about'
+blurb-btn-link: "/about"
 blurb-btn-name: know more
-
 
 # About Page
 
 # Work Process Section
 work-process:
-  - title : "Research and Plan"
-    icon : "assets/images/icons/plan.png"
-    content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    
-  - title : "Design and Develop"
-    icon : "assets/images/icons/design.png"
-    content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    
-  - title : "Deliver"
-    icon : "assets/images/icons/print.png"
-    content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  - title: "Research and Plan"
+    icon: "assets/images/icons/plan.png"
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
+  - title: "Develop"
+    icon: "assets/images/icons/design.png"
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+
+  - title: "Deliver"
+    icon: "assets/images/icons/print.png"
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
 # My Team Section
 team:
-  - title : "Jack Schenziwe"
-    image : "assets/images/team/member-1.png"
-    designation : "Project Manager"
-    
-  - title : "Julias Carlie"
-    image : "assets/images/team/member-2.png"
-    designation : "Web Developer"
-    
-  - title : "John Doe"
-    image : "assets/images/team/member-3.png"
-    designation : "Designer"
+  - title: "Teams"
+    image: "assets/images/team/member-1.png"
+    designation: "Project Manager"
 
 
 #-------------------------------
@@ -95,165 +81,138 @@ team:
 
 skills-title: Skills
 skills:
-- {name: Web Design, color: '#fdb157', value: '90%'}
-- {name: Logo Design, color: '#9473e6', value: '60%'}
-- {name: After Effects, color: '#bdecf6', value: '80%'}
-- {name: Web App, color: '#ffbcaa', value: '70%'}
-
+  - { name: PPT Presentation, color: "#fdb157", value: "90%" }
+  - { name: Java, color: "#9473e6", value: "40%" }
+  - { name: Node.js, color: "#bdecf6", value: "80%" }
+  - { name: Communication, color: "#ffbcaa", value: "80%" }
 
 #-------------------------------
 # Exprerience Section
 
 experience-title: Experience
 experience:
-- {name: Junior UX Designer, icon: 'icon-1.png', date: 'Jan 2007 - Feb 2009', organization: 'WEBEX'}
-- {name: UX & UI Designer, icon: 'icon-2.png', date: 'Mar 2009 - Aug 2014', organization: 'AUGMEDIX'}
-- {name: Senior UI Designer, icon: 'icon-3.png', date: 'Sep 2014 - Present', organization: 'THEMEFISHER'}
-
+  - { name: Linkmoa, icon: "icon-1.png", date: "2021", organization: "MakeUS" }
+  - { name: K-Shield Jr, icon: "icon-2.png", date: "2021", organization: "Security Educaton Center" }
+  - { name: Security Information Tutor, icon: "icon-3.png", date: "2020", organization: "Seoul Women's Univ" }
 
 #-------------------------------
 # Education Section
 
 education-title: Education
 education:
-- {name: Marters in UX Design, date: '2006', organization: 'Masassusets Institute of Technology'}
-- {name: Honours in Fine Arts, date: '2004', organization: 'Harvard University'}
-- {name: Higher Secondary Certificat, date: '2000', organization: 'Cardiff School'}
-- {name: Secondary School Certificate, date: '1998', organization: 'Cardiff School'}
-
+  - { name: Marters in UX Design, date: "2006", organization: "Masassusets Institute of Technology" }
+  - { name: Honours in Fine Arts, date: "2004", organization: "Harvard University" }
+  - { name: Higher Secondary Certificat, date: "2000", organization: "Cardiff School" }
+  - { name: Secondary School Certificate, date: "1998", organization: "Cardiff School" }
 
 #-------------------------------
 # Services Section
 
 services-title: Services
 services:
-- {
-    name: UI Design,
-    icon: ti-palette,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    active: # Add true to select section
-  }
-- {
-    name: UX Design,
-    icon: ti-vector,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    active: true # Add true to select section
-  }
-- {
-    name: Interaction Design,
-    icon: ti-panel,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    active: # Add true to select section
-  }
-
-
+  - {
+      name: Linkmoa
+      icon: ti-palette,
+      description: "Whenever you want, you can store links",
+      active: # Add true to select section
+    }
+  - {
+      name: Covaccting,
+      icon: ti-vector,
+      description: "communicate about vaccines against covid virus",
+      active: true, # Add true to select section
+    }
+  - {
+      name: Bunjang,
+      icon: ti-panel,
+      description: "Clone Coding about Bunjang",
+      active: ,# Add true to select section
+    }
 
 #-------------------------------
 # Portfolio (Section and Page)
 
 # Portfolio Home Section
 portfolio-home-items:
-  - image : "assets/images/portfolio/item-1.png"
-    url: "#"
-    
-  - image : "assets/images/portfolio/item-2.png"
-    url: "#"
-    
-  - image : "assets/images/portfolio/item-3.png"
-    url: "#"
-    
-  - image : "assets/images/portfolio/item-4.png"
-    url: "#"
-    
-  - image : "assets/images/portfolio/item-5.png"
+  - image: "assets/images/portfolio/item-1.png"
     url: "#"
 
+  - image: "assets/images/portfolio/item-2.png"
+    url: "#"
+
+  - image: "assets/images/portfolio/item-3.png"
+    url: "#"
+
+  - image: "assets/images/portfolio/item-4.png"
+    url: "#"
+
+  - image: "assets/images/portfolio/item-5.png"
+    url: "#"
 
 # Portfolio Page
 portfolio-label:
-- {
-    title : "UI/UX Design",
-    type : "design"
-  }
-- {
-    title : "BRANDING",
-    type : "branding"
-  }
-- {
-    title : "ILLUSTRATION",
-    type : "illustration"
-  }
+  - { title: "Back-end", type: "backend" }
+  - { title: "BRANDING", type: "branding" }
+  - { title: "ILLUSTRATION", type: "illustration" }
 
 portfolio-items:
-  - image : "assets/images/portfolio/item-1.png"
+  - image: "assets/images/portfolio/item-1.png"
     url: "#"
     portfolio-type:
-     - type: "design"
-     - type: "illustration"
-      
-  - image : "assets/images/portfolio/item-2.png"
-    url: "#"
-    portfolio-type:
-      - type: "branding"
-      
-  - image : "assets/images/portfolio/item-3.png"
-    url: "#"
-    portfolio-type:
+      - type: "backend"
       - type: "illustration"
-      
-  - image : "assets/images/portfolio/item-6.png"
-    url: "#"
-    portfolio-type:
-      - type: "design"
-      - type: "branding"
-      
-  - image : "assets/images/portfolio/item-8.png"
-    url: "#"
-    portfolio-type:
-      - type: "illustration"
-      
-  - image : "assets/images/portfolio/item-5.png"
-    url: "#"
-    portfolio-type:
-      - type: "design"
-      
-  - image : "assets/images/portfolio/item-1.png"
+
+  - image: "assets/images/portfolio/item-2.png"
     url: "#"
     portfolio-type:
       - type: "branding"
-      
-  - image : "assets/images/portfolio/item-3.png"
-    url: "#"
-    portfolio-type:
-      - type: "design"
-      - type: "illustration"
-      - type: "branding"
-      
-  - image : "assets/images/portfolio/item-7.png"
+
+  - image: "assets/images/portfolio/item-3.png"
     url: "#"
     portfolio-type:
       - type: "illustration"
 
+  - image: "assets/images/portfolio/item-6.png"
+    url: "#"
+    portfolio-type:
+      - type: "backend"
+      - type: "branding"
+
+  - image: "assets/images/portfolio/item-8.png"
+    url: "#"
+    portfolio-type:
+      - type: "illustration"
+
+  - image: "assets/images/portfolio/item-5.png"
+    url: "#"
+    portfolio-type:
+      - type: "design"
+
+  - image: "assets/images/portfolio/item-1.png"
+    url: "#"
+    portfolio-type:
+      - type: "branding"
+
+  - image: "assets/images/portfolio/item-3.png"
+    url: "#"
+    portfolio-type:
+      - type: "design"
+      - type: "illustration"
+      - type: "branding"
+
+  - image: "assets/images/portfolio/item-7.png"
+    url: "#"
+    portfolio-type:
+      - type: "illustration"
 
 #-------------------------------
 # Testimonials Section
 
 testimonial-items:
-  - name: "Jesica Gomez"
+  - name: "h3yon"
     image: "assets/images/testimonial/client-1.png"
-    designation : "CEO, Funder"
-    content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-    
-  - name: "Jesica Gomez"
-    image: "assets/images/testimonial/client-1.png"
-    designation: "CEO, Funder"
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-    
-  - name: "Jesica Gomez"
-    image: "assets/images/testimonial/client-1.png"
-    designation: "CEO, Funder"
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-
+    designation: "backend engineer"
+    content: "Hi I'm h3yon"
 
 #-------------------------------
 # Client Slider Section
@@ -261,31 +220,31 @@ testimonial-items:
 client-slider-items:
   - logo: "assets/images/clients-logo/client-logo-1.png"
     url: "#"
-    
+
   - logo: "assets/images/clients-logo/client-logo-2.png"
     url: "#"
-    
+
   - logo: "assets/images/clients-logo/client-logo-3.png"
     url: "#"
-    
+
   - logo: "assets/images/clients-logo/client-logo-4.png"
     url: "#"
-    
+
   - logo: "assets/images/clients-logo/client-logo-5.png"
     url: "#"
-    
+
   - logo: "assets/images/clients-logo/client-logo-1.png"
     url: "#"
-    
+
   - logo: "assets/images/clients-logo/client-logo-2.png"
     url: "#"
-    
+
   - logo: "assets/images/clients-logo/client-logo-3.png"
     url: "#"
-    
+
   - logo: "assets/images/clients-logo/client-logo-4.png"
     url: "#"
-    
+
   - logo: "assets/images/clients-logo/client-logo-5.png"
     url: "#"
 
@@ -293,4 +252,4 @@ client-slider-items:
 # Contact Section
 
 contact-title: Contact Info
-contact-email: steve.fruits@email.com
+contact-email: h3yon@gmail.com
