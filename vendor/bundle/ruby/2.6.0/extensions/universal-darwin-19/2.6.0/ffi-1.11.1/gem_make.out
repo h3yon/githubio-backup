@@ -1,5 +1,5 @@
 current directory: /Users/we/Documents/h3yon.github.io/vendor/bundle/ruby/2.6.0/gems/ffi-1.11.1/ext/ffi_c
-/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20210605-34787-jr1rrd.rb extconf.rb
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20210605-4609-1eo6u10.rb extconf.rb
 checking for ffi.h... *** extconf.rb failed ***
 Could not create Makefile due to some reason, probably lack of necessary
 libraries and/or headers.  Check the mkmf.log file for more details.  You may
