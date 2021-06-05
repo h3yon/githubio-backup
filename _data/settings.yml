@@ -111,7 +111,7 @@ education:
 services-title: Services
 services:
   - {
-      name: Linkmoa
+      name: Linkmoa,
       icon: ti-palette,
       description: "Whenever you want, you can store links",
       active: # Add true to select section
