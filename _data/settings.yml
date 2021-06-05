@@ -6,7 +6,7 @@ title: H3yon
 logo:
 author: h3yon
 description: this is h3yon's github blog
-email: ktjktj11@naver.com
+email: khykhy1006@gmail.com
 phone: +82 010-3354-3945
 address: Seoul, Korea
 copyright: Copyright &copy; 2020 Designed by [Themefisher](https://themefisher.com) & Developed by [Getjekyllthemes](https://getjekyllthemes.com)
@@ -36,7 +36,7 @@ disqus-identifier: # Add your shortname for Disqus Comment. For example mr-brown
 # Hero Section
 
 hero:
-  hero-title: Hi! I’m <br> h3yon <br> Backend Engineer
+  hero-title: Hi! <br> I’m h3yon <br> Backend Engineer
 
 social:
   - { icon: "ti-facebook", link: "#" }
@@ -48,7 +48,7 @@ social:
 # About (Section and Page)
 
 # About Section
-blurb: 안녕하세요! h3yon's 블로그입니다.
+blurb: Nice to see you! <br> I am h3yon <br> I am interested in new technology and backend.
 
 blurb-btn-link: "/about"
 blurb-btn-name: know more
@@ -59,25 +59,25 @@ blurb-btn-name: know more
 work-process:
   - title: "Research and Plan"
     icon: "assets/images/icons/plan.png"
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    content: "충분한 자료조사를 거친 뒤, 정확한 일처리를 위하여 계획을 세웁니다."
 
   - title: "Develop"
     icon: "assets/images/icons/design.png"
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    content: "무언가에 도전하는 것을 좋아하며, 신기술을 적용하여 개발하는 것을 좋아합니다."
 
   - title: "Deliver"
     icon: "assets/images/icons/print.png"
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    content: "적당한 플랫폼을 사용하여 눈에 보기 편하도록 자료를 정리합니다."
 
 # My Team Section
-team:
-  - title: "Teams"
-    image: "assets/images/team/member-1.png"
-    designation: "Project Manager"
-
-
-#-------------------------------
-# Skills Section
+#team:
+#  - title: "Teams"
+#    image: "assets/images/team/member-1.png"
+#    designation: "Project Manager"
+#
+#
+##-------------------------------
+## Skills Section
 
 skills-title: Skills
 skills:
@@ -98,12 +98,12 @@ experience:
 #-------------------------------
 # Education Section
 
-education-title: Education
+education-title: Activity
 education:
-  - { name: Marters in UX Design, date: "2006", organization: "Masassusets Institute of Technology" }
-  - { name: Honours in Fine Arts, date: "2004", organization: "Harvard University" }
-  - { name: Higher Secondary Certificat, date: "2000", organization: "Cardiff School" }
-  - { name: Secondary School Certificate, date: "1998", organization: "Cardiff School" }
+  - { name: K-Shield Jr, date: "2021", organization: "Information Security Education Center" }
+  - { name: Information Security Department, date: "2018", organization: "Seoul women's University" }
+  - { name: Rising Programmer2, date: "2021", organization: "Cardiff School" }
+  - { name: MakeUS  Secretary General, date: "2021", organization: "MakeUS, Profitable Application Development" }
 
 #-------------------------------
 # Services Section
@@ -111,7 +111,7 @@ education:
 services-title: Services
 services:
   - {
-      name: Linkmoa
+      name: Linkmoa,
       icon: ti-palette,
       description: "Whenever you want, you can store links",
       active: # Add true to select section
@@ -210,7 +210,7 @@ portfolio-items:
 
 testimonial-items:
   - name: "h3yon"
-    image: "assets/images/testimonial/client-1.png"
+    image: "assets/images/testimonial/test22222.jpeg"
     designation: "backend engineer"
     content: "Hi I'm h3yon"
 
