@@ -14,7 +14,7 @@ Lombok : Getter/Setter 그리고 생성자들을 어노테이션으로 간편하
 
 setter 메서드가 필요 없는 필드에 대해서도 setter 메서드를 강제로 생성하게 되므로, 필드 값이 변경될 위험이 생김
 
--> 나중에 리팩토링 대상이 될 수 있다
+-> 나중에 리팩토링 대상이 될 수 있다!
 
 <script src="https://gist.github.com/h3yon/331b3f5ebbf20a0062fe2969123207ea.js"></script>
 
