@@ -3,8 +3,8 @@ layout: post
 title: JAVA#1 ORM과 JPA, REST API
 date: 2021-06-05 21:50:55 +0300
 image: /assets/images/blog/post-2.jpg
-author: uixgeek
-tags: UX design
+author: h3yon
+tags: java
 ---
 
 <h4>ORM(Object-relational mapping) 이란</h4>
