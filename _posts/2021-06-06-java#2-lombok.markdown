@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JAVA#2 Lambok
-date: 2021-06-06 18:04:55 +0300
+date: 2021-06-07 18:04:55 +0300
 image: /assets/images/blog/post-2.jpg
 author: h3yon
 tags: java
