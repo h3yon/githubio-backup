@@ -15,7 +15,7 @@ tags: java
 [https://gmlwjd9405.github.io/2019/01/04/logging-with-slf4j.html](https://gmlwjd9405.github.io/2019/01/04/logging-with-slf4j.html)
 
 → SLF4J Bridging Modules: 다른 로깅 API로의 로거 호출을 SLF4J 인터페이스로 연결(redirect)하여 SLF4J API가 대신 처리할 수 있도록 하는 일종의 어댑터 역할을 하는 라이브러리
-→ SLF4J API: 로깅에 대한 추상 레이어를 제공, 사용자가 이 인터페이스를 통해 logging 코드를 작성
+→ SLF4J API: **로깅**에 대한 추상 레이어를 제공, 사용자가 이 인터페이스를 통해 logging 코드를 작성
 → SLF4J 특징: 배포시 Logging Framework 선택 가능, 빠른 속도로 작동, 널리 사용되는 Logging Framework를 위한 바인딩 제공(log4j, java.util.logging, 단순 로깅 및 NOP 지원), Bridging legacy logging API(리디렉션하는 여러 Bridging Modules 제공), Migrate your source code(소스 마이그레이션 가능), 매개 변수화된 로그 메시지 지원
 
 → 퍼사드패턴: 여러 개의 클래스가 하나의 역할을 수행할 때, 대표적인 인터페이스만을 다루는 클래스를 두어 기능을 처리할 수 있게 도와주는 패턴
