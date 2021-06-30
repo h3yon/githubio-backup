@@ -5,13 +5,13 @@ date: 2021-06-12 19:04:55 +0300
 image: /assets/images/blog/post-2.jpg
 author: h3yon
 tags: java
-categories: Swagger
+categories: Java
 ---
 
 {{page.categories | capitalize | join: ', '}}
 
 
-<h4>Swagger 적용하기</h4>
+<h4>Java 잘 올라가는지 테스트</h4>
 
 1. build.gradle
 <code>
