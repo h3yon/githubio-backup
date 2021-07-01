@@ -4,7 +4,6 @@ title: JAVA#2 kakao api
 date: 2021-07-02 19:04:55 +0300
 image: /assets/images/blog/post-2.jpg
 author: h3yon
-tags: java
 categories: Java
 ---
 
