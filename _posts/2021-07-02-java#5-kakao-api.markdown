@@ -59,5 +59,14 @@ http://kauth.kakao.com/oauth/authorize?client_id={REST_API_KEY}&redirect_uri={RE
 ****서버를 구동한 후!!!****
 위의 {} 부분에 자신이 설정한 정보를 넣고 웹페이지로 접속한다.
 
+<img src = "https://user-images.githubusercontent.com/46602874/124154338-5dff5780-dad0-11eb-81ac-5b9161b91ee7.png" width="50%" height="50%">
+
+그러면 해당 화면이 나오고,
+
+<img src = "https://user-images.githubusercontent.com/46602874/124154635-a1f25c80-dad0-11eb-8f66-e09dc6214970.png" width="50%" height="50%">
+
+코드를 받을 수 있다.
+(저는 포트를 8080 -> 8880으로 중간에 모두 바꿨습니다.)
+
 
 
