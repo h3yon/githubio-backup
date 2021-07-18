@@ -25,7 +25,9 @@ categories: MySQL
 
 <h5>사용자 삭제1</h5>
 
+```
     $ drop user 사용자;
+```
 
 <h5>사용자 목록 확인</h5>
 
