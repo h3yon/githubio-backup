@@ -10,6 +10,8 @@ categories: Javascript
 
 {{page.categories | capitalize | join: ', '}}
 
+출처: https://velog.io/@dongha1992/javascript-%EB%82%B4%EB%B6%80%ED%95%A8%EC%88%98-%EC%99%B8%EB%B6%80%ED%95%A8%EC%88%98
+
 <h3>자바스크립트 기초 지식 쌓기</h3>
 
 아래의 코드가 있다고 가정하자.
@@ -57,5 +59,3 @@ var로 변수를 선언했을 때와 let으로 선언했을 때 출력값이 다
 - var로 선언했을 때
 
 <script src="https://gist.github.com/h3yon/3e3fe0f3d5f893a05e06f849e78d085a.js"></script>
-
-출처: https://velog.io/@dongha1992/javascript-%EB%82%B4%EB%B6%80%ED%95%A8%EC%88%98-%EC%99%B8%EB%B6%80%ED%95%A8%EC%88%98

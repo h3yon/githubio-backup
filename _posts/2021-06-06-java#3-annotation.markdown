@@ -5,6 +5,7 @@ date: 2021-06-08 20:04:55 +0300
 image: /assets/images/blog/post-2.jpg
 author: h3yon
 tags: java
+categories: Java
 ---
 
 <h4>Slf4j</h4>
