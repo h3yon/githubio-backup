@@ -59,3 +59,8 @@ var로 변수를 선언했을 때와 let으로 선언했을 때 출력값이 다
 - var로 선언했을 때
 
 <script src="https://gist.github.com/h3yon/3e3fe0f3d5f893a05e06f849e78d085a.js"></script>
+
+처음 위의 코드를 봤을 때,
+
+- console.log(arr[index]()) ;
+  의 결과값은 0 1 2 3 4 일 것이라고 생각했다.
