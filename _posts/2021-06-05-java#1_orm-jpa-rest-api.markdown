@@ -4,8 +4,8 @@ title: JAVA#1 ORM과 JPA, REST API
 date: 2021-06-06 21:50:55 +0300
 image: /assets/images/blog/post-2.jpg
 author: h3yon
-categories: java
-tags: java
+categories: Java
+tags: Java
 ---
 
 <h4>ORM(Object-relational mapping) 이란</h4>
