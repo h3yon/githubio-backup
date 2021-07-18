@@ -3,6 +3,13 @@ url: "https://h3yon.github.io/" # the base hostname & protocol for your site, e.
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_hightlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: html
+    css_class: "syntax"
 permalink: pretty
 plugins:
   - jekyll-sitemap
