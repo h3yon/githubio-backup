@@ -16,7 +16,19 @@ categories: Javascript
 
 아래의 코드가 있다고 가정하자.
 
-<script src="https://gist.github.com/h3yon/341bb316d062f173230a08f2b47127d3.js"></script>
+<!-- <script src="https://gist.github.com/h3yon/341bb316d062f173230a08f2b47127d3.js"></script> -->
+
+```javascript
+function out(){
+  const name = "aaa"
+  return function(){
+    console.log(name);
+  }
+}
+
+const in = out()
+in()
+```
 
 - 함수 안에 함수가 있을 때 응집성이 높아진다.
 - 위의 코드를 보면 out()은 외부함수, in()은 내부함수를 말한다.

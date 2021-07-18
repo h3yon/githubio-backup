@@ -25,7 +25,7 @@ categories: MySQL
 
 <h5>사용자 삭제1</h5>
 
-```
+```javascript
     $ drop user 사용자;
 ```
 
