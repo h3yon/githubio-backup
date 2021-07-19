@@ -17,6 +17,12 @@ VERSION:	Versoin Number
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "NanumSquareEB";
+  src: url("../fonts/NanumSquareEB.woff") format("woff");
+  font-style: normal;
+  font-display: swap;
+}
 body {
   line-height: 1.2;
   font-family: "NanumSquareB", NanumSquareR;
@@ -194,7 +200,7 @@ a:hover {
 }
 .section-title {
   margin-bottom: 80px;
-  font-family: "NanumSquare";
+  font-family: "NanumSquareEB";
 }
 .bg-cover {
   background-size: cover;
@@ -281,7 +287,7 @@ a:hover {
   font-family: "NanumSquareB", serif !important;
 }
 .font-tertiary {
-  font-family: "NanumSquareB" !important;
+  font-family: "NanumSquareEB" !important;
 }
 .shadow {
   box-shadow: 0px 18px 39.1px 6.9px rgba(224, 241, 255, 0.34) !important;
@@ -366,7 +372,7 @@ textarea.form-control {
   }
 }
 .navbar .nav-item .nav-link {
-  font-family: "NanumSquare";
+  font-family: "NanumSquareEB";
   text-transform: uppercase;
   padding: 15px;
 }
@@ -605,11 +611,10 @@ textarea.form-control {
 blockquote > p {
   display: inline-block;
   padding: 10px 20px;
-  background: #eaeaea;
+  background: #f8f8f8;
   border-left: 2px solid #41228e;
-  font-style: italic;
-  font-size: 22px;
-  line-height: inherit;
+  font-size: 17px;
+  line-height: 1.5;
 }
 .content * {
   margin-bottom: 20px;
