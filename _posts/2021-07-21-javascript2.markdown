@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Javascript 배우기
-date: 2021-07-20 01:20:55 +0900
+date: 2021-07-20 18:20:55 +0900
 image: /assets/images/blog/post-2.jpg
 author: h3yon
 tags: javascript
