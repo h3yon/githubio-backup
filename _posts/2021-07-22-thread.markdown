@@ -10,7 +10,7 @@ categories: IT
 
 {{page.categories | capitalize | join: ', '}}
 
-출처: [병렬프로그래밍] 자바 병렬 프로그래밍 소개](https://12bme.tistory.com/63?category=682904)
+출처: [[병렬프로그래밍] 자바 병렬 프로그래밍 소개](https://12bme.tistory.com/63?category=682904)
 
 <h5> 스레드 사용 </h5>
 
