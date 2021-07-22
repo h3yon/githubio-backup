@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Javascript 배우기
-date: 2021-07-20 01:20:55 +0900
+title: [Javascript]forEach, map, filter, reduce 총정리
+date: 2021-07-21 15:20:55 +0900
 image: /assets/images/blog/post-2.jpg
 author: h3yon
 tags: javascript
