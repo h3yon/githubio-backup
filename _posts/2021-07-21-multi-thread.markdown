@@ -1,11 +1,11 @@
 ---
 layout: post
-title: [Javascript]forEach, map, filter, reduce 총정리
+title: Nodejs 스레드
 date: 2021-07-21 17:20:55 +0900
 image: /assets/images/blog/post-2.jpg
 author: h3yon
 tags: javascript
-categories: Javascript
+categories: Node.js
 ---
 
 {{page.categories | capitalize | join: ', '}}
