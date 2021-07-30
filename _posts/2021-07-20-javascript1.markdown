@@ -14,6 +14,7 @@ categories: Javascript
 
 [자바스크립트 변수 선언 방식 차이: var/let/const](https://curryyou.tistory.com/192)
 [TDZ(Temporal Dead Zone)이란?](https://noogoonaa.tistory.com/78)
+[Hoisting and TDZ](https://velog.io/@open_h/Hoisting-and-TDZ)
 
 <h4> Javascript 변수 var, let, const & TDZ(Temporal Dead Zone) </h4>
 
@@ -118,12 +119,38 @@ categories: Javascript
    위에 var, let을 보자.
    var 변수의 호이스팅은 코드 실행 전에 미리 변수를 선언하고, undefined로 초기화해둔다.
    let/const 변수의 호이스팅은 코드 실행 전에 변수 선언만 진행해두며, 초기화는 실행 과정에서 만났을 때 수행한다.
-   그래서 let/const는 호이스팅이 발생하기는 하지만, 값을 참조할 수 없어서 호이스팅이 발생하지 않는 것처럼 보인다.
+   그래서 let/const는 호이스팅이 발생하기는 하지만, 값을 참조할 수 없어서 호이스팅이 발생하지 않는다.
+
+   <img src="https://user-images.githubusercontent.com/46602874/127586681-81107bdb-b4da-43b5-bc32-dc913e61db28.png" width="70%" height="70%">
+
+   위의 예시 코드를 보면 알겠지만,
+   왼쪽의 코드가 오른쪽처럼 선언만 끌어올려지는 것을 알 수 있다.
+
+   <img src="https://user-images.githubusercontent.com/46602874/127588033-80a12f0e-3687-49f8-8013-734c70fa2998.png" width="70%" height="70%">
+
+   이번엔 함수 호이스팅을 봐보자
+   h2()함수는 변수만 호이스팅이 되기 때문에 에러가 발생하면서 프로그램이 종료된다.
+   다른 부분은 똑같이 undefined가 나옴을 알 수 있다.
+
+   <img src="https://user-images.githubusercontent.com/46602874/127588586-5ec5dcbd-9027-4549-bd2f-84e4a5e922a0.png" width="70%" height="70%">
+
+   위 예시까지는 당연하다고 생각될 수 있는데,
+   만약 함수에서 초기화가 같이 진행되면 어떨까?
+
+   ```
+   undefined
+   5
+   undefined
+   ```
+
+   결과는 위와 같다.
+   f1 함수는 그자체가 위로 호이스팅되기 때문에 제대로 된 값 5가 나온다.
+   f2는 식별자가 호이스팅되기 때문에 undefined로 나옴을 알 수 있다.
 
 <h4>TDZ(Temporal Dead Zone)</h4>
 
-TDZ는 scope의 시작 지점부터 초기화 시작 지점까지의 구간을 말한다.
-즉, 선언과 초기화 사이에 일시적으로 변수값을 참조할 수 없는 구간을 뜻한다.
+TDZ는 scope의 초기화되기 전까지의 구간을 말한다.
+즉, 선언 전에 변수를 사용(참조)하는 것을 비허용하는 개념상의 공간을 뜻한다.
 
 let은 선언 전, 실행 컨텍스트 변수 객체에 등록되어 호이스팅이 진행되지만,
 TDZ 구간에 의해 메모리 할당이 되지 않아 참조 에러가 발생한다.
