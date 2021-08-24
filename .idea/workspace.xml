@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b62b3815-1106-40e9-85db-f93712a80127" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/_posts/2021-08-14-spring-naver-login.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2021-08-14-spring-naver-login.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2021-08-15-http2.markdown" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +38,7 @@
       <workItem from="1629583517449" duration="1709000" />
       <workItem from="1629619658157" duration="1198000" />
       <workItem from="1629623503193" duration="606000" />
+      <workItem from="1629794130658" duration="2275000" />
     </task>
     <servers />
   </component>
@@ -53,5 +55,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
