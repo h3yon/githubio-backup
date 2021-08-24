@@ -321,9 +321,12 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails()
                 .getUserInfoEndpoint().getUserNameAttributeName();
         OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
-
-        // 세션에 자용자 정보를 저장하기 위한 DTO 클래스
+        
         User user = saveOrUpdate(attributes);
+
+        // 세션에 자용자 정보를 저장하기 위한 DTO 클래스. User 클래스를 사용하면 안되기에 SessionUser
+        // 왜 사용하면 안 될까?? 직렬화 관련 에러 + User 클래스가 데이터베이스와 직접 연결되는 엔티티여서
+        // 렬화 기능을 가진 DTO를 하나 추가로 만드는 것이 이후 운영 및 유지보수 때 많은 도움
         httpSession.setAttribute("user", new SessionUser(user));
 
         return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
@@ -344,27 +347,76 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 - RequiredArgsConstructor: 초기화 되지않은 final 필드나, @NonNull 이 붙은 필드에 대해 생성자를 생성
 -
 
-'CustomOAuth2UserService 클래스까지 생성되었다면 OAuthAttributes 클래스를 생성합니다.
-필자의 경우 OAuthAttributes는 DTO로 보기 때문에 config.auth.dto 패키지를 만들어 해당 패키지에 생성했습니다.'
+'CustomOAuth2UserService 클래스까지 생성되었다면 OAuthAttributes 클래스를 생성
 
+
+<h4> config/auth/dto/OAuthAttributes </h4>
+
+```java
+@Getter
+public class OAuthAttributes {
+    private Map<String, Object> attributes;
+    private String nameAttributeKey;
+    private String name;
+    private String email;
+    private String picture;
+
+    @Builder
+    public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String email, String picture){
+        this.attributes = attributes;
+        this.nameAttributeKey = nameAttributeKey;
+        this.name = name;
+        this.email = email;
+        this.picture = picture;
+    }
+
+    /* OAuth2User에서 반환하는 사용자 정보는 Map 자료구조 형태이기에 값 하나하나를 변환 */
+    public static OAuthAttributes of(String registrationId, String userNameAttributeName,
+                                     Map<String ,Object> attributes) {
+            return ofNaver("id", attributes);
+    }
+
+    private static OAuthAttributes ofNaver(String userNameAttributeName, Map<String,Object> attributes) {
+        Map<String,Object> response = (Map<String, Object>) attributes.get("response");
+
+        return OAuthAttributes.builder()
+                .name((String) response.get("name"))
+                .email((String) response.get("email"))
+                .picture((String) response.get("profile_image"))
+                .attributes(response)
+                .nameAttributeKey(userNameAttributeName)
+                .build();
+    }
+
+
+    /* 가입 기본 권한: GUEST. User 엔티티 생성 */
+    public User toEntity(){
+        return User.builder()
+                .name(name)
+                .email(email)
+                .picture(picture)
+                .role(Role.GUEST)
+                .build();
+    }
+}
 ```
-httpSession.setAttribute("user", new SessionUser(user));
 
-* 세션에 자용자 정보를 저장하기 위한 DTO 클래스
-* User 클래스를 사용하면 안되기에 SessionUser를 만들었다.
-* 왜 User 클래스를 사용하면 안되나요?**
-만약 User 클래스를 그대로 사용했다면 다음과 같은 에러가 발생합니다.
+<h4> config/auth/dto/SessionUser </h4>
 
-Failed to convert from type [java.lang.Object]
-to type [byte[]] for value 'com.jojoIdu.book.springboot.domain.user.User@4a43d6'
-이는 User 클래스에 직렬화를 구현하지 않았다는 의미의 에러입니다.
-그렇다면 User 클래스에 직렬화 코드를 넣으면 될까요? 그렇기에는 생각할 것이 많습니다.
+```java
+@Getter
+public class SessionUser implements Serializable {
+    private String name;
+    private String email;
+    private String picture;
 
-바로 User 클래스가  데이터베이스와 직접 연결되는 엔티티이기 때문입니다
-엔티티 클래스에는 언제 다른 엔티티와의 관계가 형성될지 모릅니다.
-
-예를 들면 @OneToMany , @ManyToMany등 자식 엔티티를 갖고 있다면
-직렬화 대상에 자식들까지 포함되니 성능 이슈, 부수 효과가 발생할 확률이 높습니다.
-
-그래서 직렬화 기능을 가진 DTO를 하나 추가로 만드는 것이 이후 운영 및 유지보수 때 많은 도움이 됩니다.
+    public SessionUser(User user) {
+        this.name = user.getName();
+        this.email = user.getEmail();
+        this.picture = user.getPicture();
+    }
+}
 ```
+
+인증된 사용자 정보만 필요합니다.
+
