@@ -2,6 +2,9 @@
 title: "JAVA#1 ORM과 JPA, REST API"
 excerpt: "ORM(Object-relational mapping) 이란"
 
+toc: true
+toc_sticky: true
+
 categories:
   - Java
 tags:
@@ -9,10 +12,9 @@ tags:
   - ORM
   - JPA
 
-last_modified_at: 2021-06-05T08:06:00-05:00
 ---
 
-<h4>ORM(Object-relational mapping) 이란</h4>
+### ORM(Object-relational mapping) 이란
 
 - Object-Relational Mapping (객체 관계 매핑)
 - 객체는 객체대로 설계하고, 관계형 데이터베이스는 관계형 데이터베이스대로 설계한다.
@@ -20,7 +22,7 @@ last_modified_at: 2021-06-05T08:06:00-05:00
 - 대중적인 언어에는 대부분 ORM 기술이 존재한다.
 - ORM은 객체와 RDB 두 기둥 위에 있는 기술 이다.
 
-<h4>JPA(Java Persistence API)란?</h4>
+### JPA(Java Persistence API)란?
 
 - EJB: 과거의 자바 표준(Entity Bean)
 - 과거의 ORM → 코드가 매우 지저분하다. API 복잡성이 높고 속도가 느리다
@@ -31,7 +33,7 @@ last_modified_at: 2021-06-05T08:06:00-05:00
   → JDBC API를 사용하여 SQL을 호출하여 DB와 통신
   → 개발자가 직접 JDBC API를 쓰는 것이 아님
 
-<h4>오늘의 어노테이션 예제 코드</h4>
+### 오늘의 어노테이션 예제 코드
 
 <script src="https://gist.github.com/h3yon/d02699888a7d30dc9221826332c9d5ec.js"></script>
 
@@ -41,7 +43,7 @@ last_modified_at: 2021-06-05T08:06:00-05:00
 
 @GetMapping("/getParameter") //getMapping으로 Paramerter를 받아준다.
 
-<h4>Model(Model of MVC)</h4>
+### Model(Model of MVC)
 :컨트롤러를 설치한 경로에 model이라는 패키지를 생성하고 SearchParam이라는 클래스 생성
 
 <script src="https://gist.github.com/h3yon/470ba178de7c6dd7dd8791a430fdf88a.js"></script>

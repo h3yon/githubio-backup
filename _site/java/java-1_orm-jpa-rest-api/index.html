@@ -38,8 +38,6 @@
 
 
 
-  <meta property="article:modified_time" content="2021-06-05T22:06:00+09:00">
-
 
 
   
@@ -124,6 +122,12 @@
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="https://h3yon.github.io/">블로그 방문하기</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/Java/">Java</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
             </li><li class="masthead__menu-item">
               <a href="/about/">About</a>
             </li></ul>
@@ -264,7 +268,7 @@
     <meta itemprop="headline" content="JAVA#1 ORM과 JPA, REST API">
     <meta itemprop="description" content="ORM(Object-relational mapping) 이란">
     <meta itemprop="datePublished" content="2021-06-05T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2021-06-05T22:06:00+09:00">
+    
 
     <div class="page__inner-wrap">
       
@@ -299,7 +303,15 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <h4>ORM(Object-relational mapping) 이란</h4>
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#ormobject-relational-mapping-이란">ORM(Object-relational mapping) 이란</a></li><li><a href="#jpajava-persistence-api란">JPA(Java Persistence API)란?</a></li><li><a href="#오늘의-어노테이션-예제-코드">오늘의 어노테이션 예제 코드</a></li><li><a href="#modelmodel-of-mvc">Model(Model of MVC)</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h3 id="ormobject-relational-mapping-이란">ORM(Object-relational mapping) 이란</h3>
 
 <ul>
   <li>Object-Relational Mapping (객체 관계 매핑)</li>
@@ -309,7 +321,7 @@
   <li>ORM은 객체와 RDB 두 기둥 위에 있는 기술 이다.</li>
 </ul>
 
-<h4>JPA(Java Persistence API)란?</h4>
+<h3 id="jpajava-persistence-api란">JPA(Java Persistence API)란?</h3>
 
 <ul>
   <li>EJB: 과거의 자바 표준(Entity Bean)</li>
@@ -322,7 +334,7 @@
 → 개발자가 직접 JDBC API를 쓰는 것이 아님</li>
 </ul>
 
-<h4>오늘의 어노테이션 예제 코드</h4>
+<h3 id="오늘의-어노테이션-예제-코드">오늘의 어노테이션 예제 코드</h3>
 
 <script src="https://gist.github.com/h3yon/d02699888a7d30dc9221826332c9d5ec.js"></script>
 
@@ -332,7 +344,7 @@
 
 <p>@GetMapping(“/getParameter”) //getMapping으로 Paramerter를 받아준다.</p>
 
-<h4>Model(Model of MVC)</h4>
+<h3 id="modelmodel-of-mvc">Model(Model of MVC)</h3>
 <p>:컨트롤러를 설치한 경로에 model이라는 패키지를 생성하고 SearchParam이라는 클래스 생성</p>
 
 <script src="https://gist.github.com/h3yon/470ba178de7c6dd7dd8791a430fdf88a.js"></script>
@@ -387,7 +399,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-06-05">June 5, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-06-05T00:00:00+09:00">June 5, 2021</time></p>
 
       </footer>
 
@@ -463,6 +475,25 @@
 
 
 
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://h3yon.github.io/java/java-1_orm-jpa-rest-api/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/java/java#1_orm-jpa-rest-api"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://h3yon-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
 
 
 
