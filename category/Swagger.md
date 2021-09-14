@@ -1,9 +1,0 @@
----
-layout: category
-title: Swagger
----
-
-{% for post in site.categories.Swagger %}
- <li><span>{{ post.date | date_to_string }}</span> 
- &nbsp; <a href="{{ post.url }}">{{ post.title }}</a></li>
-{% endfor %}
