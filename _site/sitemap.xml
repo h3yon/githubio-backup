@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>/</loc>
+<loc>https://h3yon.github.io/java/java-1_orm-jpa-rest-api/</loc>
+<lastmod>2021-06-05T22:06:00+09:00</lastmod>
+</url>
+<url>
+<loc>https://h3yon.github.io/categories/Java/</loc>
+</url>
+<url>
+<loc>https://h3yon.github.io/about/</loc>
+</url>
+<url>
+<loc>https://h3yon.github.io/categories/</loc>
+</url>
+<url>
+<loc>https://h3yon.github.io/</loc>
+</url>
+<url>
+<loc>https://h3yon.github.io/tags/</loc>
+</url>
+<url>
+<loc>https://h3yon.github.io/year-archive/</loc>
 </url>
 </urlset>

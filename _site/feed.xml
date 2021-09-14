@@ -1,1 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-09-14T20:54:44+09:00</updated><id>/feed.xml</id><title type="html">Site Title</title><subtitle>An amazing website.</subtitle><author><name>Your Name</name></author></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://h3yon.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://h3yon.github.io/" rel="alternate" type="text/html" /><updated>2021-09-14T22:18:24+09:00</updated><id>https://h3yon.github.io/feed.xml</id><title type="html">개구리의 깃허브 블로그</title><subtitle>🌿성장하는 개구리 개발자 h3yon 블로그입니다</subtitle><author><name>🐸 SW developer</name></author><entry><title type="html">JAVA#1 ORM과 JPA, REST API</title><link href="https://h3yon.github.io/java/java-1_orm-jpa-rest-api/" rel="alternate" type="text/html" title="JAVA#1 ORM과 JPA, REST API" /><published>2021-06-05T00:00:00+09:00</published><updated>2021-06-05T22:06:00+09:00</updated><id>https://h3yon.github.io/java/java#1_orm-jpa-rest-api</id><content type="html" xml:base="https://h3yon.github.io/java/java-1_orm-jpa-rest-api/">&lt;h4&gt;ORM(Object-relational mapping) 이란&lt;/h4&gt;
+
+- Object-Relational Mapping (객체 관계 매핑)
+- 객체는 객체대로 설계하고, 관계형 데이터베이스는 관계형 데이터베이스대로 설계한다.
+- ORM 프레임워크가 중간에서 매핑해준다.
+- 대중적인 언어에는 대부분 ORM 기술이 존재한다.
+- ORM은 객체와 RDB 두 기둥 위에 있는 기술 이다.
+
+&lt;h4&gt;JPA(Java Persistence API)란?&lt;/h4&gt;
+
+- EJB: 과거의 자바 표준(Entity Bean)
+- 과거의 ORM → 코드가 매우 지저분하다. API 복잡성이 높고 속도가 느리다
+- Hibernate: ORM 프레임워크. Open Source SW
+- JPA: 자바 진영의 ORM 기술 표준으로 인터페이스의 모음
+  → JPA 인터페이스를 구현한 대표적인 오픈소스가 Hibernate라고 할 수 있다.
+- JPA의 동작 과정: JPA는 애플리케이션과 JDBC 사이에서 동작
+  → JDBC API를 사용하여 SQL을 호출하여 DB와 통신
+  → 개발자가 직접 JDBC API를 쓰는 것이 아님
+
+&lt;h4&gt;오늘의 어노테이션 예제 코드&lt;/h4&gt;
+
+&lt;script src=&quot;https://gist.github.com/h3yon/d02699888a7d30dc9221826332c9d5ec.js&quot;&gt;&lt;/script&gt;
+
+@RestController: @Controller 어노테이션과 @ResponseBody 어노테이션을 합쳐놓은 어노테이션으로 클래스 상단에 @RestController 어노테이션을 선언하면 메서드마다 @ResponseBody를 붙여주지 않아도 된다.
+
+@RequestMapping(&quot;/api&quot;); //URL을 컨트롤러의 메서드와 매핑할 때 사용하는 스프링 어노테이션
+
+@GetMapping(&quot;/getParameter&quot;) //getMapping으로 Paramerter를 받아준다.
+
+&lt;h4&gt;Model(Model of MVC)&lt;/h4&gt;
+:컨트롤러를 설치한 경로에 model이라는 패키지를 생성하고 SearchParam이라는 클래스 생성
+
+&lt;script src=&quot;https://gist.github.com/h3yon/470ba178de7c6dd7dd8791a430fdf88a.js&quot;&gt;&lt;/script&gt;
+
+controller로 돌아와서 @RequestParam 어노테이션으로 매핑하는 게 아니라 객체 형식으로 매핑 시켜줌
+
+&lt;script src=&quot;https://gist.github.com/h3yon/83d8d094db477d78429aca456b5e2aec.js&quot;&gt;&lt;/script&gt;
+
+출처: http://wonit.tistory.com/37?category=738059</content><author><name>🐸 SW developer</name></author><category term="Java" /><category term="Java" /><category term="ORM" /><category term="JPA" /><summary type="html">ORM(Object-relational mapping) 이란</summary></entry></feed>

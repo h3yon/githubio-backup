@@ -1,1 +1,1 @@
-Sitemap: /sitemap.xml
+Sitemap: https://h3yon.github.io/sitemap.xml
