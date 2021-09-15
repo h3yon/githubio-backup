@@ -8,10 +8,7 @@ toc_sticky: true
 categories:
   - Java
 tags:
-  - Java
-  - ORM
-  - JPA
-
+  - 개념
 ---
 
 ### ORM(Object-relational mapping) 이란
@@ -44,6 +41,7 @@ tags:
 @GetMapping("/getParameter") //getMapping으로 Paramerter를 받아준다.
 
 ### Model(Model of MVC)
+
 :컨트롤러를 설치한 경로에 model이라는 패키지를 생성하고 SearchParam이라는 클래스 생성
 
 <script src="https://gist.github.com/h3yon/470ba178de7c6dd7dd8791a430fdf88a.js"></script>
