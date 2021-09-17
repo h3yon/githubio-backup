@@ -1,5 +1,5 @@
 ---
-title: "[Jenkins#1]AWS EC2 Ubuntu에 Jenkins 연동하기"
+title: "[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기"
 excerpt: "AWS EC2와 Jenkins를 연동해보자"
 
 toc: true
