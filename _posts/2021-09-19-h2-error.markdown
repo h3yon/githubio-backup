@@ -1,5 +1,5 @@
 ---
-title: "h2 database 에 해결하기"
+title: "h2 database 에러 해결하기"
 excerpt: "h2 Database not found"
 
 toc: true
@@ -11,7 +11,7 @@ tags:
   - Jenkins
 ---
 
-### h2 database 에 해결하기
+### h2 database 에러 해결하기
 
 오늘 아래의 에러가 계속 괴롭혀서 해결 방법을 써보고자 한다
 
