@@ -50,11 +50,11 @@ process.env도 잘 모르는 분들은 dotenv를 검색해보면 될 것 같습�
 
 이렇게 구성해놓으면 아래처럼 postman에서는 결과가 잘 뿌려지는 걸 확인할 수 있다.
 
-<img src=https://user-images.githubusercontent.com/46602874/130570176-61335751-30dc-498e-bf9b-b51245906841.png width="70%" height="70%">
+<img src=https://user-images.githubusercontent.com/46602874/130570176-61335751-30dc-498e-bf9b-b51245906841.png>
 
 그런데 웹페이지를 들어가보면 아래처럼 통신이 잘 되지 않는 모습을 확인할 수 있다.
 
-<img src=https://user-images.githubusercontent.com/46602874/130570474-3a480ef1-f696-4699-b332-267e41f9b711.png width="70%" height="70%">
+<img src=https://user-images.githubusercontent.com/46602874/130570474-3a480ef1-f696-4699-b332-267e41f9b711.png>
 
 또, https://localhost:4000 으로 직접 들어가면 아래처럼 에러 메시지가 뜨고,
 갑자기 서버가 꺼지는 걸 알 수 있다.
@@ -120,9 +120,9 @@ TypeError: this._implicitHeader is not a function
 위의 링크에 나와있는 것처럼,
 `// 0824 변경` 아래 부분으로 바꿔준다.
 
-<img src=https://user-images.githubusercontent.com/46602874/130571254-5fa03226-ccb5-4e4b-aa01-348c26d287b6.png width="70%" height="70%">
+<img src=https://user-images.githubusercontent.com/46602874/130571254-5fa03226-ccb5-4e4b-aa01-348c26d287b6.png>
 
 그럼 백엔드단 api 링크로 들어갔을 때,
 잘 나오는 모습을 알 수 있다.
 
-<img src=https://user-images.githubusercontent.com/46602874/130571419-529ef2e7-8d89-41de-8511-eb81e7916448.png width="70%" height="70%">
+<img src=https://user-images.githubusercontent.com/46602874/130571419-529ef2e7-8d89-41de-8511-eb81e7916448.png>

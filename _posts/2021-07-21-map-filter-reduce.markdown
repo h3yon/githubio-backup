@@ -79,7 +79,7 @@ tags:
    그래서 꼭 알아놔야 하는 것 같다.
    매개변수에 대한 설명은 아래와 같고, initialValue는 선택이다.
 
-   <img src = "https://user-images.githubusercontent.com/46602874/126426783-7823ac11-df88-4294-9125-faaf287958ec.png" width="70%" height="70%">
+   <img src = "https://user-images.githubusercontent.com/46602874/126426783-7823ac11-df88-4294-9125-faaf287958ec.png">
 
    위의 사진에서 매개변수에 대해 더 자세한 설명을 볼 수 있다
 

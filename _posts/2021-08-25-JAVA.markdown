@@ -65,7 +65,7 @@ boolean을 제외한 7개의 기본형은 서로 형변환이 가능<br>
 
 2. 연산자의 우선순위
 
-<img src=https://user-images.githubusercontent.com/46602874/130643181-08450463-7b0d-469c-805d-1e1650fb4da1.png width=70% height=70%>
+<img src=https://user-images.githubusercontent.com/46602874/130643181-08450463-7b0d-469c-805d-1e1650fb4da1.png>
 
 3. 쉬프트 연산자
 
@@ -78,4 +78,4 @@ boolean을 제외한 7개의 기본형은 서로 형변환이 가능<br>
 
 1. 조건문 - if, switch
 
-<img src=https://user-images.githubusercontent.com/46602874/130646982-26091697-95eb-4d4e-9cda-7a7de60711f5.png width=70% height=70%>
+<img src=https://user-images.githubusercontent.com/46602874/130646982-26091697-95eb-4d4e-9cda-7a7de60711f5.png>

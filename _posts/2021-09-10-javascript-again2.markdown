@@ -496,7 +496,18 @@ tags:
 ```
 
 ```javascript
-
+function comparison(str) {
+  let result = [];
+  let prev = str[0];
+  let count = 1;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] == prev) {
+      count++;
+    } else {
+      if (count > 1) result.push(count);
+    }
+  }
+}
 ```
 
 ```javascript

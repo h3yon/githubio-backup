@@ -52,7 +52,7 @@ $ sudo systemctl start jenkins
 $ sudo systemctl status jenkins
 ```
 
-<img src="https://user-images.githubusercontent.com/46602874/133364949-3a21085d-4445-402d-b12f-7e553bbdaad1.png" width=70% height=70%>
+<img src="https://user-images.githubusercontent.com/46602874/133364949-3a21085d-4445-402d-b12f-7e553bbdaad1.png">
 
 위의 이미지처럼 상태가 잘 나타남을 알 수 있다.
 
@@ -60,7 +60,7 @@ $ sudo systemctl status jenkins
 
 - Jenkins 포트 변경
 
-    <img src="https://user-images.githubusercontent.com/46602874/133365091-60f1d9d6-14e8-423d-8230-25196710ede1.png" width=70% height=70%>
+    <img src="https://user-images.githubusercontent.com/46602874/133365091-60f1d9d6-14e8-423d-8230-25196710ede1.png">
     ```
     $ sudo vi /etc/default/jenkins
     ```
@@ -99,7 +99,7 @@ $ sudo systemctl status jenkins
   그럼 status에서 80, 443, 9090 등 잘 추가된 부분을 확인할 수 있다.
 
   - 추가
-    <img src="https://user-images.githubusercontent.com/46602874/133367016-ee87620a-24dc-47ff-8032-7124b7c6af70.png" width=70% height=70%>
+    <img src="https://user-images.githubusercontent.com/46602874/133367016-ee87620a-24dc-47ff-8032-7124b7c6af70.png">
 
   혹시 접속하려는 젠킨스 포트가 인바운드 규칙에  
   추가되어 있지 않다면 꼭 추가해주자
@@ -109,7 +109,7 @@ $ sudo systemctl status jenkins
 `http://(public IP or hostname):9090`으로 접속하면  
 아래와 같은 화면이 나온다.
 
-<img src="https://user-images.githubusercontent.com/46602874/133367143-63d31f03-0c91-4a21-9fab-5db6efc2eb36.png" width=70% height=70%>
+<img src="https://user-images.githubusercontent.com/46602874/133367143-63d31f03-0c91-4a21-9fab-5db6efc2eb36.png">
 
 비밀번호를 알아야되기 때문에 사진에 나온 것처럼  
 아래의 명령어로 비밀번호를 알아내고 넣어주자.
@@ -123,16 +123,16 @@ aaabdc~~
 플러그인 설치 화면이 나온다.  
 대충 왼쪽 부분을 눌러주자.
 
-<img src="https://user-images.githubusercontent.com/46602874/133367376-76cc42a3-8146-474b-bb9c-86fc453ad2b9.png" width=70% height=70%>
+<img src="https://user-images.githubusercontent.com/46602874/133367376-76cc42a3-8146-474b-bb9c-86fc453ad2b9.png">
 
 Create First Admin User이 나오고,  
 앞으로 로그인해야되기 때문에  
 많이 사용하는 계정 정보를 넣어주자
 
-<img src="https://user-images.githubusercontent.com/46602874/133370174-7c42b0fc-04e3-4f36-a672-7f72e56cd804.png" width=70% height=70%>
+<img src="https://user-images.githubusercontent.com/46602874/133370174-7c42b0fc-04e3-4f36-a672-7f72e56cd804.png">
 
 그럼 이렇게 잘 접속됨을 확인할 수 있다!
 
-<img src="https://user-images.githubusercontent.com/46602874/133370432-073fec58-49fe-4cfe-bca5-3175395aa95e.png" width=70% height=70%>
+<img src="https://user-images.githubusercontent.com/46602874/133370432-073fec58-49fe-4cfe-bca5-3175395aa95e.png">
 
 출처: https://imbf.github.io/devops/2020/11/26/Install-Jenkins-in-Ubuntu(18.04).html

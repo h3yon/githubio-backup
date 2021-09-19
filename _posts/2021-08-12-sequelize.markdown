@@ -44,7 +44,7 @@ $ npm i -g sequelize-cli
 $ sequelize init
 ```
 
-<img src=https://user-images.githubusercontent.com/46602874/129175307-0b912a6e-79bd-46ea-b39f-239cf9ad8442.png width="70%" height="70%">
+<img src=https://user-images.githubusercontent.com/46602874/129175307-0b912a6e-79bd-46ea-b39f-239cf9ad8442.png>
 
 sequelize init을 하면
 위 사진처럼 필요한 파일들과 폴더들이 알아서 설치된다.

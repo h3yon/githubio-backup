@@ -122,18 +122,18 @@ tags:
    let/const 변수의 호이스팅은 코드 실행 전에 변수 선언만 진행해두며, 초기화는 실행 과정에서 만났을 때 수행한다.
    그래서 let/const는 호이스팅이 발생하기는 하지만, 값을 참조할 수 없어서 호이스팅이 발생하지 않는다.
 
-   <img src="https://user-images.githubusercontent.com/46602874/127586681-81107bdb-b4da-43b5-bc32-dc913e61db28.png" width="70%" height="70%">
+   <img src="https://user-images.githubusercontent.com/46602874/127586681-81107bdb-b4da-43b5-bc32-dc913e61db28.png">
 
    위의 예시 코드를 보면 알겠지만,
    왼쪽의 코드가 오른쪽처럼 선언만 끌어올려지는 것을 알 수 있다.
 
-   <img src="https://user-images.githubusercontent.com/46602874/127588033-80a12f0e-3687-49f8-8013-734c70fa2998.png" width="70%" height="70%">
+   <img src="https://user-images.githubusercontent.com/46602874/127588033-80a12f0e-3687-49f8-8013-734c70fa2998.png">
 
    이번엔 함수 호이스팅을 봐보자
    h2()함수는 변수만 호이스팅이 되기 때문에 에러가 발생하면서 프로그램이 종료된다.
    다른 부분은 똑같이 undefined가 나옴을 알 수 있다.
 
-   <img src="https://user-images.githubusercontent.com/46602874/127588586-5ec5dcbd-9027-4549-bd2f-84e4a5e922a0.png" width="70%" height="70%">
+   <img src="https://user-images.githubusercontent.com/46602874/127588586-5ec5dcbd-9027-4549-bd2f-84e4a5e922a0.png">
 
    위 예시까지는 당연하다고 생각될 수 있는데,
    만약 함수에서 초기화가 같이 진행되면 어떨까?
