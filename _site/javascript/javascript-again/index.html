@@ -1,0 +1,1097 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Javascript]자바스크립트 Again - 개구리의 깃허브 블로그</title>
+<meta name="description" content="[Javascript]자바스크립트 Again">
+
+
+  <meta name="author" content="🐸 SW developer">
+  
+  <meta property="article:author" content="🐸 SW developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="개구리의 깃허브 블로그">
+<meta property="og:title" content="[Javascript]자바스크립트 Again">
+<meta property="og:url" content="https://h3yon.github.io/javascript/javascript-again/">
+
+
+  <meta property="og:description" content="[Javascript]자바스크립트 Again">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-09-10T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://h3yon.github.io/javascript/javascript-again/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "h3yon Developer",
+      "url": "https://h3yon.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개구리의 깃허브 블로그 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개구리의 깃허브 블로그
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://h3yon.github.io/">블로그 방문하기</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/Java/">Java</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://h3yon.github.io/">
+        <img src="/assets/images/profile.jpeg" alt="🐸 SW developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://h3yon.github.io/" itemprop="url">🐸 SW developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>🌿성장하는 개구리 개발자 h3yon입니다!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="khykhy1006@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://h3yon.shop" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Javascript]자바스크립트 Again">
+    <meta itemprop="description" content="[Javascript]자바스크립트 Again">
+    <meta itemprop="datePublished" content="2021-09-10T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://h3yon.github.io/javascript/javascript-again/" class="u-url" itemprop="url">[Javascript]자바스크립트 Again
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#자바스크립트-복습">자바스크립트 복습</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h3 id="자바스크립트-복습">자바스크립트 복습</h3>
+
+<p>출처: 제주코딩베이스캠프</p>
+
+<ol>
+  <li>
+    <p>중간에 추가하기</p>
+
+    <p>아래처럼 만드려면?</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">];</span>
+<span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">300</span><span class="p">];</span>
+</code></pre></div>    </div>
+
+    <p>답: arr.splice(2,0,10000);</p>
+  </li>
+  <li>
+    <p>다음 출력 값으로 올바른 것은?</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">arr</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>답: object</p>
+  </li>
+  <li>
+    <p>객체의 키 이름 중복</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">height</span><span class="dl">"</span><span class="p">:</span> <span class="mi">180</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">weight</span><span class="dl">"</span><span class="p">:</span> <span class="mi">78</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">weight</span><span class="dl">"</span><span class="p">:</span> <span class="mi">84</span><span class="p">,</span>
+<span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="dl">"</span><span class="s2">weight</span><span class="dl">"</span><span class="p">]);</span>
+</code></pre></div>    </div>
+
+    <p>답: 84</p>
+  </li>
+  <li>
+    <p>concat을 활용한 출력 방법</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">데이터</span>
+<span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">2019</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">month</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">04</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">26</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">hour</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">11</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">minute</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">34</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">second</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">27</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="c1">//빈칸을 채워주세요</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+
+
+<span class="nx">출력</span>
+<span class="mi">2019</span><span class="o">/</span><span class="mi">04</span><span class="o">/</span><span class="mi">26</span> <span class="mi">11</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">27</span>
+</code></pre></div>    </div>
+
+    <p>답!</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">year</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span> <span class="nx">month</span><span class="p">,</span> <span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span> <span class="nx">day</span><span class="p">,</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">,</span> <span class="nx">hour</span><span class="p">,</span> <span class="dl">"</span><span class="s2">:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">minute</span><span class="p">,</span> <span class="dl">"</span><span class="s2">:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">second</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>별 찍기</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">입력</span>
+<span class="mi">5</span>
+
+<span class="nx">출력</span>
+    <span class="o">*</span>
+   <span class="o">***</span>
+  <span class="o">*****</span>
+ <span class="o">*******</span>
+<span class="o">*********</span>
+</code></pre></div>    </div>
+
+    <p>1, 1+2, 1+2x2, 1+2x3, 1+2x4 로 늘어나는 걸 알 수 있다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">숫자를 입력하세요.</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">tree</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">star</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="nx">n</span> <span class="o">-</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">star</span> <span class="o">+=</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">k</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">star</span> <span class="o">+=</span> <span class="dl">"</span><span class="s2">*</span><span class="dl">"</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">tree</span> <span class="o">+=</span> <span class="nx">star</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tree</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>1부터 100까지 모두 더하는 Code</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">101</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">result</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>다음 소스코드에서 클래스를 작성하여 게임 캐릭터의 능력치와 ‘파이어볼’이 출력되게 만드시오.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">데이터</span>
+<span class="o">&lt;</span><span class="nx">여기에</span> <span class="nx">class를</span> <span class="nx">작성하세요</span><span class="p">.</span><span class="o">&gt;</span>
+<span class="kd">const</span> <span class="nx">x</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Wizard</span><span class="p">(</span><span class="mi">545</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">health</span><span class="p">,</span> <span class="nx">x</span><span class="p">.</span><span class="nx">mana</span><span class="p">,</span> <span class="nx">x</span><span class="p">.</span><span class="nx">armor</span><span class="p">);</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">attack</span><span class="p">();</span>
+
+<span class="nx">출력</span>
+<span class="mi">545</span> <span class="mi">210</span> <span class="mi">10</span>
+<span class="nx">파이어볼</span>
+</code></pre></div>    </div>
+
+    <p>답</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Wizard</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">health</span><span class="p">,</span> <span class="nx">mana</span><span class="p">,</span> <span class="nx">armor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">health</span> <span class="o">=</span> <span class="nx">health</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">mana</span> <span class="o">=</span> <span class="nx">mana</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">armor</span> <span class="o">=</span> <span class="nx">armor</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">attack</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">파이어볼</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>수성, 금성, 지구, 화성, 목성, 토성, 천왕성, 해왕성으로 총 8개.
+입력으로 행성의 순서를 나타내는 숫자 n이 입력됩니다.
+출력으로 그 순서에 해당하는 행성의 이름을 출력해 주세요.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">입출력</span><span class="p">;</span>
+
+<span class="nl">입력</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nl">출력</span><span class="p">:</span> <span class="nx">수성</span><span class="p">;</span>
+</code></pre></div>    </div>
+
+    <p>답??</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">planets</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">수성</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">금성</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">지구</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">화성</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">목성</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">토성</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">천왕성</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">해왕성</span><span class="dl">"</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">몇 번째 행성인가요?</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">planets</span><span class="p">[</span><span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>문장이 입력되면 거꾸로 출력하는 프로그램을 만들어 봅시다.</p>
+
+    <p>답?</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">stmt</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">입출력</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">reverseStmt</span> <span class="o">=</span> <span class="nx">stmt</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">""</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reverseStmt</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>세 과목의 점수가 주어지면 전체 평균 점수. 소숫점 자리는 모두 버립니다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">scores</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">세 과목의 점수를 입력하세요</span><span class="dl">"</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">scores</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">val</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">sum</span> <span class="o">+=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">sum</span> <span class="o">/</span> <span class="mi">3</span><span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>공백으로 구분하여 두 숫자 a와 b가 주어지면, a의 b승을 구하는 프로그램을 작성하세요.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">a와 b를 입력해주세요</span><span class="dl">"</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">n</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span> <span class="o">**</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">10</span><span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Set을 만드는 방법?</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">3</span><span class="p">)</span>  <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">(</span><span class="dl">'</span><span class="s1">javascript</span><span class="dl">'</span><span class="p">);</span>
+<span class="mi">5</span><span class="p">)</span>  <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">();</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>우리 태양계를 이루는 행성은 수성, 금성, 지구, 화성, 목성, 토성, 천왕성, 해왕성이 있습니다.
+이 행성들의 영어 이름은 Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune입니다.
+행성의 한글 이름을 입력하면 영어 이름을 반환하는 프로그램을 만들어 주세요.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">planets</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">수성</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Mercury</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">금성</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Venus</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">지구</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Earth</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">화성</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Mars</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">목성</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Jupiter</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">토성</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Saturn</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">천왕성</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Uranus</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">해왕성</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Neptune입니다</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+<span class="kd">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">행성의 한글 이름을 입력해주세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">planets</span><span class="p">[</span><span class="nx">input</span><span class="p">]);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>문자 pineapple에는 apple이라는 문자가 숨어 있습니다. 원범이는 이렇듯 문자열 속에 숨어있는 문자를 찾아보려고 합니다.
+첫번째 입력에서는 문자열이 입력되고, 두번째에는 찾을 문자가 입력되어야 합니다.
+그 문자가 시작하는 index를 반환하는 프로그램을 만들어 주세요</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">stmt</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">문자열을 입력해주세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">찾을 문자를 입력해주세요</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stmt</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">target</span><span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>다음 배열 내장함수의 시간 복잡도가 O(1)이 아닌 것을 모두 고르시오.</p>
+
+    <ol>
+      <li>arr[i]</li>
+      <li>arr.push(5)</li>
+      <li>arr.slice()</li>
+      <li>arr.pop()</li>
+      <li>arr.includes(5)</li>
+    </ol>
+
+    <p>답: ‘3번’, ‘5번’</p>
+  </li>
+  <li>
+    <p>문자열을 입력받으면 단어의 갯수를 출력하는 프로그램</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">stmt</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">문자열을 입력해주세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">stmt</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>한 줄에 여러개의 숫자가 입력되면, 역순으로 그 숫자들을 하나씩 출력하는 프로그램</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">숫자들을 입력해주세요</span><span class="dl">"</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">).</span><span class="nx">reverse</span><span class="p">();</span>
+<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+
+<span class="nx">input</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">result</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>키가 주어지면 순서대로 제대로 섰는지 확인하는 프로그램</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">unsorted</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">키를 입력하세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">sorted</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+
+<span class="nx">sorted</span> <span class="o">=</span> <span class="nx">unsorted</span>
+  <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">unsorted</span> <span class="o">===</span> <span class="nx">sorted</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">YES</span><span class="dl">"</span><span class="p">);</span>
+<span class="k">else</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">NO</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>**학생들이 뽑은 후보들을 입력받으면 뽑힌 학생의 이름과 받은 표 수를 출력하는 프로그램</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">후보를 입력해주세요</span><span class="dl">"</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">students</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kd">let</span> <span class="nx">winner</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+
+<span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">val</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">students</span><span class="p">[</span><span class="nx">val</span><span class="p">]</span> <span class="o">=</span> <span class="nx">students</span><span class="p">[</span><span class="nx">val</span><span class="p">]</span> <span class="o">==</span> <span class="kc">undefined</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="nx">students</span><span class="p">[</span><span class="nx">val</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nx">winner</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">students</span><span class="p">).</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">students</span><span class="p">[</span><span class="nx">a</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">students</span><span class="p">[</span><span class="nx">b</span><span class="p">]</span> <span class="p">?</span> <span class="nx">a</span> <span class="p">:</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">winner</span><span class="p">}</span><span class="s2">(이)가 총 </span><span class="p">${</span><span class="nx">students</span><span class="p">[</span><span class="nx">winner</span><span class="p">]}</span><span class="s2">표로 반장이 되었습니다.`</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>** 문장이 입력되면 모든 q를 e로 바꾸는 프로그램</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * 1번째 방법
+ */</span>
+<span class="kd">const</span> <span class="nx">word</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">문장을 입력하세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nx">replaceAll</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">searchStr</span><span class="p">,</span> <span class="nx">replaceStr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="nx">searchStr</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">replaceStr</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">replaceAll</span><span class="p">(</span><span class="nx">word</span><span class="p">,</span> <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">));</span>
+<span class="cm">/**
+ * 2번째 방법
+ */</span>
+<span class="kd">const</span> <span class="nx">word</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">문장을 입력하세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">word</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/q/gi</span><span class="p">,</span> <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>원범이와 친구들이 총 몇 명 탈 수 있는지 알 수 있는 프로그램</p>
+
+    <p>내가 푼 방식</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">제한 무게를 입력하세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">함께한 친구를 입력하세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">weights</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">weights</span> <span class="o">+=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">몸무게를 입력하세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">weights</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">val</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">val</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">sum</span> <span class="o">&lt;=</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>정답. 입력받을 때 계산하면 더 빠르다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">limit</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">제한 무게를 입력하세요.</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">인원수를 입력하세요.</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">total</span> <span class="o">+=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">무게를 입력해주세요.</span><span class="dl">"</span><span class="p">),</span> <span class="mi">10</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">total</span> <span class="o">&lt;=</span> <span class="nx">limit</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">count</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>2020년 1월 1일은 수요일입니다. 2020년 a월 b일은 무슨 요일일까요?
+두 수 a, b를 입력받아 2020년 a월 b일이 무슨 요일인지 리턴하는 함수 solution을 완성하세요.
+요일의 이름은 일요일부터 토요일까지 각각 SUN, MON, TUE, WED, THU, FRI, SAT 입니다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">day</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">SUN</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">MON</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">TUE</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">WED</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">THU</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">FRI</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">SAT</span><span class="dl">"</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">월을 입력하세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">일을 입력하세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">x</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s2">`2020-</span><span class="p">${</span><span class="nx">a</span><span class="p">}</span><span class="s2">-</span><span class="p">${</span><span class="nx">b</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">day</span><span class="p">[</span><span class="nx">x</span><span class="p">.</span><span class="nx">getDay</span><span class="p">()]);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>10진수, 2진수, 16진수</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">숫자를 입력하세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">num</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="c1">// 2진수로 변환</span>
+
+<span class="nb">parseInt</span><span class="p">(</span><span class="dl">"</span><span class="s2">1010110</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span> <span class="c1">//10진수로 변환 후 다시 16진수로 변환</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>사용자가 입력한 양의 정수의 각 자리수의 합을 구하는 프로그램</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">수를 입력하세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">input</span><span class="p">)</span> <span class="nx">sum</span> <span class="o">+=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="mi">10</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>1부터 20까지의(20을 포함) 모든 숫자를 일렬로 놓고 모든 자릿수의 총 합을 구하세요.
+예를 들어 10부터 15까지의 모든 숫자를 일렬로 놓으면 101112131415이고
+각 자리의 숫자를 더하면 21입니다. (1+0+1+1+1+2+1+3+1+4+1+5 = 21)</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">21</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">result</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">sum</span> <span class="o">+=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="mi">10</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>set 자료형의 응용
+바울랩에서는 3월 29일 제주대학교에서 ‘제주 빅데이터 사회혁신 해커톤’ 행사를 주최하게 되었습니다. 이에 구글 설문지를 배포하였으나 제주대학생들이 중복해서 n개씩 설문지를 제출하였습니다.
+중복된 데이터들을 삭제하여 실제 접수 명단이 몇 명인지 알고 싶습니다.
+아래 주어진 데이터들로부터 중복을 제거하여 실제 접수 인원을 출력해 주세요.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">people</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">이호준</span><span class="p">:</span> <span class="dl">"</span><span class="s2">01050442903</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">이호상</span><span class="p">:</span> <span class="dl">"</span><span class="s2">01051442904</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">이준호</span><span class="p">:</span> <span class="dl">"</span><span class="s2">01050342904</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">이호준</span><span class="p">:</span> <span class="dl">"</span><span class="s2">01050442903</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">이준</span><span class="p">:</span> <span class="dl">"</span><span class="s2">01050412904</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">이호</span><span class="p">:</span> <span class="dl">"</span><span class="s2">01050443904</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">이호준</span><span class="p">:</span> <span class="dl">"</span><span class="s2">01050442903</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+<span class="c1">// pass</span>
+</code></pre></div>    </div>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">people</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">이호준</span><span class="p">:</span> <span class="dl">"</span><span class="s2">01050442903</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">이호상</span><span class="p">:</span> <span class="dl">"</span><span class="s2">01051442904</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">이준호</span><span class="p">:</span> <span class="dl">"</span><span class="s2">01050342904</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">이호준</span><span class="p">:</span> <span class="dl">"</span><span class="s2">01050442903</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">이준</span><span class="p">:</span> <span class="dl">"</span><span class="s2">01050412904</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">이호</span><span class="p">:</span> <span class="dl">"</span><span class="s2">01050443904</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">이호준</span><span class="p">:</span> <span class="dl">"</span><span class="s2">01050442903</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">();</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">people</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">result</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">people</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>버블정렬 구현
+버블정렬은 두 인접한 원소를 검사하여 정렬하는 방법을 말합니다. 시간 복잡도는 느리지만 코드가 단순하기 때문에 자주 사용됩니다. 아래 코드의 빈 칸을 채워 버블 정렬을 완성해 봅시다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">bubble</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">();</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="cm">/*빈칸을 채워주세요.*/</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">result</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+        <span class="c1">//빈칸을 채워주세요.</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">'</span><span class="s1">입력해주세요.</span><span class="dl">'</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">).</span><span class="nx">map</span><span class="p">((</span><span class="nx">n</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bubble</span><span class="p">(</span><span class="nx">items</span><span class="p">));</span>
+</code></pre></div>    </div>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">bubble</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">();</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">result</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">temp</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
+        <span class="nx">result</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+        <span class="nx">result</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">temp</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">입력해주세요.</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">n</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bubble</span><span class="p">(</span><span class="nx">items</span><span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-09-10T00:00:00+09:00">September 10, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BJavascript%5D%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8+Again%20https%3A%2F%2Fh3yon.github.io%2Fjavascript%2Fjavascript-again%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fh3yon.github.io%2Fjavascript%2Fjavascript-again%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fh3yon.github.io%2Fjavascript%2Fjavascript-again%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/it/revert-commit/" class="pagination--pager" title="[Github]커밋 되돌리기
+">Previous</a>
+    
+    
+      <a href="/javascript/javascript-again2/" class="pagination--pager" title="[Javascript]자바스크립트 Again2
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/jenkins-ec2/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/jenkins-ec2-master/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/javascript-again2/" rel="permalink">[Javascript]자바스크립트 Again2
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again2
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/it/revert-commit/" rel="permalink">[Github]커밋 되돌리기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Github]커밋 되돌리기
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 h3yon Developer. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://h3yon.github.io/javascript/javascript-again/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/javascript/javascript-again"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://h3yon-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1205 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Javascript]자바스크립트 Again2 - 개구리의 깃허브 블로그</title>
+<meta name="description" content="[Javascript]자바스크립트 Again2">
+
+
+  <meta name="author" content="🐸 SW developer">
+  
+  <meta property="article:author" content="🐸 SW developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="개구리의 깃허브 블로그">
+<meta property="og:title" content="[Javascript]자바스크립트 Again2">
+<meta property="og:url" content="https://h3yon.github.io/javascript/javascript-again2/">
+
+
+  <meta property="og:description" content="[Javascript]자바스크립트 Again2">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-09-10T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://h3yon.github.io/javascript/javascript-again2/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "h3yon Developer",
+      "url": "https://h3yon.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개구리의 깃허브 블로그 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개구리의 깃허브 블로그
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://h3yon.github.io/">블로그 방문하기</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/Java/">Java</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://h3yon.github.io/">
+        <img src="/assets/images/profile.jpeg" alt="🐸 SW developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://h3yon.github.io/" itemprop="url">🐸 SW developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>🌿성장하는 개구리 개발자 h3yon입니다!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="khykhy1006@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://h3yon.shop" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Javascript]자바스크립트 Again2">
+    <meta itemprop="description" content="[Javascript]자바스크립트 Again2">
+    <meta itemprop="datePublished" content="2021-09-10T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://h3yon.github.io/javascript/javascript-again2/" class="u-url" itemprop="url">[Javascript]자바스크립트 Again2
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#자바스크립트-복습2">자바스크립트 복습2</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h3 id="자바스크립트-복습2">자바스크립트 복습2</h3>
+
+<p>출처: 제주코딩베이스캠프</p>
+
+<ol>
+  <li>
+    <p>merge sort
+병합정렬(merge sort)은 대표적인 정렬 알고리즘 중 하나로 다음과 같이 동작합니다.</p>
+
+    <blockquote>
+      <ol>
+        <li>리스트의 길이가 0 또는 1이면 이미 정렬된 것으로 본다. 그렇지 않은 경우에는</li>
+        <li>정렬되지 않은 리스트를 절반으로 잘라 비슷한 크기의 두 부분 리스트로 나눈다.</li>
+        <li>각 부분 리스트를 재귀적으로 합병 정렬을 이용해 정렬한다.</li>
+        <li>두 부분 리스트를 다시 하나의 정렬된 리스트로 합병한다.</li>
+      </ol>
+    </blockquote>
+
+    <p>출처 : 위키피디아</p>
+
+    <p>다음 코드의 빈칸을 채워 병합정렬을 완성해 봅시다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">mergeSort</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">const</span> <span class="nx">mid</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">left</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">mid</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">right</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">mid</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">merge</span><span class="p">(</span><span class="nx">mergeSort</span><span class="p">(</span><span class="nx">left</span><span class="p">),</span> <span class="nx">mergeSort</span><span class="p">(</span><span class="nx">right</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">merge</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="nx">left</span><span class="p">.</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="nx">right</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">left</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">left</span><span class="p">.</span><span class="nx">shift</span><span class="p">());</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">right</span><span class="p">.</span><span class="nx">shift</span><span class="p">());</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">left</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">left</span><span class="p">.</span><span class="nx">shift</span><span class="p">());</span>
+  <span class="p">}</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">right</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">right</span><span class="p">.</span><span class="nx">shift</span><span class="p">());</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">배열을 입력하세요</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">n</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mergeSort</span><span class="p">(</span><span class="nx">array</span><span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>quick sort
+다음 빈 칸을 채워 퀵 정렬을 완성해주세요.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">quickSort</span><span class="p">(</span><span class="nx">arr</span><span class="p">){</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">){</span>
+  <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">pivot</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">left</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">const</span> <span class="nx">right</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+  <span class="k">if</span><span class="p">(</span><span class="cm">/*빈칸을 채워주세요*/</span><span class="p">){</span>
+    <span class="nx">left</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">right</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="cm">/*빈칸을 채워주세요*/</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">'</span><span class="s1">배열을 입력하세요</span><span class="dl">'</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span> <span class="o">=&gt;</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">quickSort</span><span class="p">(</span><span class="nx">array</span><span class="p">));</span>
+</code></pre></div>    </div>
+
+    <p>풀어보기</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">quickSort</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">const</span> <span class="nx">pivot</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">// 기준점</span>
+  <span class="kd">const</span> <span class="nx">left</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">const</span> <span class="nx">right</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">pivot</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">left</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">right</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="c1">// 이 부분 틀림</span>
+  <span class="k">return</span> <span class="nx">quickSort</span><span class="p">(</span><span class="nx">left</span><span class="p">).</span><span class="nx">concat</span><span class="p">(</span><span class="nx">pivot</span><span class="p">,</span> <span class="nx">quickSort</span><span class="p">(</span><span class="nx">right</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">배열을 입력하세요</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">n</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">quickSort</span><span class="p">(</span><span class="nx">array</span><span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>입력으로 주어진 괄호 문자열이 바른 문자열인지 바르지 않은 문자열인지 “YES”와 “NO”로 구분된 문자열을 출력해보자.
+())와 같은 문자열은 바른 문자열이지만 ()()) 와 같은 문자열은 바르지 않은 문자열이다.
+(해당 문제에서는 소괄호만 판별하지만, 중괄호와 대괄호까지 판별해 보세요.)</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">mathBrackets</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">괄호</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">(</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+      <span class="nx">괄호</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">"</span><span class="s2">(</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">)</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">count</span><span class="o">--</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">괄호</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="nx">괄호</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">문자열을 입력해주세요</span><span class="dl">"</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">mathBrackets</span><span class="p">(</span><span class="nx">n</span><span class="p">))</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">YES</span><span class="dl">"</span><span class="p">);</span>
+<span class="k">else</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">NO</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>숫자 스탬프는 매일 그 수와 스탬프에 적힌 숫자가 바뀌지만 그 숫자는 항상 연속된다.
+스탬프에 적힌 숫자가 공백으로 구분되어 주어지면 이 숫자가 연속수인지 아닌지 “YES”와 “NO”로 판별하는 프로그램을 작성하시오</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sol</span><span class="p">(</span><span class="nx">l</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">l</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">;</span>
+  <span class="p">});</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">l</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">l</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">!==</span> <span class="nx">l</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">NO</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="dl">"</span><span class="s2">YES</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">nums</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">숫자를 입력하세요</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">n</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sol</span><span class="p">(</span><span class="nx">nums</span><span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>**하노이의 탑</p>
+
+    <ol>
+      <li>처음에 모든 원판은 A 기둥에 꽂혀 있다.</li>
+      <li>모든 원판의 지름은 다르다.</li>
+      <li>이 원반은 세 개의 기둥 중 하나에 반드시 꽂혀야 한다.</li>
+      <li>작은 원반 위에 큰 원반을 놓을 수 없다.</li>
+      <li>한 번에 하나의 원판(가장 위에 있는 원판)만을 옮길 수 있다.</li>
+    </ol>
+
+    <p>이 규칙을 만족하며 A 기둥에 있는 원반 N 개를 모두 C 원반으로 옮기고 싶습니다.
+모든 원반을 옮기기 위해 실행되어야 할 최소 원반 이동 횟수를 계산하는 프로그램을 완성해 주세요.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">route</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="kd">function</span> <span class="nx">hanoi</span><span class="p">(</span><span class="nx">num</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">temp</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//원판이 한 개일 때에는 바로 옮기면 됩니다.</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">route</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">]);</span>
+    <span class="k">return</span> <span class="kc">NaN</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">//원반이 n-1개를 경유기둥으로 옮기고</span>
+  <span class="nx">hanoi</span><span class="p">(</span><span class="cm">/*내용을 채워주세요.*/</span><span class="p">);</span>
+  <span class="c1">//가장 큰 원반은 목표기둥으로</span>
+  <span class="nx">route</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="cm">/*내용을 채워주세요.*/</span><span class="p">);</span>
+  <span class="c1">//경유기둥과 시작기둥을 바꿉니다.</span>
+  <span class="nx">hanoi</span><span class="p">(</span><span class="cm">/*내용을 채워주세요.*/</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">hanoi</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">B</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">C</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">route</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">route</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>한번 풀어보기</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">route</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="kd">function</span> <span class="nx">hanoi</span><span class="p">(</span><span class="nx">num</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">temp</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//원판이 한 개일 때에는 바로 옮기면 됩니다.</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">route</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">]);</span>
+    <span class="k">return</span> <span class="kc">NaN</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">//원반이 n-1개를 경유기둥으로 옮기고</span>
+  <span class="nx">hanoi</span><span class="p">(</span><span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">temp</span><span class="p">,</span> <span class="nx">end</span><span class="p">);</span>
+  <span class="c1">//가장 큰 원반은 목표기둥으로</span>
+  <span class="nx">route</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">]);</span>
+  <span class="c1">//경유기둥과 시작기둥을 바꿉니다.</span>
+  <span class="nx">hanoi</span><span class="p">(</span><span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">temp</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">start</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">hanoi</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">B</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">C</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">route</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">route</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>객체의 함수 응용
+한국의 면적과 가장 비슷한 국가와 그 차이를 출력하세요.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">데이터</span>
+<span class="nx">nationWidth</span> <span class="o">=</span> <span class="p">{</span>
+<span class="err"> </span>  <span class="err"> </span> <span class="dl">'</span><span class="s1">korea</span><span class="dl">'</span><span class="p">:</span> <span class="mi">220877</span><span class="p">,</span>
+<span class="err">  </span> <span class="err"> </span> <span class="dl">'</span><span class="s1">Rusia</span><span class="dl">'</span><span class="p">:</span> <span class="mi">17098242</span><span class="p">,</span>
+<span class="err">  </span> <span class="err"> </span> <span class="dl">'</span><span class="s1">China</span><span class="dl">'</span><span class="p">:</span> <span class="mi">9596961</span><span class="p">,</span>
+<span class="err">  </span> <span class="err"> </span> <span class="dl">'</span><span class="s1">France</span><span class="dl">'</span><span class="p">:</span> <span class="mi">543965</span><span class="p">,</span>
+<span class="err">  </span> <span class="err"> </span> <span class="dl">'</span><span class="s1">Japan</span><span class="dl">'</span><span class="p">:</span> <span class="mi">377915</span><span class="p">,</span>
+<span class="err"> </span> <span class="err"> </span> <span class="dl">'</span><span class="s1">England</span><span class="dl">'</span> <span class="p">:</span> <span class="mi">242900</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="nx">출력</span>
+<span class="nx">England</span> <span class="mi">22023</span>
+</code></pre></div>    </div>
+
+    <p>풀어보기</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">nationWidth</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">korea</span><span class="dl">"</span><span class="p">:</span> <span class="mi">220877</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">Rusia</span><span class="dl">"</span><span class="p">:</span> <span class="mi">17098242</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">China</span><span class="dl">"</span><span class="p">:</span> <span class="mi">9596961</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">France</span><span class="dl">"</span><span class="p">:</span> <span class="mi">543965</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">Japan</span><span class="dl">"</span><span class="p">:</span> <span class="mi">377915</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">England</span><span class="dl">"</span><span class="p">:</span> <span class="mi">242900</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">w</span> <span class="o">=</span> <span class="nx">nationWidth</span><span class="p">[</span><span class="dl">"</span><span class="s2">korea</span><span class="dl">"</span><span class="p">];</span>
+<span class="k">delete</span> <span class="nx">nationWidth</span><span class="p">[</span><span class="dl">"</span><span class="s2">korea</span><span class="dl">"</span><span class="p">];</span>
+
+<span class="kd">const</span> <span class="nx">entry</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">nationWidth</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">values</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">values</span><span class="p">(</span><span class="nx">nationWidth</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">gap</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">values</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">item</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">entry</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">gap</span> <span class="o">&gt;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">entry</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nx">w</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">gap</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">entry</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nx">w</span><span class="p">);</span>
+    <span class="nx">item</span> <span class="o">=</span> <span class="nx">entry</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nx">w</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>0부터 1000까지 1의 개수를 세는 프로그램
+예를 들어 0부터 20까지 1의 개수를 세어본다면 1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19에 각각 1이 들어가므로 12개의 1이 있게 됩니다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">1001</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">str</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="k">in</span> <span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>**콤마 찍기
+숫자를 입력받고 천 단위로 콤마(,)를 찍어주세요.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * 1. 내장함수 사용 방식
+ */</span>
+<span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">숫자를 입력하세요</span><span class="dl">"</span><span class="p">).</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">());</span>
+
+<span class="cm">/**
+ * 2. 재귀함수 사용 방식
+ */</span>
+<span class="kd">function</span> <span class="nx">comma</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">)</span> <span class="k">return</span> <span class="nx">s</span><span class="p">;</span>
+  <span class="k">else</span> <span class="k">return</span> <span class="nx">comma</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sstrlength</span> <span class="o">-</span> <span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">,</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">3</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">comma</span><span class="p">(</span><span class="nx">num</span><span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>** 빈칸 채우기
+총 문자열의 길이는 50으로 제한하고 사용자가 문자열을 입력하면 그 문자열을 가운데 정렬을 해주고, 나머지 빈 부분에는 ‘=’을 채워 넣어주세요.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">문자열을 입력하세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">25</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+
+<span class="c1">//왼쪽부터 채우기</span>
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">padStart</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="dl">"</span><span class="s2">=</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">//오른쪽까지 채워서 출력</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">padEnd</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="dl">"</span><span class="s2">=</span><span class="dl">"</span><span class="p">));</span>
+
+<span class="c1">//padStart(길이, 채울 문자열) : 주어진 길이만큼 원래 문자열의 왼쪽부터 주어진 문자열로 채움</span>
+<span class="c1">//padEnd(길이, 채울 문자열) : 주어진 길이만큼 원래 문자열의 오른쪽부터 주어진 문자열로 채움</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>아래처럼 출력하게 짜보기(이름순)</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">데이터</span>
+<span class="nx">students</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">강은지</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">김유정</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">박현서</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">최성훈</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">홍유진</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">박지호</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">권윤일</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">김채리</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">한지호</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">김진이</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">김민호</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">강채연</span><span class="dl">'</span><span class="p">]</span>
+<span class="nx">출력</span>
+<span class="nx">번호</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">이름</span><span class="p">:</span> <span class="nx">강은지</span>
+<span class="nx">번호</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">이름</span><span class="p">:</span> <span class="nx">강채연</span>
+<span class="nx">번호</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">이름</span><span class="p">:</span> <span class="nx">권윤일</span>
+<span class="nx">번호</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">이름</span><span class="p">:</span> <span class="nx">김민호</span>
+<span class="nx">번호</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">이름</span><span class="p">:</span> <span class="nx">김유정</span>
+<span class="nx">번호</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="nx">이름</span><span class="p">:</span> <span class="nx">김진이</span>
+<span class="nx">번호</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="nx">이름</span><span class="p">:</span> <span class="nx">김채리</span>
+<span class="nx">번호</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="nx">이름</span><span class="p">:</span> <span class="nx">박지호</span>
+<span class="nx">번호</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="nx">이름</span><span class="p">:</span> <span class="nx">박현서</span>
+<span class="nx">번호</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">이름</span><span class="p">:</span> <span class="nx">최성훈</span>
+<span class="nx">번호</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="nx">이름</span><span class="p">:</span> <span class="nx">한지호</span>
+<span class="nx">번호</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="nx">이름</span><span class="p">:</span> <span class="nx">홍유진</span>
+</code></pre></div>    </div>
+
+    <p>풀어보기!</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">students</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">강은지</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">김유정</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">박현서</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">최성훈</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">홍유진</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">박지호</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">권윤일</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">김채리</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">한지호</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">김진이</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">김민호</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">강채연</span><span class="dl">"</span><span class="p">];</span>
+<span class="nx">students</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+<span class="nx">students</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`번호: </span><span class="p">${</span><span class="nx">v</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}</span><span class="s2"> 이름: </span><span class="p">${</span><span class="nx">k</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>** 문자열을 입력받고 연속되는 문자열을 압축해서 표현</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">입력</span><span class="p">;</span>
+<span class="nx">aaabbbbcdddd</span><span class="p">;</span>
+
+<span class="nx">출력</span><span class="p">;</span>
+<span class="nx">a3b4c1d4</span><span class="p">;</span>
+</code></pre></div>    </div>
+
+    <p>풀어보기!</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">입력하세요</span><span class="dl">"</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">input</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">of</span> <span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="nx">store</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">result</span> <span class="o">+=</span> <span class="nx">store</span> <span class="o">+</span> <span class="nb">String</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+    <span class="nx">store</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+    <span class="nx">count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">result</span> <span class="o">+=</span> <span class="nx">store</span> <span class="o">+</span> <span class="nb">String</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>교수님이 줄임말을 배우기 위해 아래와 같이 어떤 입력이 주어지면 앞 글자만 줄여 출력</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">입력</span>
+<span class="nx">복잡한</span> <span class="nx">세상</span> <span class="nx">편하게</span> <span class="nx">살자</span>
+<span class="nx">출력</span>
+<span class="nx">복세편살</span>
+</code></pre></div>    </div>
+
+    <p>풀어보기!</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">stmt</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">입력하세요</span><span class="dl">"</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">stmt</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">result</span> <span class="o">+=</span> <span class="nx">stmt</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>** 이상한 엘레베이터
+정량 N에 정확히 맞춰야만 움직이는 화물용 엘리베이터가 있습니다.
+화물은 7kg, 3kg 두 가지이며 팔이 아픈 은후는 가장 적게 화물을 옮기고 싶습니다.
+가장 적게 옮길 수 있는 횟수를 출력합니다.
+만약 어떻게 해도 정량이 N이 되지 않는다면 -1을 출력합니다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">n을 입력하세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span> <span class="o">+=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">N</span> <span class="o">/</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">N</span> <span class="o">-=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="nx">result</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">N</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>a = [1, 2, 3, 4]
+b = [a, b, c, d]
+이런 리스트가 있을 때 <strong>[[1, a], [b, 2], [3, c], [d, 4]]</strong> 이런 식으로 a, b 리스트가 번갈아가면서 출력되게 해주세요.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">d</span><span class="dl">"</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="nx">a</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">item</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">c</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">b</span><span class="p">[</span><span class="nx">idx</span><span class="p">],</span> <span class="nx">item</span><span class="p">]);</span>
+  <span class="k">else</span> <span class="nx">c</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">item</span><span class="p">,</span> <span class="nx">b</span><span class="p">[</span><span class="nx">idx</span><span class="p">]]);</span>
+<span class="p">});</span>
+
+<span class="k">return</span> <span class="nx">c</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>문제66 : 블럭탑쌓기
+탑을 쌓기 위해 각 크기별로 준비된 블럭들을 정해진 순서에 맞게 쌓아야 합니다.
+순서에 맞게 쌓지 않으면 무너질 수 있습니다.</p>
+
+    <p>예를 들면 정해진 순서가 BAC 라면 A 다음 C가 쌓아져야 합니다.
+선행으로 쌓아야 하는 블럭이 만족된 경우라면 탑이 무너지지 않습니다.</p>
+
+    <ul>
+      <li>B를 쌓지 않아도 A와 C를 쌓을 수 있습니다.</li>
+      <li>B 다음 블럭이 C가 될 수 있습니다.</li>
+    </ul>
+
+    <p>쌓아져 있는 블럭 탑이 순서에 맞게 쌓아져 있는지 확인하세요.</p>
+
+    <ol>
+      <li>블럭은 알파벳 대문자로 표기합니다.</li>
+      <li>규칙에 없는 블럭이 사용될 수 있습니다.</li>
+      <li>중복된 블럭은 존재하지 않습니다.</li>
+    </ol>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">입력</span><span class="p">;</span>
+<span class="nx">탑</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">ABCDEF</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">BCAD</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">ADEFQRX</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">BEDFG</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">EFGHZ</span><span class="dl">"</span><span class="p">];</span>
+<span class="nx">규칙</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">ABD</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">출력</span><span class="p">[(</span><span class="dl">"</span><span class="s2">가능</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">불가능</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">가능</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">가능</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">가능</span><span class="dl">"</span><span class="p">)];</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">comparison</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">let</span> <span class="nx">prev</span> <span class="o">=</span> <span class="nx">str</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">prev</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-09-10T00:00:00+09:00">September 10, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BJavascript%5D%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8+Again2%20https%3A%2F%2Fh3yon.github.io%2Fjavascript%2Fjavascript-again2%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fh3yon.github.io%2Fjavascript%2Fjavascript-again2%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fh3yon.github.io%2Fjavascript%2Fjavascript-again2%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/javascript/javascript-again/" class="pagination--pager" title="[Javascript]자바스크립트 Again
+">Previous</a>
+    
+    
+      <a href="/jenkins/jenkins-ec2-master/" class="pagination--pager" title="[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/jenkins-ec2/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/jenkins-ec2-master/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/javascript-again/" rel="permalink">[Javascript]자바스크립트 Again
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/it/revert-commit/" rel="permalink">[Github]커밋 되돌리기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Github]커밋 되돌리기
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 h3yon Developer. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://h3yon.github.io/javascript/javascript-again2/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/javascript/javascript-again2"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://h3yon-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

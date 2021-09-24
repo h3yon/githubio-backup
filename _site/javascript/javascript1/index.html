@@ -1,0 +1,791 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Javascript 변수 var, let, const &amp; TDZ(Temporal Dead Zone) - 개구리의 깃허브 블로그</title>
+<meta name="description" content="Javascript 변수 var, let, const &amp; TDZ(Temporal Dead Zone)">
+
+
+  <meta name="author" content="🐸 SW developer">
+  
+  <meta property="article:author" content="🐸 SW developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="개구리의 깃허브 블로그">
+<meta property="og:title" content="Javascript 변수 var, let, const &amp; TDZ(Temporal Dead Zone)">
+<meta property="og:url" content="https://h3yon.github.io/javascript/javascript1/">
+
+
+  <meta property="og:description" content="Javascript 변수 var, let, const &amp; TDZ(Temporal Dead Zone)">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-07-20T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://h3yon.github.io/javascript/javascript1/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "h3yon Developer",
+      "url": "https://h3yon.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개구리의 깃허브 블로그 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개구리의 깃허브 블로그
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://h3yon.github.io/">블로그 방문하기</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/Java/">Java</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://h3yon.github.io/">
+        <img src="/assets/images/profile.jpeg" alt="🐸 SW developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://h3yon.github.io/" itemprop="url">🐸 SW developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>🌿성장하는 개구리 개발자 h3yon입니다!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="khykhy1006@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://h3yon.shop" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Javascript 변수 var, let, const &amp; TDZ(Temporal Dead Zone)">
+    <meta itemprop="description" content="Javascript 변수 var, let, const &amp; TDZ(Temporal Dead Zone)">
+    <meta itemprop="datePublished" content="2021-07-20T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://h3yon.github.io/javascript/javascript1/" class="u-url" itemprop="url">Javascript 변수 var, let, const &amp; TDZ(Temporal Dead Zone)
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#출처">출처</a></li><li><a href="#javascript-변수-var-let-const--tdztemporal-dead-zone">Javascript 변수 var, let, const &amp; TDZ(Temporal Dead Zone)</a></li><li><a href="#var-vs-let">var vs let</a></li><li><a href="#tdztemporal-dead-zone">TDZ(Temporal Dead Zone)</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h3 id="출처">출처</h3>
+
+<p><a href="https://curryyou.tistory.com/192">자바스크립트 변수 선언 방식 차이: var/let/const</a>
+<a href="https://noogoonaa.tistory.com/78">TDZ(Temporal Dead Zone)이란?</a>
+<a href="https://velog.io/@open_h/Hoisting-and-TDZ">Hoisting and TDZ</a></p>
+
+<h3 id="javascript-변수-var-let-const--tdztemporal-dead-zone">Javascript 변수 var, let, const &amp; TDZ(Temporal Dead Zone)</h3>
+
+<p>오늘은 기초적인 var, let, const에 대한 차이를 알아보았다
+일단 변수 선언의 3단계는 선언 -&gt; 초기화 -&gt; 할당 과정으로 이루어져 있다.</p>
+
+<blockquote>
+  <p>선언: 변수를 실행 context의 변수 객체에 등록하는 단계. 해당 변수 객체는 scope가 참조하는 대상이 됨 \n
+초기화: 선언 단계의 변수를 위한 메모리를 만드는 단계. 할당된 메모리에는 undefined로 초기화 \n
+할당: undefined로 초기화된 메모리의 다른 값을 할당 \n</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>var
+일단 var을 봐보자.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">time</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">time</span><span class="p">);</span> <span class="c1">// undefined</span>
+<span class="nx">time</span><span class="p">;</span>
+</code></pre></div>    </div>
+
+    <p>var은 선언과 초기화 단계가 동시에 진행된다.
+때문에 저렇게 값을 할당하지 않아도 undefined로 호출되는 호이스팅이 발생한다.</p>
+  </li>
+  <li>
+    <p>let
+그다음, let을 봐보자.
+let은 var과 다르게 선언단계와 초기화 단계와 분리되어 진행된다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">time</span><span class="p">;</span> <span class="c1">//선언하여 실행 context에 변수를 등록했다.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">time</span><span class="p">);</span> <span class="c1">// error</span>
+<span class="nx">time</span><span class="p">;</span>
+</code></pre></div>    </div>
+
+    <p>선언 단계가 진행되었지만
+초기화, 즉 메모리가 할당되지 않아 접근할 수 없어 참조 에러가 발생한다.</p>
+  </li>
+</ol>
+
+<h3 id="var-vs-let">var vs let</h3>
+
+<ol>
+  <li>
+    <p>중복 선언</p>
+
+    <p>var은 아래 소스코드처럼 중복 선언이 가능하다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//(선언 + 초기화)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span> <span class="c1">//1</span>
+<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//(선언 + 초기화)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span> <span class="c1">//2</span>
+</code></pre></div>    </div>
+
+    <p>const와 let은 중복 선언이 불가능하다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// SyntaxError: 이미 declared</span>
+
+<span class="kd">const</span> <span class="nx">num1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">num1</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// SyntaxError: 이미 declared</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>재할당</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">num</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span> <span class="c1">//2</span>
+
+<span class="kd">let</span> <span class="nx">num1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">num1</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num1</span><span class="p">);</span> <span class="c1">//2</span>
+</code></pre></div>    </div>
+
+    <p>둘다 선언 및 초기화 이후 다른 값을 재할당할 수 있다.
+const는 재할당이 불가능하다.
+(const는 처음 선언 시 반드시 초기화 필요)</p>
+  </li>
+  <li>
+    <p>scope</p>
+
+    <p>scope? 유효한 참조 범위.</p>
+
+    <p>var은 함수 내부에 선언된 변수만 지역변수로 한정하며, 나머지는 모두 전역변수로 간주한다.
+let과 const는 함수 내부는 물론, if문이나 for문 등의 코드 블럭에서 선언된 변수도 지역변수로 취급한다.</p>
+
+    <p>그래서 var은 ‘함수 레벨 스코프’,
+let과 const는 블록 내부 변수도 지역변수로 사용하므로 ‘블록 레벨 스코프’이다.
+블록: {}로 둘러싸인 코드 영역</p>
+  </li>
+  <li>
+    <p>호이스팅</p>
+
+    <p>자바스크립트는 코드를 실행하기 전, 일종의 ‘코드 평가 과정’을 거치는데,
+‘변수 선언문’을 미리 실행해두기 때문에 뒤에서 선언된 변수도 앞의 코드에서 참조할 수 있게 된다.
+이를 변수 호이스팅이라고 한다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num2</span><span class="p">);</span> <span class="c1">// undefined</span>
+<span class="kd">var</span> <span class="nx">num2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num2</span><span class="p">);</span> <span class="c1">// 1</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span> <span class="c1">// ReferenceError: 정의되지 않음</span>
+<span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>위에 var, let을 보자.
+var 변수의 호이스팅은 코드 실행 전에 미리 변수를 선언하고, undefined로 초기화해둔다.
+let/const 변수의 호이스팅은 코드 실행 전에 변수 선언만 진행해두며, 초기화는 실행 과정에서 만났을 때 수행한다.
+그래서 let/const는 호이스팅이 발생하기는 하지만, 값을 참조할 수 없어서 호이스팅이 발생하지 않는다.</p>
+
+    <p><img src="https://user-images.githubusercontent.com/46602874/127586681-81107bdb-b4da-43b5-bc32-dc913e61db28.png" /></p>
+
+    <p>위의 예시 코드를 보면 알겠지만,
+왼쪽의 코드가 오른쪽처럼 선언만 끌어올려지는 것을 알 수 있다.</p>
+
+    <p><img src="https://user-images.githubusercontent.com/46602874/127588033-80a12f0e-3687-49f8-8013-734c70fa2998.png" /></p>
+
+    <p>이번엔 함수 호이스팅을 봐보자
+h2()함수는 변수만 호이스팅이 되기 때문에 에러가 발생하면서 프로그램이 종료된다.
+다른 부분은 똑같이 undefined가 나옴을 알 수 있다.</p>
+
+    <p><img src="https://user-images.githubusercontent.com/46602874/127588586-5ec5dcbd-9027-4549-bd2f-84e4a5e922a0.png" /></p>
+
+    <p>위 예시까지는 당연하다고 생각될 수 있는데,
+만약 함수에서 초기화가 같이 진행되면 어떨까?</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>undefined
+5
+undefined
+</code></pre></div>    </div>
+
+    <p>결과는 위와 같다.
+f1 함수는 그자체가 위로 호이스팅되기 때문에 제대로 된 값 5가 나온다.
+f2는 식별자가 호이스팅되기 때문에 undefined로 나옴을 알 수 있다.</p>
+  </li>
+</ol>
+
+<h3 id="tdztemporal-dead-zone">TDZ(Temporal Dead Zone)</h3>
+
+<p>TDZ는 scope의 초기화되기 전까지의 구간을 말한다.
+즉, 선언 전에 변수를 사용(참조)하는 것을 비허용하는 개념상의 공간을 뜻한다.</p>
+
+<p>let은 선언 전, 실행 컨텍스트 변수 객체에 등록되어 호이스팅이 진행되지만,
+TDZ 구간에 의해 메모리 할당이 되지 않아 참조 에러가 발생한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//전역 변수</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">//ReferenceError: 정의되지 않음</span>
+  <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// 지역변수 a 선언</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>난 당연히 에러가 안 날 것이라고 생각했는데,(전역변수가 앞에 있으니까)
+지역 변수 앞에서 참조해서 에러가 발생하는 걸 볼 수 있다.
+이 부분의 경우, 지역변수 a가 호이스팅되면서 TDZ구간이 만들어졌기 때문이라고 한다.</p>
+
+<p>function 같은 경우는 변수선언 3단계를 동시에 진행해버린다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-07-20T00:00:00+09:00">July 20, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Javascript+%EB%B3%80%EC%88%98+var%2C+let%2C+const+%26+TDZ%28Temporal+Dead+Zone%29%20https%3A%2F%2Fh3yon.github.io%2Fjavascript%2Fjavascript1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fh3yon.github.io%2Fjavascript%2Fjavascript1%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fh3yon.github.io%2Fjavascript%2Fjavascript1%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/javascript/javascript/" class="pagination--pager" title="Javascript 기초지식
+">Previous</a>
+    
+    
+      <a href="/javascript/javascript2/" class="pagination--pager" title="Javascript 배우기
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/jenkins-ec2/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/jenkins-ec2-master/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/javascript-again2/" rel="permalink">[Javascript]자바스크립트 Again2
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again2
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/javascript-again/" rel="permalink">[Javascript]자바스크립트 Again
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 h3yon Developer. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://h3yon.github.io/javascript/javascript1/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/javascript/javascript1"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://h3yon-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

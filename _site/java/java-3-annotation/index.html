@@ -1,0 +1,713 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>어노테이션 정리 - 개구리의 깃허브 블로그</title>
+<meta name="description" content="Slf4j, ManyToOne, …">
+
+
+  <meta name="author" content="🐸 SW developer">
+  
+  <meta property="article:author" content="🐸 SW developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="개구리의 깃허브 블로그">
+<meta property="og:title" content="어노테이션 정리">
+<meta property="og:url" content="https://h3yon.github.io/java/java-3-annotation/">
+
+
+  <meta property="og:description" content="Slf4j, ManyToOne, …">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-06-06T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://h3yon.github.io/java/java-3-annotation/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "h3yon Developer",
+      "url": "https://h3yon.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개구리의 깃허브 블로그 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개구리의 깃허브 블로그
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://h3yon.github.io/">블로그 방문하기</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/Java/">Java</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://h3yon.github.io/">
+        <img src="/assets/images/profile.jpeg" alt="🐸 SW developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://h3yon.github.io/" itemprop="url">🐸 SW developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>🌿성장하는 개구리 개발자 h3yon입니다!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="khykhy1006@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://h3yon.shop" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="어노테이션 정리">
+    <meta itemprop="description" content="Slf4j, ManyToOne, …">
+    <meta itemprop="datePublished" content="2021-06-06T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://h3yon.github.io/java/java-3-annotation/" class="u-url" itemprop="url">어노테이션 정리
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#slf4j">Slf4j</a></li><li><a href="#restcontroller">RestController</a></li><li><a href="#requiredargsconstructor">RequiredArgsConstructor</a></li><li><a href="#jsonbackreference">JsonBackReference</a></li><li><a href="#manytoonefetch--fetchtypelazy">ManyToOne(fetch = FetchType.LAZY)</a></li><li><a href="#joincolumnname--post_id">JoinColumn(name = “post_id”)</a></li><li><a href="#builder">Builder</a></li><li><a href="#manytoone의-속성">ManyToOne의 속성</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h3 id="slf4j">Slf4j</h3>
+
+<p>: 1. Slf4j: redirect logging</p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0f45c0bf-23c9-4771-9b0e-6beba99710f7/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0f45c0bf-23c9-4771-9b0e-6beba99710f7/Untitled.png" /></p>
+
+<p><a href="https://gmlwjd9405.github.io/2019/01/04/logging-with-slf4j.html">https://gmlwjd9405.github.io/2019/01/04/logging-with-slf4j.html</a></p>
+
+<p>→ SLF4J Bridging Modules: 다른 로깅 API로의 로거 호출을 SLF4J 인터페이스로 연결(redirect)하여 SLF4J API가 대신 처리할 수 있도록 하는 일종의 어댑터 역할을 하는 라이브러리
+→ SLF4J API: <strong>로깅</strong>에 대한 추상 레이어를 제공, 사용자가 이 인터페이스를 통해 logging 코드를 작성
+→ SLF4J 특징: 배포시 Logging Framework 선택 가능, 빠른 속도로 작동, 널리 사용되는 Logging Framework를 위한 바인딩 제공(log4j, java.util.logging, 단순 로깅 및 NOP 지원), Bridging legacy logging API(리디렉션하는 여러 Bridging Modules 제공), Migrate your source code(소스 마이그레이션 가능), 매개 변수화된 로그 메시지 지원</p>
+
+<p>→ 퍼사드패턴: 여러 개의 클래스가 하나의 역할을 수행할 때, 대표적인 인터페이스만을 다루는 클래스를 두어 기능을 처리할 수 있게 도와주는 패턴</p>
+
+<ul>
+  <li>퍼사드에 요청을 전송하여 서브시스템과 통신하여 퍼사드는 해당 요청을 적절한 서브시스템 객체로 전달함</li>
+  <li>퍼사드를 사용하는 클라이언트는 서브시스템 객체에 직접 액세스할 필요가 없다.</li>
+</ul>
+
+<h3 id="restcontroller">RestController</h3>
+
+<p>: 1. Slf4j: redirect logging</p>
+
+<ul>
+  <li>@Controller 어노테이션과 @ResponseBody 어노테이션을 합쳐놓은 어노테이션,</li>
+  <li>메서드마다 @ResponseBody를 붙여주지 않아도 된다.</li>
+</ul>
+
+<h3 id="requiredargsconstructor">RequiredArgsConstructor</h3>
+
+<p>: 초기화 되지않은 final 필드나, @NonNull 이 붙은 필드에 대해 생성자를 생성</p>
+
+<script src="https://gist.github.com/h3yon/ca42231b6561feb843581b42ba8638f3.js"></script>
+
+<ul>
+  <li>이 자바 파일을 컴파일 돌리면?
+<script src="https://gist.github.com/h3yon/1f2b5be40c69cb8a10ba21fc37c24897.js"></script>
+→ 클래스파일에 생성자가 생성
+→ 3개의 리포지토리 = 빈으로 등록이 가능한 존재로 @Autowired 어노테이션 없이 의존성 주입이 이루어짐</li>
+</ul>
+
+<h3 id="jsonbackreference">JsonBackReference</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* 순환 참조를 방어하기 위함(자식 클래스에 넣음) - post_id를 함께 가지고 있으니까
+* Member를 조회할 때 Team도 함께 조회 해야 할까?
+* 비즈니스 로직에서 단순히 멤버 로직만 사용하는데 함께 조회하면, 아무리 연관관계가 걸려있다고 해도 손해이다.
+* JPA는 이 문제를 지연로딩 LAZY를 사용해서 프록시로 조회하는 방법으로 해결 한다.
+</code></pre></div></div>
+
+<h3 id="manytoonefetch--fetchtypelazy">ManyToOne(fetch = FetchType.LAZY)</h3>
+
+<p>: 지연로딩. 실무에서 주로 쓰임
+_ 이 말은 회원엔티티를 조회할때 팀회원을 같이 데이터베이스에서 가져오지 않고,
+_ MemberFetchTypeLazy.getTeam() 으로 실제로 팀엔티티가 사용될 때
+_ 데이터베이스에서 해당 엔티티를 조회해오는 것이다.
+_ 출처: https://coding-start.tistory.com/82 [코딩스타트]</p>
+
+<h3 id="joincolumnname--post_id">JoinColumn(name = “post_id”)</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* @MapsId 는 Many-to-One에서 외래키를 지정할 때 사용
+ * @JoinColumn 어노테이션은 외래 키를 매핑할 때 사용하는 어노테이션
+ * &gt; name: 매핑할 외래키의 이름을 지정할 때 postpostid(필드명/postid)
+ * &gt; unique, nullable, insertable, updatable, table, columnDefinition
+</code></pre></div></div>
+
+<h3 id="builder">Builder</h3>
+
+<dl>
+  <dt>: getter, setter, 객체 만들어서 name, age(this.name = name;) 이런 식으로 가능</dt>
+  <dd>상위 User 클래스에서 빌더에도 디폴트 적용하고 싶으면 @Builder.Default</dd>
+</dl>
+
+<h3 id="manytoone의-속성">ManyToOne의 속성</h3>
+
+<p>: optional = true: 객체에 null이 들어갈 수 있다.</p>
+
+<ul>
+  <li>@column 어노테이션에서도 nullable=true → Null허용</li>
+</ul>
+
+<dl>
+  <dt>: fetch - EAGER 관련된 엔티티를 바로 로딩. LAZY를 바로 로딩하지 않고 객체 조회할 때 엔티티 로딩</dt>
+  <dd>cascade: 영속성 전이 설정을 할 수 있다.</dd>
+  <dd>targetEntity - 연관된 엔터티의 타입 저옵를 설정하는데 거의 사용하지 않는다.</dd>
+</dl>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f12366aa-2f70-43a7-9b78-11e29992c939/Untitled.png" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f12366aa-2f70-43a7-9b78-11e29992c939/Untitled.png" /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#java" class="page__taxonomy-item p-category" rel="tag">Java</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#java" class="page__taxonomy-item p-category" rel="tag">Java</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-06-06T00:00:00+09:00">June 6, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EC%96%B4%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98+%EC%A0%95%EB%A6%AC%20https%3A%2F%2Fh3yon.github.io%2Fjava%2Fjava-3-annotation%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fh3yon.github.io%2Fjava%2Fjava-3-annotation%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fh3yon.github.io%2Fjava%2Fjava-3-annotation%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/java/java-2-lombok/" class="pagination--pager" title="JAVA#2 Lambok
+">Previous</a>
+    
+    
+      <a href="/java/java-4-swagger/" class="pagination--pager" title="Swagger 적용
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/jenkins-ec2/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/jenkins-ec2-master/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/javascript-again2/" rel="permalink">[Javascript]자바스크립트 Again2
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again2
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/javascript-again/" rel="permalink">[Javascript]자바스크립트 Again
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 h3yon Developer. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://h3yon.github.io/java/java-3-annotation/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/java/java#3-annotation"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://h3yon-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

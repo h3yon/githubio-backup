@@ -1,0 +1,754 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기 - 개구리의 깃허브 블로그</title>
+<meta name="description" content="AWS EC2와 Jenkins를 연동해보자">
+
+
+  <meta name="author" content="🐸 SW developer">
+  
+  <meta property="article:author" content="🐸 SW developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="개구리의 깃허브 블로그">
+<meta property="og:title" content="[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기">
+<meta property="og:url" content="https://h3yon.github.io/jenkins/jenkins-ec2/">
+
+
+  <meta property="og:description" content="AWS EC2와 Jenkins를 연동해보자">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-09-15T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://h3yon.github.io/jenkins/jenkins-ec2/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "h3yon Developer",
+      "url": "https://h3yon.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개구리의 깃허브 블로그 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개구리의 깃허브 블로그
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://h3yon.github.io/">블로그 방문하기</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/Java/">Java</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://h3yon.github.io/">
+        <img src="/assets/images/profile.jpeg" alt="🐸 SW developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://h3yon.github.io/" itemprop="url">🐸 SW developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>🌿성장하는 개구리 개발자 h3yon입니다!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="khykhy1006@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://h3yon.shop" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기">
+    <meta itemprop="description" content="AWS EC2와 Jenkins를 연동해보자">
+    <meta itemprop="datePublished" content="2021-09-15T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://h3yon.github.io/jenkins/jenkins-ec2/" class="u-url" itemprop="url">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#1-aws-ec2-ubuntu에-jenkins를-연동해보자">1. AWS EC2 Ubuntu에 Jenkins를 연동해보자</a><ul><li><a href="#관련-패키지-설치">관련 패키지 설치</a></li><li><a href="#jenkins-실행">Jenkins 실행</a></li><li><a href="#jenkins-관련-설정">Jenkins 관련 설정</a></li><li><a href="#jenkins-접속">Jenkins 접속</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h3 id="1-aws-ec2-ubuntu에-jenkins를-연동해보자">1. AWS EC2 Ubuntu에 Jenkins를 연동해보자</h3>
+
+<h4 id="관련-패키지-설치">관련 패키지 설치</h4>
+
+<ol>
+  <li>
+    <p>Jenkins 설치를 위해 Repository key 추가</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>서버의 sources.list에 Jenkins 패키지 저장소를 추가</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ &gt; \
+    /etc/apt/sources.list.d/jenkins.list'
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>패키지 업데이트 및 Jenkins 설치</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get update
+$ sudo apt-get install jenkins
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Java JDK 8 설치</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install openjdk-8-jdk
+$ java -version
+</code></pre></div>    </div>
+    <p><code class="language-plaintext highlighter-rouge">java -version</code>으로 1.8.0_*이 뜨는지 확인한다.</p>
+  </li>
+</ol>
+
+<h4 id="jenkins-실행">Jenkins 실행</h4>
+
+<p>아래 명령어로 젠킨스를 실행하고,<br />
+상태를 체크해본다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start jenkins
+$ sudo systemctl status jenkins
+</code></pre></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/133364949-3a21085d-4445-402d-b12f-7e553bbdaad1.png" /></p>
+
+<p>위의 이미지처럼 상태가 잘 나타남을 알 수 있다.</p>
+
+<h4 id="jenkins-관련-설정">Jenkins 관련 설정</h4>
+
+<ul>
+  <li>
+    <p>Jenkins 포트 변경</p>
+
+    <p><img src="https://user-images.githubusercontent.com/46602874/133365091-60f1d9d6-14e8-423d-8230-25196710ede1.png" /></p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ sudo vi /etc/default/jenkins
+</code></pre></div>    </div>
+    <p>jenkins 부분을 vi 편집기로 열어서<br />
+  <code class="language-plaintext highlighter-rouge">HTTP_PORT=[다른 포트 번호]</code>로 바꿔준다.<br />
+  8080을 많이 사용하다보니 충돌이 일어날 것 같기 때문이다.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl restart jenkins
+</code></pre></div>    </div>
+
+    <p>위의 명령어로 Jenkins를 재실행해준다.</p>
+  </li>
+  <li>
+    <p>방화벽 설정</p>
+
+    <p>ufw를 사용하여 9090 포트로 접근 가능하게 한다.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo ufw allow 9090
+$ sudo ufw status
+</code></pre></div>    </div>
+
+    <p>만약 아래처럼 inactive가 나타나면<br />
+ 아래처럼 따라해주자</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo ufw status
+Status: inactive
+$ sudo ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)?y
+Firewall is active and enabled on system startup
+$ sudo ufw allow 443 # 이 부분은 선택적으로! 저는 80, 443 추가해주었습니다
+$ sudo ufw status
+</code></pre></div>    </div>
+
+    <p>그럼 status에서 80, 443, 9090 등 잘 추가된 부분을 확인할 수 있다.</p>
+
+    <ul>
+      <li>추가
+<img src="https://user-images.githubusercontent.com/46602874/133367016-ee87620a-24dc-47ff-8032-7124b7c6af70.png" /></li>
+    </ul>
+
+    <p>혹시 접속하려는 젠킨스 포트가 인바운드 규칙에<br />
+추가되어 있지 않다면 꼭 추가해주자</p>
+  </li>
+</ul>
+
+<h4 id="jenkins-접속">Jenkins 접속</h4>
+
+<p><code class="language-plaintext highlighter-rouge">http://(public IP or hostname):9090</code>으로 접속하면<br />
+아래와 같은 화면이 나온다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/133367143-63d31f03-0c91-4a21-9fab-5db6efc2eb36.png" /></p>
+
+<p>비밀번호를 알아야되기 때문에 사진에 나온 것처럼<br />
+아래의 명령어로 비밀번호를 알아내고 넣어주자.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+aaabdc~~
+</code></pre></div></div>
+
+<p>그럼 다음 화면으로<br />
+플러그인 설치 화면이 나온다.<br />
+대충 왼쪽 부분을 눌러주자.</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/133367376-76cc42a3-8146-474b-bb9c-86fc453ad2b9.png" /></p>
+
+<p>Create First Admin User이 나오고,<br />
+앞으로 로그인해야되기 때문에<br />
+많이 사용하는 계정 정보를 넣어주자</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/133370174-7c42b0fc-04e3-4f36-a672-7f72e56cd804.png" /></p>
+
+<p>그럼 이렇게 잘 접속됨을 확인할 수 있다!</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/133370432-073fec58-49fe-4cfe-bca5-3175395aa95e.png" /></p>
+
+<p>출처: https://imbf.github.io/devops/2020/11/26/Install-Jenkins-in-Ubuntu(18.04).html</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#jenkins" class="page__taxonomy-item p-category" rel="tag">Jenkins</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#jenkins" class="page__taxonomy-item p-category" rel="tag">Jenkins</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-09-15T00:00:00+09:00">September 15, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BJenkins%5DAWS+EC2+Ubuntu%EC%97%90+Jenkins+%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0%20https%3A%2F%2Fh3yon.github.io%2Fjenkins%2Fjenkins-ec2%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fh3yon.github.io%2Fjenkins%2Fjenkins-ec2%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fh3yon.github.io%2Fjenkins%2Fjenkins-ec2%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/jenkins/jenkins-ec2-master/" class="pagination--pager" title="[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/jenkins-ec2-master/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/javascript-again2/" rel="permalink">[Javascript]자바스크립트 Again2
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again2
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/javascript-again/" rel="permalink">[Javascript]자바스크립트 Again
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/it/revert-commit/" rel="permalink">[Github]커밋 되돌리기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Github]커밋 되돌리기
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 h3yon Developer. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://h3yon.github.io/jenkins/jenkins-ec2/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/jenkins/jenkins-ec2"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://h3yon-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

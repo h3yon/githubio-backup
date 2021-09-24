@@ -1,0 +1,737 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[node.js]http2 적용과 발생한 에러 - 개구리의 깃허브 블로그</title>
+<meta name="description" content="[node.js]http2 적용과 발생한 에러">
+
+
+  <meta name="author" content="🐸 SW developer">
+  
+  <meta property="article:author" content="🐸 SW developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="개구리의 깃허브 블로그">
+<meta property="og:title" content="[node.js]http2 적용과 발생한 에러">
+<meta property="og:url" content="https://h3yon.github.io/javascript/http2/">
+
+
+  <meta property="og:description" content="[node.js]http2 적용과 발생한 에러">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-24T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://h3yon.github.io/javascript/http2/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "h3yon Developer",
+      "url": "https://h3yon.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개구리의 깃허브 블로그 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개구리의 깃허브 블로그
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://h3yon.github.io/">블로그 방문하기</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/Java/">Java</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://h3yon.github.io/">
+        <img src="/assets/images/profile.jpeg" alt="🐸 SW developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://h3yon.github.io/" itemprop="url">🐸 SW developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>🌿성장하는 개구리 개발자 h3yon입니다!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="khykhy1006@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://h3yon.shop" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[node.js]http2 적용과 발생한 에러">
+    <meta itemprop="description" content="[node.js]http2 적용과 발생한 에러">
+    <meta itemprop="datePublished" content="2021-08-24T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://h3yon.github.io/javascript/http2/" class="u-url" itemprop="url">[node.js]http2 적용과 발생한 에러
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#nodejshttp2-적용과-발생한-에러">[node.js]http2 적용과 발생한 에러</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h3 id="nodejshttp2-적용과-발생한-에러">[node.js]http2 적용과 발생한 에러</h3>
+
+<p>리액트 웹페이지에 적용시킬
+백엔드 서버를 구동하는 코드를 원래는 아래처럼 작성해놓았었다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="nx">index</span><span class="p">.</span><span class="nx">js</span>
+<span class="p">...</span>
+<span class="nx">express</span><span class="p">().</span><span class="nx">listen</span><span class="p">(</span><span class="nx">PORT</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">NODE_ENV</span><span class="p">}</span><span class="s2"> - API Server Start At Port </span><span class="p">${</span><span class="nx">PORT</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>http2의 장점을 알고,
+해당 코드를 http2로 변경해주었다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">./config/express</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="p">{</span> <span class="nx">readFileSync</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">fs</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">http2</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">http2</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="p">{</span> <span class="nx">NODE_ENV</span><span class="p">,</span> <span class="nx">PORT</span><span class="p">,</span> <span class="nx">SSL_CERT_PATH</span><span class="p">,</span> <span class="nx">SSL_KEY_PATH</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">allowHTTP1</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">cert</span><span class="p">:</span> <span class="nx">readFileSync</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="nx">SSL_CERT_PATH</span><span class="p">),</span>
+  <span class="na">key</span><span class="p">:</span> <span class="nx">readFileSync</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="nx">SSL_KEY_PATH</span><span class="p">),</span>
+<span class="p">};</span>
+
+<span class="nx">http2</span><span class="p">.</span><span class="nx">createSecureServer</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">express</span><span class="p">()).</span><span class="nx">listen</span><span class="p">(</span><span class="nx">PORT</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">NODE_ENV</span><span class="p">}</span><span class="s2"> - API Server Start At Port </span><span class="p">${</span><span class="nx">PORT</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>cert와 key를 발급하는 방법은 검색하면 나온다.
+이렇게 쓸 줄 알았으면 정리해놓을 걸 그랬다ㅎㅎ
+process.env도 잘 모르는 분들은 dotenv를 검색해보면 될 것 같습니다.</p>
+
+<p>이렇게 구성해놓으면 아래처럼 postman에서는 결과가 잘 뿌려지는 걸 확인할 수 있다.</p>
+
+<p>&lt;img src=https://user-images.githubusercontent.com/46602874/130570176-61335751-30dc-498e-bf9b-b51245906841.png&gt;</p>
+
+<p>그런데 웹페이지를 들어가보면 아래처럼 통신이 잘 되지 않는 모습을 확인할 수 있다.</p>
+
+<p>&lt;img src=https://user-images.githubusercontent.com/46602874/130570474-3a480ef1-f696-4699-b332-267e41f9b711.png&gt;</p>
+
+<p>또, https://localhost:4000 으로 직접 들어가면 아래처럼 에러 메시지가 뜨고,
+갑자기 서버가 꺼지는 걸 알 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">development</span> <span class="o">-</span> <span class="nx">API</span> <span class="nx">Server</span> <span class="nx">Start</span> <span class="nx">At</span> <span class="nx">Port</span> <span class="mi">4000</span>
+<span class="nx">_http_incoming</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">120</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">socket</span><span class="p">.</span><span class="nx">readable</span><span class="p">)</span>
+                  <span class="o">^</span>
+
+<span class="nx">TypeError</span><span class="p">:</span> <span class="nx">Cannot</span> <span class="nx">read</span> <span class="nx">property</span> <span class="dl">'</span><span class="s1">readable</span><span class="dl">'</span> <span class="k">of</span> <span class="kc">undefined</span>
+    <span class="nx">at</span> <span class="nx">IncomingMessage</span><span class="p">.</span><span class="nx">_read</span> <span class="p">(</span><span class="nx">_http_incoming</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">120</span><span class="p">:</span><span class="mi">19</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">IncomingMessage</span><span class="p">.</span><span class="nx">Readable</span><span class="p">.</span><span class="nx">read</span> <span class="p">(</span><span class="nx">internal</span><span class="o">/</span><span class="nx">streams</span><span class="o">/</span><span class="nx">readable</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">462</span><span class="p">:</span><span class="mi">10</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">resume_</span> <span class="p">(</span><span class="nx">internal</span><span class="o">/</span><span class="nx">streams</span><span class="o">/</span><span class="nx">readable</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">958</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">processTicksAndRejections</span> <span class="p">(</span><span class="nx">internal</span><span class="o">/</span><span class="nx">process</span><span class="o">/</span><span class="nx">task_queues</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">82</span><span class="p">:</span><span class="mi">21</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a href="https://javascript.plainenglish.io/serving-hello-world-with-http2-and-express-js-4dd0ffe76860">에러 해결 위한 링크1</a></p>
+
+<p>위의 링크에서 http2-express-bridge에 대한 이야기를 해주었고,
+config의 express.js에서 <code class="language-plaintext highlighter-rouge">http2-express-bridge</code>모듈을 사용하였다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="nx">config</span><span class="o">/</span><span class="nx">express</span><span class="p">.</span><span class="nx">js</span>
+
+<span class="p">...</span>
+<span class="kd">const</span> <span class="nx">http2Express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">http2-express-bridge</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">http2Express</span><span class="p">(</span><span class="nx">express</span><span class="p">);</span>
+  <span class="c1">// express();</span>
+
+  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">compression</span><span class="p">());</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+
+  <span class="p">...</span>
+
+</code></pre></div></div>
+
+<p>그런데 에러는 해결되지 않았고
+이번에는 또 아래의 에러가 나타났다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">103</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_implicitHeader</span><span class="p">()</span>
+             <span class="o">^</span>
+
+<span class="nx">TypeError</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">_implicitHeader</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">a</span> <span class="kd">function</span>
+    <span class="nx">at</span> <span class="nx">Http2ServerResponse</span><span class="p">.</span><span class="nx">end</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">we</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">user</span><span class="o">/</span><span class="nx">git</span><span class="o">-</span><span class="nx">node</span><span class="o">-</span><span class="nx">board</span><span class="o">/</span><span class="nx">server</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">compression</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">103</span><span class="p">:</span><span class="mi">14</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">write</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">we</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">user</span><span class="o">/</span><span class="nx">git</span><span class="o">-</span><span class="nx">node</span><span class="o">-</span><span class="nx">board</span><span class="o">/</span><span class="nx">server</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">finalhandler</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">297</span><span class="p">:</span><span class="mi">9</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">listener</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">we</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">user</span><span class="o">/</span><span class="nx">git</span><span class="o">-</span><span class="nx">node</span><span class="o">-</span><span class="nx">board</span><span class="o">/</span><span class="nx">server</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">on</span><span class="o">-</span><span class="nx">finished</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">169</span><span class="p">:</span><span class="mi">15</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">onFinish</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">we</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">user</span><span class="o">/</span><span class="nx">git</span><span class="o">-</span><span class="nx">node</span><span class="o">-</span><span class="nx">board</span><span class="o">/</span><span class="nx">server</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">on</span><span class="o">-</span><span class="nx">finished</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">100</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">callback</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">we</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">user</span><span class="o">/</span><span class="nx">git</span><span class="o">-</span><span class="nx">node</span><span class="o">-</span><span class="nx">board</span><span class="o">/</span><span class="nx">server</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">ee</span><span class="o">-</span><span class="nx">first</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">10</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">Http2ServerRequest</span><span class="p">.</span><span class="nx">onevent</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">we</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">user</span><span class="o">/</span><span class="nx">git</span><span class="o">-</span><span class="nx">node</span><span class="o">-</span><span class="nx">board</span><span class="o">/</span><span class="nx">server</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">ee</span><span class="o">-</span><span class="nx">first</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">93</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>한 2시간 동안 계속 검색한 것 같다…
+이 에러를 고치기 위해서는
+일단 node_modules/compression/index.js로 들어간다.</p>
+
+<p><a href="https://github.com/expressjs/compression/pull/127/commits/dbf7e73fee65375ae3ee10a75344481e44f63994">에러 해결 위한 링크2</a></p>
+
+<p>위의 링크에 나와있는 것처럼,
+<code class="language-plaintext highlighter-rouge">// 0824 변경</code> 아래 부분으로 바꿔준다.</p>
+
+<p>&lt;img src=https://user-images.githubusercontent.com/46602874/130571254-5fa03226-ccb5-4e4b-aa01-348c26d287b6.png&gt;</p>
+
+<p>그럼 백엔드단 api 링크로 들어갔을 때,
+잘 나오는 모습을 알 수 있다.</p>
+
+<p>&lt;img src=https://user-images.githubusercontent.com/46602874/130571419-529ef2e7-8d89-41de-8511-eb81e7916448.png&gt;</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#http2" class="page__taxonomy-item p-category" rel="tag">http2</a><span class="sep">, </span>
+    
+      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-08-24T00:00:00+09:00">August 24, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5Bnode.js%5Dhttp2+%EC%A0%81%EC%9A%A9%EA%B3%BC+%EB%B0%9C%EC%83%9D%ED%95%9C+%EC%97%90%EB%9F%AC%20https%3A%2F%2Fh3yon.github.io%2Fjavascript%2Fhttp2%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fh3yon.github.io%2Fjavascript%2Fhttp2%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fh3yon.github.io%2Fjavascript%2Fhttp2%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/java/spring-naver-login/" class="pagination--pager" title="스프링부트 Naver Login 구현하기
+">Previous</a>
+    
+    
+      <a href="/java/JAVA/" class="pagination--pager" title="[Java]자바의 정석 벼락치기
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/jenkins-ec2/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/jenkins-ec2-master/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/javascript-again2/" rel="permalink">[Javascript]자바스크립트 Again2
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again2
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/javascript-again/" rel="permalink">[Javascript]자바스크립트 Again
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 h3yon Developer. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://h3yon.github.io/javascript/http2/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/javascript/http2"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://h3yon-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
