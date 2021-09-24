@@ -1,5 +1,5 @@
 ---
-title: "You dont know js 챕터1,2 정복하기"
+title: "You dont know js up & going 정복하기"
 except: "you dont knnow js!"
 
 toc: true
@@ -11,7 +11,7 @@ tags:
   - Javascript
 ---
 
-### You dont know js 1st Edition 챕터1, 2 정복하기
+### You dont know js 1st Edition up & going 정복하기
 
 You dont know 책을 접해보게 되었는데,  
 뭔가 탄탄해보여서 읽어보기로 결정했다!
@@ -530,6 +530,25 @@ var el = document.getElementById("foo");
 ```
 
 또 입/출력이 있다.
+
+19. Hoisting 호이스팅
+
+위에서 호이스팅을 잠시 짚고 넘어갔다.  
+호이스팅은 함수 먼저 호이스팅된다.
+
+```javascript
+foo(); // 1
+
+var foo;
+
+function foo() {
+  console.log(1);
+}
+
+foo = function () {
+  console.log(2);
+};
+```
 
 #### 마지막 소감
 
