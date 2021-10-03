@@ -5,9 +5,9 @@ toc: true
 toc_sticky: true
 
 categories:
-  - Java
+  - Crawling
 tags:
-  - Java
+  - Crawling
 ---
 
 ## [TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 1주차 개발일지
