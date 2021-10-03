@@ -71,9 +71,9 @@ SpringcoreApplication에는
 
 ### DI, IoC
 
-    - DI(Dependency Injection) 이미 생성된 객체를 가져오는 작업
-    - IoC(Inversion of Control) 보통 자신이 필요한 객체를 생성해서 
-      사용하는 것이 일반적인데, 필요한 객체 요청하면 쥐어지는 것
+  - DI(Dependency Injection) 이미 생성된 객체를 가져오는 작업
+  - IoC(Inversion of Control) 보통 자신이 필요한 객체를 생성해서 
+    사용하는 것이 일반적인데, 필요한 객체 요청하면 쥐어지는 것
 
 ### 빈, 컨테이너
 
