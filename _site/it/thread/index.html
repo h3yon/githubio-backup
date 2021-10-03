@@ -318,32 +318,32 @@
 <h3 id="스레드-사용">스레드 사용</h3>
 
 <ol>
-  <li>안전성 위해 요소</li>
-</ol>
+  <li>
+    <p>안전성 위해 요소</p>
 
-<p>UnsafeSequence는 비표준 어노테이션인 @NotThreadSafe를 사용.(@ThreadSafe와 @Immutable도 존재)</p>
+    <p>UnsafeSequence는 비표준 어노테이션인 @NotThreadSafe를 사용.(@ThreadSafe와 @Immutable도 존재)</p>
 
-<ul>
-  <li>@Immutable은 해당 클래스가 불변 클래스임을 나타내기 때문에 ThreadSafe</li>
-</ul>
+    <ul>
+      <li>@Immutable은 해당 클래스가 불변 클래스임을 나타내기 때문에 ThreadSafe</li>
+    </ul>
 
-<p>만약 @ThreadSafe라고 표시하면 클래스를 사용하는 사람은 멀티스레드 환경에서 문제가 없다는 점을 명확히 알 수 있고,
+    <p>만약 @ThreadSafe라고 표시하면 클래스를 사용하는 사람은 멀티스레드 환경에서 문제가 없다는 점을 명확히 알 수 있고,
 스레드 안전성이 계속 보장돼야 한다는 점에 주의할 수 있다.</p>
 
-<p>스레드는 같은 메모리 주소 공간을 공유하고 동시에 실행되기 때문에
+    <p>스레드는 같은 메모리 주소 공간을 공유하고 동시에 실행되기 때문에
 다른 스레드가 사용 중일지도 모르는 변수를 읽거나 수정할 수도 있다.</p>
 
-<p>다른 스레드간 통식방식보다 데이터 공유가 훨씬 쉬운 이점이 있지만,
+    <p>다른 스레드간 통식방식보다 데이터 공유가 훨씬 쉬운 이점이 있지만,
 경쟁 조건(race condition)의 위험성이 있다.</p>
 
-<p>멀티스레드 프로그램이 동작하는 모습을 생각하려면
+    <p>멀티스레드 프로그램이 동작하는 모습을 생각하려면
 스레드들이 서로 간섭하지 않도록 공유 변수에 접근하는 부분에 대해 적절하게 조율해야 한다.</p>
 
-<p>다행히 자바에서는 공유 변수 접근을 조율하기 위한 동기화 수단이 제공되고 있다.
+    <p>다행히 자바에서는 공유 변수 접근을 조율하기 위한 동기화 수단이 제공되고 있다.
 UnsafeSequenc를 바로 잡으려는 방법 가운데 하나를 보자
 getNext를 동기화된 메소드로 만들면 문제가 해결된다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ThreadSafe</span>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ThreadSafe</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sequence</span> <span class="o">{</span>
   <span class="nd">@GuardedBy</span><span class="o">(</span><span class="s">"this"</span><span class="o">)</span> <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
   <span class="c1">// @GuardedBy(lock) 어노테이션은 해당 필드나 메소드를 사용하려면 반드시 지정된 락을 확보한 상태에서 사용해야 한다는 점을 의미 (출처: https://aroundck.tistory.com/3423)</span>
@@ -353,16 +353,15 @@ getNext를 동기화된 메소드로 만들면 문제가 해결된다.</p>
     <span class="k">return</span> <span class="n">value</span><span class="o">;</span>
   <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>
+</code></pre></div>    </div>
 
-<p>동기화를 하지 않으면 실행 시점이나 순서를 자유롭게 조정할 수 있다.
+    <p>동기화를 하지 않으면 실행 시점이나 순서를 자유롭게 조정할 수 있다.
 레지스터나 캐시 메모리에 변수를 캐시해둘 수도 있다.(다른 스레드에 보이지 X)</p>
 
-<p>이런 요령은 성능을 향상하는 데 도움이 되고 바람직하기도 하지만,
+    <p>이런 요령은 성능을 향상하는 데 도움이 되고 바람직하기도 하지만,
 최적화 작업 때문에 프로그램에 오류가 발생하지 않도록
 스레드 간에 데이터가 공유되고 있는지를 명확하게 구분해줘야 하는 부담이 있다.</p>
-
-<ol>
+  </li>
   <li>
     <p>활동성 위험
 스레드를 사용할 때에는 단일 스레드에서는 나타나지 않는 활동성 장애 위험이 있다.
@@ -470,6 +469,126 @@ getNext를 동기화된 메소드로 만들면 문제가 해결된다.</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/java/TIL%EC%A0%95%EB%A6%AC/" rel="permalink">[TIL]스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[TIL] 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/you-dont-know-js/" rel="permalink">You dont know js up &amp; going 정복하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">You dont know js 1st Edition up &amp; going 정복하기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/h2-error/" rel="permalink">h2 database 에러 해결하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">h2 Database not found
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/jenkins/jenkins-ec2/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
 </a>
       
@@ -496,126 +615,6 @@ getNext를 동기화된 메소드로 만들면 문제가 해결된다.</p>
 
 
     <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/jenkins/jenkins-ec2-master/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/javascript/javascript-again2/" rel="permalink">[Javascript]자바스크립트 Again2
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          5 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again2
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/javascript/javascript-again/" rel="permalink">[Javascript]자바스크립트 Again
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          4 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again
 </p>
   </article>
 </div>

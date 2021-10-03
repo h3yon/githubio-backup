@@ -136,3 +136,5 @@ Create First Admin User이 나오고,
 <img src="https://user-images.githubusercontent.com/46602874/133370432-073fec58-49fe-4cfe-bca5-3175395aa95e.png">
 
 출처: https://imbf.github.io/devops/2020/11/26/Install-Jenkins-in-Ubuntu(18.04).html
+
+(추가)nodejs, jenkins ec2 환경 구축 시 참고하면 좋은 부분: https://velog.io/@dlawogus/AWS-ec2-%EC%84%9C%EB%B2%84-%EB%93%B1%EB%A1%9D

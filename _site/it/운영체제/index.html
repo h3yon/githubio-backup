@@ -306,20 +306,20 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#멀티-프로세스--ipc--세마포어뮤텍스">멀티 프로세스 &amp; IPC &amp; 세마포어,뮤텍스</a><ul><li><a href="#컨텍스트-스위칭">컨텍스트 스위칭</a></li><li><a href="#멀티-프로세스">멀티 프로세스</a></li><li><a href="#ipc">IPC</a></li><li><a href="#세마포어">세마포어</a><ul><li><a href="#뮤텍스와-세마포어">뮤텍스와 세마포어</a></li></ul></li><li><a href="#페이지-폴트">페이지 폴트</a></li></ul></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#멀티-프로세스--ipc--세마포어뮤텍스">멀티 프로세스 &amp; IPC &amp; 세마포어,뮤텍스</a></li><li><a href="#컨텍스트-스위칭">컨텍스트 스위칭</a></li><li><a href="#멀티-프로세스">멀티 프로세스</a></li><li><a href="#ipc">IPC</a></li><li><a href="#세마포어">세마포어</a></li><li><a href="#뮤텍스와-세마포어">뮤텍스와 세마포어</a></li><li><a href="#페이지-폴트">페이지 폴트</a></li></ul>
 
             </nav>
           </aside>
         
-        <h3 id="멀티-프로세스--ipc--세마포어뮤텍스">멀티 프로세스 &amp; IPC &amp; 세마포어,뮤텍스</h3>
+        <h2 id="멀티-프로세스--ipc--세마포어뮤텍스">멀티 프로세스 &amp; IPC &amp; 세마포어,뮤텍스</h2>
 
 <p>출처: <a href="https://github.com/zhsks528/neulsang/blob/c952892547bc2db5fb7f0cadb3b49096a8d62948/content/blog/multi%20process%20vs%20multi%20thread/index.md">multi process vs multi thread</a></p>
 
-<h5 id="컨텍스트-스위칭">컨텍스트 스위칭</h5>
+<h2 id="컨텍스트-스위칭">컨텍스트 스위칭</h2>
 
 <p>한 task가 끝날 때까지 기다리는 게 아니라 여러 작업을 번갈아가며 동시에 처리한다. 인터럽트 발생 시 프로세스 상태를 PCB에 저장하고 새로운 프로세스 상태를 레지스터에 저장한다. 이때 CPU는 아무런 일을 하지 않기 때문에 잦은 컨텍스트 스위칭은 성능저하를 야기한다.</p>
 
-<h5 id="멀티-프로세스">멀티 프로세스</h5>
+<h2 id="멀티-프로세스">멀티 프로세스</h2>
 
 <ul>
   <li>장점
@@ -344,7 +344,7 @@
   </li>
 </ul>
 
-<h5 id="ipc">IPC</h5>
+<h2 id="ipc">IPC</h2>
 
 <p>프로세스 간의 통신 방법을 제공한다.</p>
 
@@ -418,7 +418,7 @@
   </li>
 </ol>
 
-<h5 id="세마포어">세마포어</h5>
+<h2 id="세마포어">세마포어</h2>
 
 <p>스레드 간 전역 변수를 공유하다 보면 동기화 이슈가 발생하는데,
 동기화 이슈 해결 방안에는</p>
@@ -429,7 +429,7 @@
 공유 변수에 대해서는 Exclusive Access 필요</p>
 </blockquote>
 
-<h6 id="뮤텍스와-세마포어">뮤텍스와 세마포어</h6>
+<h2 id="뮤텍스와-세마포어">뮤텍스와 세마포어</h2>
 
 <ul>
   <li>임계 영역에 대한 접근을 막기 위해 LOCKING 메커니즘이 필요하다.
@@ -445,7 +445,7 @@
   </li>
 </ul>
 
-<h5 id="페이지-폴트">페이지 폴트</h5>
+<h2 id="페이지-폴트">페이지 폴트</h2>
 
 <ul>
   <li>어떤 페이지가 실제 물리 메모리에 없을 때 일어나는 인터럽트</li>
@@ -541,6 +541,126 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/java/TIL%EC%A0%95%EB%A6%AC/" rel="permalink">[TIL]스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[TIL] 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/you-dont-know-js/" rel="permalink">You dont know js up &amp; going 정복하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">You dont know js 1st Edition up &amp; going 정복하기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/h2-error/" rel="permalink">h2 database 에러 해결하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">h2 Database not found
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/jenkins/jenkins-ec2/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
 </a>
       
@@ -567,126 +687,6 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/jenkins/jenkins-ec2-master/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/javascript/javascript-again2/" rel="permalink">[Javascript]자바스크립트 Again2
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          5 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again2
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/javascript/javascript-again/" rel="permalink">[Javascript]자바스크립트 Again
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          4 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again
 </p>
   </article>
 </div>

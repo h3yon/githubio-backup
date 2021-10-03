@@ -306,16 +306,16 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#nodejs의-orm-sequelize">Node.js의 ORM, sequelize</a><ul><li><a href="#orm이란">ORM이란?</a></li><li><a href="#sequelize-실습">sequelize 실습</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#nodejs의-orm-sequelize">Node.js의 ORM, sequelize</a></li><li><a href="#orm이란">ORM이란?</a></li><li><a href="#sequelize-실습">sequelize 실습</a></li></ul>
 
             </nav>
           </aside>
         
-        <h3 id="nodejs의-orm-sequelize">Node.js의 ORM, sequelize</h3>
+        <h2 id="nodejs의-orm-sequelize">Node.js의 ORM, sequelize</h2>
 
 <p>다들 ORM에 대해서 들어봤을 것 같다.</p>
 
-<h4 id="orm이란">ORM이란?</h4>
+<h2 id="orm이란">ORM이란?</h2>
 
 <blockquote>
   <p>Object-Relational Mapping으로 객체와 관계형 데이터베이스의 데이터를 매핑(연결)시켜주는 것</p>
@@ -340,14 +340,14 @@ Sequelize는 Postgres, MySQL, MariaDB, SQLite를 지원하는 Promise에 기반�
 
 <p>Node.js로의 sequelize를 한번 보면 될 것 같다.</p>
 
-<h4 id="sequelize-실습">sequelize 실습</h4>
+<h2 id="sequelize-실습">sequelize 실습</h2>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm i sequelize mysql2
 $ npm i -g sequelize-cli
 $ sequelize init
 </code></pre></div></div>
 
-<p>&lt;img src=https://user-images.githubusercontent.com/46602874/129175307-0b912a6e-79bd-46ea-b39f-239cf9ad8442.png&gt;</p>
+<p><img src="https://user-images.githubusercontent.com/46602874/129175307-0b912a6e-79bd-46ea-b39f-239cf9ad8442.png" /></p>
 
 <p>sequelize init을 하면
 위 사진처럼 필요한 파일들과 폴더들이 알아서 설치된다.
@@ -362,10 +362,10 @@ $ sequelize init
 간단하게 코드를 한번 살펴보고 실습을 진행해보자.</p>
 
 <ol>
-  <li>models/index.js</li>
-</ol>
+  <li>
+    <p>models/index.js</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">fs</span><span class="dl">"</span><span class="p">);</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">fs</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">path</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">Sequelize</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">sequelize</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">basename</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">basename</span><span class="p">(</span><span class="nx">__filename</span><span class="p">);</span>
@@ -374,14 +374,13 @@ $ sequelize init
 <span class="kd">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="p">{};</span>
 
 <span class="kd">let</span> <span class="nx">sequelize</span><span class="p">;</span>
-</code></pre></div></div>
+</code></pre></div>    </div>
 
-<p>NODE_ENV가 설정되어 있지 않다면 ‘development’로 진행됨을 알 수 있고,
+    <p>NODE_ENV가 설정되어 있지 않다면 ‘development’로 진행됨을 알 수 있고,
 config.json 파일의 환경에 맞게 config를 초기화해주는 것을 볼 수 있다.</p>
 
-<p>밑에 코드를 보면 db 객체에 sequelize 패키지, 객체를 넣고 모듈로 사용함을 알 수 있다.</p>
-
-<ol>
+    <p>밑에 코드를 보면 db 객체에 sequelize 패키지, 객체를 넣고 모듈로 사용함을 알 수 있다.</p>
+  </li>
   <li>
     <p>config/config.json</p>
 
@@ -506,6 +505,126 @@ config.json 파일의 환경에 맞게 config를 초기화해주는 것을 볼 �
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/java/TIL%EC%A0%95%EB%A6%AC/" rel="permalink">[TIL]스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[TIL] 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/you-dont-know-js/" rel="permalink">You dont know js up &amp; going 정복하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">You dont know js 1st Edition up &amp; going 정복하기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/h2-error/" rel="permalink">h2 database 에러 해결하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">h2 Database not found
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/jenkins/jenkins-ec2/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
 </a>
       
@@ -532,126 +651,6 @@ config.json 파일의 환경에 맞게 config를 초기화해주는 것을 볼 �
 
 
     <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/jenkins/jenkins-ec2-master/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/javascript/javascript-again2/" rel="permalink">[Javascript]자바스크립트 Again2
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          5 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again2
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/javascript/javascript-again/" rel="permalink">[Javascript]자바스크립트 Again
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          4 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again
 </p>
   </article>
 </div>

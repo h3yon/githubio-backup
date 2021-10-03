@@ -1,0 +1,110 @@
+I"�?<h3 id="nodejshttp2-적용과-발생한-에러">[node.js]http2 적용과 발생한 에러</h3>
+
+<p>리액트 웹페이지에 적용시킬
+백엔드 서버를 구동하는 코드를 원래는 아래처럼 작성해놓았었다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="nx">index</span><span class="p">.</span><span class="nx">js</span>
+<span class="p">...</span>
+<span class="nx">express</span><span class="p">().</span><span class="nx">listen</span><span class="p">(</span><span class="nx">PORT</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">NODE_ENV</span><span class="p">}</span><span class="s2"> - API Server Start At Port </span><span class="p">${</span><span class="nx">PORT</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>http2의 장점을 알고,
+해당 코드를 http2로 변경해주었다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">./config/express</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="p">{</span> <span class="nx">readFileSync</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">fs</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">http2</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">http2</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="p">{</span> <span class="nx">NODE_ENV</span><span class="p">,</span> <span class="nx">PORT</span><span class="p">,</span> <span class="nx">SSL_CERT_PATH</span><span class="p">,</span> <span class="nx">SSL_KEY_PATH</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">allowHTTP1</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">cert</span><span class="p">:</span> <span class="nx">readFileSync</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="nx">SSL_CERT_PATH</span><span class="p">),</span>
+  <span class="na">key</span><span class="p">:</span> <span class="nx">readFileSync</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="nx">SSL_KEY_PATH</span><span class="p">),</span>
+<span class="p">};</span>
+
+<span class="nx">http2</span><span class="p">.</span><span class="nx">createSecureServer</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">express</span><span class="p">()).</span><span class="nx">listen</span><span class="p">(</span><span class="nx">PORT</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">NODE_ENV</span><span class="p">}</span><span class="s2"> - API Server Start At Port </span><span class="p">${</span><span class="nx">PORT</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>cert와 key를 발급하는 방법은 검색하면 나온다.
+이렇게 쓸 줄 알았으면 정리해놓을 걸 그랬다ㅎㅎ
+process.env도 잘 모르는 분들은 dotenv를 검색해보면 될 것 같습니다.</p>
+
+<p>이렇게 구성해놓으면 아래처럼 postman에서는 결과가 잘 뿌려지는 걸 확인할 수 있다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/130570176-61335751-30dc-498e-bf9b-b51245906841.png" /></p>
+
+<p>그런데 웹페이지를 들어가보면 아래처럼 통신이 잘 되지 않는 모습을 확인할 수 있다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/130570474-3a480ef1-f696-4699-b332-267e41f9b711.png" /></p>
+
+<p>또, https://localhost:4000 으로 직접 들어가면 아래처럼 에러 메시지가 뜨고,
+갑자기 서버가 꺼지는 걸 알 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">development</span> <span class="o">-</span> <span class="nx">API</span> <span class="nx">Server</span> <span class="nx">Start</span> <span class="nx">At</span> <span class="nx">Port</span> <span class="mi">4000</span>
+<span class="nx">_http_incoming</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">120</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">socket</span><span class="p">.</span><span class="nx">readable</span><span class="p">)</span>
+                  <span class="o">^</span>
+
+<span class="nx">TypeError</span><span class="p">:</span> <span class="nx">Cannot</span> <span class="nx">read</span> <span class="nx">property</span> <span class="dl">'</span><span class="s1">readable</span><span class="dl">'</span> <span class="k">of</span> <span class="kc">undefined</span>
+    <span class="nx">at</span> <span class="nx">IncomingMessage</span><span class="p">.</span><span class="nx">_read</span> <span class="p">(</span><span class="nx">_http_incoming</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">120</span><span class="p">:</span><span class="mi">19</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">IncomingMessage</span><span class="p">.</span><span class="nx">Readable</span><span class="p">.</span><span class="nx">read</span> <span class="p">(</span><span class="nx">internal</span><span class="o">/</span><span class="nx">streams</span><span class="o">/</span><span class="nx">readable</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">462</span><span class="p">:</span><span class="mi">10</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">resume_</span> <span class="p">(</span><span class="nx">internal</span><span class="o">/</span><span class="nx">streams</span><span class="o">/</span><span class="nx">readable</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">958</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">processTicksAndRejections</span> <span class="p">(</span><span class="nx">internal</span><span class="o">/</span><span class="nx">process</span><span class="o">/</span><span class="nx">task_queues</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">82</span><span class="p">:</span><span class="mi">21</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a href="https://javascript.plainenglish.io/serving-hello-world-with-http2-and-express-js-4dd0ffe76860">에러 해결 위한 링크1</a></p>
+
+<p>위의 링크에서 http2-express-bridge에 대한 이야기를 해주었고,
+config의 express.js에서 <code class="language-plaintext highlighter-rouge">http2-express-bridge</code>모듈을 사용하였다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="nx">config</span><span class="o">/</span><span class="nx">express</span><span class="p">.</span><span class="nx">js</span>
+
+<span class="p">...</span>
+<span class="kd">const</span> <span class="nx">http2Express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">http2-express-bridge</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">http2Express</span><span class="p">(</span><span class="nx">express</span><span class="p">);</span>
+  <span class="c1">// express();</span>
+
+  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">compression</span><span class="p">());</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+
+  <span class="p">...</span>
+
+</code></pre></div></div>
+
+<p>그런데 에러는 해결되지 않았고
+이번에는 또 아래의 에러가 나타났다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">103</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_implicitHeader</span><span class="p">()</span>
+             <span class="o">^</span>
+
+<span class="nx">TypeError</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">_implicitHeader</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">a</span> <span class="kd">function</span>
+    <span class="nx">at</span> <span class="nx">Http2ServerResponse</span><span class="p">.</span><span class="nx">end</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">we</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">user</span><span class="o">/</span><span class="nx">git</span><span class="o">-</span><span class="nx">node</span><span class="o">-</span><span class="nx">board</span><span class="o">/</span><span class="nx">server</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">compression</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">103</span><span class="p">:</span><span class="mi">14</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">write</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">we</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">user</span><span class="o">/</span><span class="nx">git</span><span class="o">-</span><span class="nx">node</span><span class="o">-</span><span class="nx">board</span><span class="o">/</span><span class="nx">server</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">finalhandler</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">297</span><span class="p">:</span><span class="mi">9</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">listener</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">we</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">user</span><span class="o">/</span><span class="nx">git</span><span class="o">-</span><span class="nx">node</span><span class="o">-</span><span class="nx">board</span><span class="o">/</span><span class="nx">server</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">on</span><span class="o">-</span><span class="nx">finished</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">169</span><span class="p">:</span><span class="mi">15</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">onFinish</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">we</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">user</span><span class="o">/</span><span class="nx">git</span><span class="o">-</span><span class="nx">node</span><span class="o">-</span><span class="nx">board</span><span class="o">/</span><span class="nx">server</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">on</span><span class="o">-</span><span class="nx">finished</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">100</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">callback</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">we</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">user</span><span class="o">/</span><span class="nx">git</span><span class="o">-</span><span class="nx">node</span><span class="o">-</span><span class="nx">board</span><span class="o">/</span><span class="nx">server</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">ee</span><span class="o">-</span><span class="nx">first</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">10</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">Http2ServerRequest</span><span class="p">.</span><span class="nx">onevent</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">we</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">user</span><span class="o">/</span><span class="nx">git</span><span class="o">-</span><span class="nx">node</span><span class="o">-</span><span class="nx">board</span><span class="o">/</span><span class="nx">server</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">ee</span><span class="o">-</span><span class="nx">first</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">93</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>한 2시간 동안 계속 검색한 것 같다…
+이 에러를 고치기 위해서는
+일단 node_modules/compression/index.js로 들어간다.</p>
+
+<p><a href="https://github.com/expressjs/compression/pull/127/commits/dbf7e73fee65375ae3ee10a75344481e44f63994">에러 해결 위한 링크2</a></p>
+
+<p>위의 링크에 나와있는 것처럼,
+<code class="language-plaintext highlighter-rouge">// 0824 변경</code> 아래 부분으로 바꿔준다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/130571254-5fa03226-ccb5-4e4b-aa01-348c26d287b6.png" /></p>
+
+<p>그럼 백엔드단 api 링크로 들어갔을 때,
+잘 나오는 모습을 알 수 있다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/130571419-529ef2e7-8d89-41de-8511-eb81e7916448.png" /></p>
+:ET

@@ -11,11 +11,11 @@ tags:
   - Javascript
 ---
 
-### Node.js의 ORM, sequelize
+## Node.js의 ORM, sequelize
 
 다들 ORM에 대해서 들어봤을 것 같다.
 
-#### ORM이란?
+## ORM이란?
 
 > Object-Relational Mapping으로 객체와 관계형 데이터베이스의 데이터를 매핑(연결)시켜주는 것
 
@@ -36,7 +36,7 @@ ORM 프레임워크의 경우,
 
 Node.js로의 sequelize를 한번 보면 될 것 같다.
 
-#### sequelize 실습
+## sequelize 실습
 
 ```
 $ npm i sequelize mysql2
@@ -44,7 +44,7 @@ $ npm i -g sequelize-cli
 $ sequelize init
 ```
 
-<img src=https://user-images.githubusercontent.com/46602874/129175307-0b912a6e-79bd-46ea-b39f-239cf9ad8442.png>
+<img src="https://user-images.githubusercontent.com/46602874/129175307-0b912a6e-79bd-46ea-b39f-239cf9ad8442.png">
 
 sequelize init을 하면
 위 사진처럼 필요한 파일들과 폴더들이 알아서 설치된다.
@@ -58,22 +58,22 @@ sequelize init을 하면
 
 1. models/index.js
 
-```javascript
-const fs = require("fs");
-const path = require("path");
-const Sequelize = require("sequelize");
-const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || "development";
-const config = require(__dirname + "/../config/config.json")[env];
-const db = {};
+   ```javascript
+   const fs = require("fs");
+   const path = require("path");
+   const Sequelize = require("sequelize");
+   const basename = path.basename(__filename);
+   const env = process.env.NODE_ENV || "development";
+   const config = require(__dirname + "/../config/config.json")[env];
+   const db = {};
 
-let sequelize;
-```
+   let sequelize;
+   ```
 
-NODE_ENV가 설정되어 있지 않다면 'development'로 진행됨을 알 수 있고,
-config.json 파일의 환경에 맞게 config를 초기화해주는 것을 볼 수 있다.
+   NODE_ENV가 설정되어 있지 않다면 'development'로 진행됨을 알 수 있고,
+   config.json 파일의 환경에 맞게 config를 초기화해주는 것을 볼 수 있다.
 
-밑에 코드를 보면 db 객체에 sequelize 패키지, 객체를 넣고 모듈로 사용함을 알 수 있다.
+   밑에 코드를 보면 db 객체에 sequelize 패키지, 객체를 넣고 모듈로 사용함을 알 수 있다.
 
 2. config/config.json
 

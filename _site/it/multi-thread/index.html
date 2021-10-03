@@ -317,7 +317,7 @@
 <a href="https://12bme.tistory.com/65?category=682904">[병렬프로그래밍] 프로세스, 스레드 개념</a>
 <a href="https://12bme.tistory.com/66?category=682904">[병렬프로그래밍] 스레드 이해하기</a></p>
 
-<h5 id="스레드-리마인드">스레드 리마인드</h5>
+<h2 id="스레드-리마인드">스레드 리마인드</h2>
 
 <p>프로세스는 실행중인 프로그램이며, 하나의 실행 흐름을 스레드라고 한다.
 하나의 프로세스 안에 스레드 여러개 있는 것이 멀티 스레드.</p>
@@ -325,13 +325,13 @@
 <p>게임/네트워크 프로그래밍에서 멀티 스레드 많이 사용.
 (캐릭터를 움직이게 하거나, 데이터를 기다릴 때, 흐름 담당할 때 사용)</p>
 
-<h5 id="멀티-프로그래밍">멀티 프로그래밍</h5>
+<h2 id="멀티-프로그래밍">멀티 프로그래밍</h2>
 
 <p>여러 개의 프로그램들이 단일 CPU 상에서 실행되는 것.
 한 프로그램이 일부 실행되고 다른 프로그램이 일부 실행되는 방식으로,
 모든 프로그램이 동시에 수행되는 것처럼 보이게 된다.</p>
 
-<h5 id="자바-스레드의-생성자">자바 스레드의 생성자</h5>
+<h2 id="자바-스레드의-생성자">자바 스레드의 생성자</h2>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Thread() : Thread를 상속받은 고유의 클래스 생성 필요. 클래스 내부에 b()같은 함수 정의
 - Thread(Runnable target) : Runnable이 들어간 경우는 인터페이스 구현
@@ -343,7 +343,7 @@
 - Thread(ThreadGroup group, String name)
 </code></pre></div></div>
 
-<p>&lt;img src = https://user-images.githubusercontent.com/46602874/126585075-77d26485-71fd-403a-9903-de060aceb583.png/&gt;</p>
+<p><img src="https://user-images.githubusercontent.com/46602874/126585075-77d26485-71fd-403a-9903-de060aceb583.png" /></p>
 
 <p>자바에서의 스레드 생성 방법은</p>
 
@@ -358,7 +358,7 @@ Runnable 안에는 Run()함수가 있다.</p>
 
 <p>이 안에 원하는 스레드 로직을 넣으면 된다.</p>
 
-<h5 id="런타임-데이터-영역들과-공유-데이터">런타임 데이터 영역들과 공유 데이터</h5>
+<h2 id="런타임-데이터-영역들과-공유-데이터">런타임 데이터 영역들과 공유 데이터</h2>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- PC(Program Counter) 레지스터 영역: 스레드 각각 갖고 있으므로 스레드간 독립적인 영역
 - 힙영역: 객체 저장되는 부분. 모든 스레드가 접근 가능
@@ -368,11 +368,11 @@ Runnable 안에는 Run()함수가 있다.</p>
 </code></pre></div></div>
 
 <ul>
-  <li>공유되는 데이터 영역의 포함 관계
+  <li>공유되는 데이터 영역의 포함 관계<br />
 객체(힙 영역) &gt; 메소드(메소드 영역) &gt; 변수(런타임 컨텍스트 풀 영역)</li>
 </ul>
 
-<h5 id="동기화-in-멀티스레드">동기화 in 멀티스레드</h5>
+<h2 id="동기화-in-멀티스레드">동기화 in 멀티스레드</h2>
 
 <p>: 여러 개의 Thread가 한 개의 자원을 사용하고자 할 때, 해당 Thread만 제외하고 나머지는 접근을 못하도록 막는 것</p>
 
@@ -389,11 +389,11 @@ Runnable 안에는 Run()함수가 있다.</p>
 synchronized로 묶인 메소드를 보호 구역이라고 할 수 있다.</p>
 
 <ul>
-  <li>모니터
+  <li>모니터<br />
 synchronized 키워드를 사용하면 해당 객체의 락을 검사한다. 락의 현재 사용 여부를 검사함으로써 각 객체를 보호한다.</li>
 </ul>
 
-<h5 id="wait-notify-notifyall">wait(), notify(), notifyAll()</h5>
+<h2 id="wait-notify-notifyall">wait(), notify(), notifyAll()</h2>
 
 <ul>
   <li>wait() 메소드는 어떤 객체에 대해 스레드를 대기하게 한다</li>
@@ -490,6 +490,126 @@ synchronized 키워드를 사용하면 해당 객체의 락을 검사한다. 락
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/java/TIL%EC%A0%95%EB%A6%AC/" rel="permalink">[TIL]스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[TIL] 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/you-dont-know-js/" rel="permalink">You dont know js up &amp; going 정복하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">You dont know js 1st Edition up &amp; going 정복하기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/h2-error/" rel="permalink">h2 database 에러 해결하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">h2 Database not found
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/jenkins/jenkins-ec2/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
 </a>
       
@@ -516,126 +636,6 @@ synchronized 키워드를 사용하면 해당 객체의 락을 검사한다. 락
 
 
     <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/jenkins/jenkins-ec2-master/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/javascript/javascript-again2/" rel="permalink">[Javascript]자바스크립트 Again2
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          5 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again2
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/javascript/javascript-again/" rel="permalink">[Javascript]자바스크립트 Again
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          4 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again
 </p>
   </article>
 </div>

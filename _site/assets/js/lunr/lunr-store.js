@@ -102,7 +102,7 @@ var store = [{
         "teaser": null
       },{
         "title": "스프링부트 Naver Login 구현하기",
-        "excerpt":"스프링부트 Naver Login 구현하기 출처: 이동욱 님의 스프링 부트와 AWS로 혼자 구현하는 웹 서비스 스프링 부트와 OAuth2 Naver) 사용한 방식 저번에 카카오 로그인을 구현하였을 때는 restTemplate을 사용했었다. 그런데 이번에는 spring-security-oauth2 부분을 알아보고 사용해보고자 했다. 라이브러리 중에 spring-security-auth2-autoconfigure이 있는데, 스프링부트2에서 기존 설정을 그대로 사용할 수 있어 많은 개발자가 이 방식을 사용했다고...","categories": ["Java"],
+        "excerpt":"스프링부트 Naver Login 구현하기 출처: 이동욱 님의 스프링 부트와 AWS로 혼자 구현하는 웹 서비스 스프링 부트와 OAuth2 Naver 사용한 방식 저번에 카카오 로그인을 구현하였을 때는 restTemplate을 사용했었다. 그런데 이번에는 spring-security-oauth2 부분을 알아보고 사용해보고자 했다. 라이브러리 중에 spring-security-auth2-autoconfigure이 있는데, 스프링부트2에서 기존 설정을 그대로 사용할 수 있어 많은 개발자가 이 방식을 사용했다고...","categories": ["Java"],
         "tags": ["Java","소셜로그인"],
         "url": "/java/spring-naver-login/",
         "teaser": null
@@ -144,14 +144,26 @@ var store = [{
         "teaser": null
       },{
         "title": "[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기",
-        "excerpt":"1. AWS EC2 Ubuntu에 Jenkins를 연동해보자 관련 패키지 설치 Using Ubuntu curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash - sudo apt-get install -y nodejs 출처: https://github.com/nodesource/distributions/blob/master/README.md ubuntu@ip-172-31-35-209:~/jenkins-test$ sudo apt install libssl1.0-dev Reading package lists… Done Building dependency tree Reading state information… Done The following additional packages will be installed: libssl1.0.0...","categories": ["Jenkins"],
-        "tags": ["Jenkins"],
-        "url": "/jenkins/jenkins-ec2-master/",
-        "teaser": null
-      },{
-        "title": "[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기",
         "excerpt":"1. AWS EC2 Ubuntu에 Jenkins를 연동해보자 관련 패키지 설치 Jenkins 설치를 위해 Repository key 추가 $ wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - 서버의 sources.list에 Jenkins 패키지 저장소를 추가 $ sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ &gt; \\ /etc/apt/sources.list.d/jenkins.list' 패키지 업데이트 및 Jenkins 설치 $ sudo...","categories": ["Jenkins"],
         "tags": ["Jenkins"],
         "url": "/jenkins/jenkins-ec2/",
+        "teaser": null
+      },{
+        "title": "h2 database 에러 해결하기",
+        "excerpt":"h2 database 에러 해결하기 오늘 아래의 에러가 계속 괴롭혀서 해결 방법을 써보고자 한다 h2 Database not found, either pre-create it or allow remote database creation (not recommended in secure environments) jdbc:h2:tcp://localhost/~/test를 아래처럼 계속 눌렀는데, 이 에러가 계속 나타났다. h2 Database not found, either pre-create it or allow remote database creation...","categories": ["Jenkins"],
+        "tags": ["Jenkins"],
+        "url": "/jenkins/h2-error/",
+        "teaser": null
+      },{
+        "title": "You dont know js up & going 정복하기",
+        "excerpt":"You dont know js 1st Edition up &amp; going 정복하기 You dont know 책을 접해보게 되었는데, 뭔가 탄탄해보여서 읽어보기로 결정했다! (기본 지식을 가졌다고 가정하고 정리해보겠습니다!) Chapter 1: Into Programming Input let age = prompt(\"나이를 입력해주세요\"); console.log(age); Converting Between Types var a = \"42\"; var b = Number(a); console.log(a); // \"42\"...","categories": ["Javascript"],
+        "tags": ["Javascript"],
+        "url": "/javascript/you-dont-know-js/",
+        "teaser": null
+      },{
+        "title": "[TIL]스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술",
+        "excerpt":"[TIL] 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술 (주의) 주관적으로 정리하고 싶은 부분만 정리했습니다! 요약본을 보고 싶으신 분은 다른 게시글을 보시는 걸 추천합니다~! 본 강의: 인프런 - 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술 객체를 계속 생성하는 것보다는 의존성 주입으로...","categories": ["Java"],
+        "tags": ["Java"],
+        "url": "/java/TIL%EC%A0%95%EB%A6%AC/",
         "teaser": null
       }]

@@ -306,12 +306,12 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#nodejs에서의-멀티스레드-멀티코어프로세스">Nodejs에서의 멀티스레드, 멀티코어프로세스</a><ul><li><a href="#이벤트루프">이벤트루프</a></li><li><a href="#백그라운드">백그라운드</a></li><li><a href="#멀티스레드-멀티-코어-프로세스">멀티스레드, 멀티 코어 프로세스</a><ul><li><a href="#멀티-코어-프로세스와의-비교">멀티 코어 프로세스와의 비교</a></li></ul></li><li><a href="#nodejs모듈">Node.js모듈</a></li></ul></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#nodejs에서의-멀티스레드-멀티코어프로세스">Nodejs에서의 멀티스레드, 멀티코어프로세스</a></li><li><a href="#이벤트루프">이벤트루프</a></li><li><a href="#백그라운드">백그라운드</a></li><li><a href="#멀티스레드-멀티-코어-프로세스">멀티스레드, 멀티 코어 프로세스</a></li><li><a href="#멀티-코어-프로세스와의-비교">멀티 코어 프로세스와의 비교</a></li><li><a href="#nodejs모듈">Node.js모듈</a></li></ul>
 
             </nav>
           </aside>
         
-        <h3 id="nodejs에서의-멀티스레드-멀티코어프로세스">Nodejs에서의 멀티스레드, 멀티코어프로세스</h3>
+        <h2 id="nodejs에서의-멀티스레드-멀티코어프로세스">Nodejs에서의 멀티스레드, 멀티코어프로세스</h2>
 
 <p>출처: <a href="https://www.geeksforgeeks.org/how-to-run-many-parallel-http-requests-using-node-js/">How to run many parallel HTTP requests using Node.js ?</a></p>
 
@@ -321,7 +321,7 @@
 <p>NodeJS 이벤트 루프가 단일 스레드일 뿐이기 때문.
 여러 클라이언트 요청을 수신하여 EventQueue에 배치.</p>
 
-<h5 id="이벤트루프">이벤트루프</h5>
+<h2 id="이벤트루프">이벤트루프</h2>
 
 <p>NodeJS는 이벤트 중심 아키텍처의 개념으로 구축되었고,
 그 예로는 이벤트 리스너에 콜백함수를 등록하는 것!</p>
@@ -339,7 +339,7 @@
 <p>NodeJS가 Non-Blocking I/O로 요청을 처리할 수 있는 경우,
 이벤트 루프는 자체적으로 요청을 처리하고 자체적으로 응답을 클라이언트에 전송.</p>
 
-<h5 id="백그라운드">백그라운드</h5>
+<h2 id="백그라운드">백그라운드</h2>
 
 <p>‘노드의 어떠한 작업은 백그라운드에서 이루어진다.’라는 말을 많이 들어봤을 것이고,
 setTimeout() 함수는 무조건 사용했을 것!</p>
@@ -362,13 +362,13 @@ setTimeout()의 시간이 정확하지 않을 수 있다.</p>
   </li>
 </ul>
 
-<h5 id="멀티스레드-멀티-코어-프로세스">멀티스레드, 멀티 코어 프로세스</h5>
+<h2 id="멀티스레드-멀티-코어-프로세스">멀티스레드, 멀티 코어 프로세스</h2>
 
 <p>NodeJS는 싱글 스레드지만,
 때에 따라서 멀티스레드, 멀티 코어 프로세스로,
 여러 요청을 병렬적으로 처리할 수 있다.</p>
 
-<h6 id="멀티-코어-프로세스와의-비교">멀티 코어 프로세스와의 비교</h6>
+<h2 id="멀티-코어-프로세스와의-비교">멀티 코어 프로세스와의 비교</h2>
 
 <p>NodeJS에서는 멀티 코어 프로세스를 위해서는 ‘cluster’ 모듈이 사용된다.
 모든 코어를 활용할 수 있는데,</p>
@@ -381,7 +381,7 @@ setTimeout()의 시간이 정확하지 않을 수 있다.</p>
 하나의 프로그램을 실행하는 경우 멀티코어 시스템이 더 빠르지만,
 여러 프로그램을 실행하고 있는 경우는 멀티프로세서 시스템의 처리 속도가 향상</p>
 
-<h5 id="nodejs모듈">Node.js모듈</h5>
+<h2 id="nodejs모듈">Node.js모듈</h2>
 
 <ol>
   <li>
@@ -395,16 +395,16 @@ CPU 성능을 위한 최상의 솔루션은 작업자 스레드!
 이 모듈은 무거운 JavaScript 작업을 수행하는 데 유용하기 때문에 Node.js에서 사용</p>
 
     <p>-&gt; I/O 작업에 적합하지 않지만, http/https 요청 감지, 교착 상태 감지, Isolation</p>
-  </li>
-</ol>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">run</span><span class="p">()</span> <span class="p">{</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">run</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">3초 후 실행</span><span class="dl">"</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">시작</span><span class="dl">"</span><span class="p">);</span>
 <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">run</span><span class="p">,</span> <span class="mi">3000</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">끝</span><span class="dl">"</span><span class="p">);</span>
-</code></pre></div></div>
+</code></pre></div>    </div>
+  </li>
+</ol>
 
         
       </section>
@@ -495,6 +495,126 @@ CPU 성능을 위한 최상의 솔루션은 작업자 스레드!
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/java/TIL%EC%A0%95%EB%A6%AC/" rel="permalink">[TIL]스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[TIL] 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/you-dont-know-js/" rel="permalink">You dont know js up &amp; going 정복하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">You dont know js 1st Edition up &amp; going 정복하기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/h2-error/" rel="permalink">h2 database 에러 해결하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">h2 Database not found
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/jenkins/jenkins-ec2/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
 </a>
       
@@ -521,126 +641,6 @@ CPU 성능을 위한 최상의 솔루션은 작업자 스레드!
 
 
     <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/jenkins/jenkins-ec2-master/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/javascript/javascript-again2/" rel="permalink">[Javascript]자바스크립트 Again2
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          5 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again2
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/javascript/javascript-again/" rel="permalink">[Javascript]자바스크립트 Again
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          4 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again
 </p>
   </article>
 </div>

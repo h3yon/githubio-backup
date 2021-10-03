@@ -1,0 +1,583 @@
+I"��<h3 id="you-dont-know-js-1st-edition-up--going-정복하기">You dont know js 1st Edition up &amp; going 정복하기</h3>
+
+<p>You dont know 책을 접해보게 되었는데,<br />
+뭔가 탄탄해보여서 읽어보기로 결정했다!</p>
+
+<p>(기본 지식을 가졌다고 가정하고 정리해보겠습니다!)</p>
+
+<h4 id="chapter-1-into-programming">Chapter 1: Into Programming</h4>
+
+<ol>
+  <li>Input</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">age</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">나이를 입력해주세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Converting Between Types</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">42</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// "42"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// 42</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Comments</li>
+</ol>
+
+<p>comment는 what이 아닌, 이유를 설명해야 한다</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 한줄짜리 주석</span>
+<span class="cm">/*
+ * 주석이 multiline일 때
+ * 주석주석
+ */</span>
+</code></pre></div></div>
+
+<ol>
+  <li>소수점 몇째자리까지</li>
+</ol>
+
+<p>toFixed()는 String으로 만든다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">amount</span> <span class="o">=</span> <span class="mf">215.9784</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">amount</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span> <span class="c1">// "215.98"</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Scope</li>
+</ol>
+
+<p>아래처럼 각 함수마다 그들만의 scope를 가지기 때문에<br />
+각각 다른 결과가 나옴을 알 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">one</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// this `a` only belongs to the `one()` function</span>
+  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">two</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// this `a` only belongs to the `two()` function</span>
+  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">one</span><span class="p">();</span> <span class="c1">// 1</span>
+<span class="nx">two</span><span class="p">();</span> <span class="c1">// 2</span>
+</code></pre></div></div>
+
+<p>아래 예제에서는 다른 scope 안에 중첩될 수 있음을 보여준다.
+여기서 inner함수는 a, b에 대한 접근이 가능하지만,
+outer함수는 a에 대한 접근만 가능함을 알 수 있다.</p>
+
+<p>그런데, const 타입인 TAX_RATE는 함수 밖에 있음에도
+inner함수에서 사용 가능함을 알 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">TAX_RATE</span> <span class="o">=</span> <span class="mf">0.08</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">outer</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="kd">function</span> <span class="nx">inner</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="c1">// we can access both `a` and `b` here</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span> <span class="c1">// 3</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">*</span> <span class="nx">TAX_RATE</span><span class="p">);</span> <span class="c1">// 0.24</span>
+  <span class="p">}</span>
+  <span class="nx">inner</span><span class="p">();</span>
+
+  <span class="c1">// we can only access `a` here</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 1</span>
+<span class="p">}</span>
+
+<span class="nx">outer</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h4 id="chapter-2-into-javascript">Chapter 2: Into JavaScript</h4>
+
+<ol>
+  <li>Values &amp; Types</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+[typeof 변수명]하면 나올 수 있는 부분
+
+- string
+- number
+- boolean
+- null and undefined
+- object
+- symbol (new to ES6)
+</code></pre></div></div>
+
+<ol>
+  <li>Objects</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">a</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hello world</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">b</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+  <span class="na">c</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="c1">// Dot 노테이션: 짧고 읽기 쉬워서 가능한 많이 사용되는 부분</span>
+
+<span class="nx">obj</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span> <span class="c1">// "hello world"</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">b</span><span class="p">;</span> <span class="c1">// 42</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">c</span><span class="p">;</span> <span class="c1">// true</span>
+
+<span class="c1">// Bracket 노테이션: property/key로 접근하고자 할 때 도움된다</span>
+
+<span class="nx">obj</span><span class="p">[</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">];</span> <span class="c1">// "hello world"</span>
+<span class="nx">obj</span><span class="p">[</span><span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">];</span> <span class="c1">// 42</span>
+<span class="nx">obj</span><span class="p">[</span><span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">];</span> <span class="c1">// true</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Array</li>
+</ol>
+
+<p>배열은 거의 다 알고 있을 것 같은데,<br />
+array 타입이 object인 걸 한번 더 짚고 넘어가면 될 것 같다!</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">hi</span><span class="dl">"</span><span class="p">];</span>
+
+<span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">// 1</span>
+<span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">// 2</span>
+<span class="nx">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="c1">// 'hi'</span>
+
+<span class="k">typeof</span> <span class="nx">arr</span><span class="p">;</span> <span class="c1">// "object"</span>
+</code></pre></div></div>
+
+<ol>
+  <li>function</li>
+</ol>
+
+<p>함수 같은 경우, typeof foo();를 하면<br />
+리턴값의 타입인 number가 나오는 것이 새로웠다!</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello world</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">typeof</span> <span class="nx">foo</span><span class="p">;</span> <span class="c1">// "function"</span>
+<span class="k">typeof</span> <span class="nx">foo</span><span class="p">();</span> <span class="c1">// "number"</span>
+<span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">;</span> <span class="c1">// "string"</span>
+</code></pre></div></div>
+
+<ol>
+  <li>내장 함수 짚고 넘어가기</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello world</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mf">3.14159</span><span class="p">;</span>
+
+<span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="c1">// 11</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span> <span class="c1">// "HELLO WORLD"</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="c1">// "3.1416"</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Truthy &amp; Falsy</li>
+</ol>
+
+<p>false로 인식될 수 있는 부분은<br />
+아래와 같다</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">-</span> <span class="dl">""</span> <span class="p">(</span><span class="nx">empty</span> <span class="nx">string</span><span class="p">)</span>
+<span class="o">-</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">0</span><span class="p">,</span> <span class="kc">NaN</span> <span class="p">(</span><span class="nx">invalid</span> <span class="nx">number</span><span class="p">)</span>
+<span class="o">-</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">undefined</span>
+<span class="o">-</span> <span class="kc">false</span>
+</code></pre></div></div>
+
+<p>true로 인식될 수 있는 부분은<br />
+아래와 같다.<br />
+빈 배열, 빈 Object도 true로 인식된다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">-</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span>
+<span class="o">-</span> <span class="mi">42</span>
+<span class="o">-</span> <span class="kc">true</span>
+<span class="o">-</span> <span class="p">[</span> <span class="p">],</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span> <span class="mi">3</span> <span class="p">]</span> <span class="p">(</span><span class="nx">arrays</span><span class="p">)</span>
+<span class="o">-</span> <span class="p">{</span> <span class="p">},</span> <span class="p">{</span> <span class="na">a</span><span class="p">:</span> <span class="mi">42</span> <span class="p">}</span> <span class="p">(</span><span class="nx">objects</span><span class="p">)</span>
+<span class="o">-</span> <span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span> <span class="p">..</span> <span class="p">}</span> <span class="p">(</span><span class="nx">functions</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Equality</li>
+</ol>
+
+<p>Equality 비교 연산자로는 ‘==’, ‘===’, ‘!=’, ‘!==’, ‘!’가 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">42</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+
+<span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">// true</span>
+<span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">// false(타입까지 비교)</span>
+</code></pre></div></div>
+
+<p>그런데, non-primitive 타입(즉, function, array, object)의 경우는<br />
+위의 부분과 좀 다르다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">1,2,3</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">a</span> <span class="o">==</span> <span class="nx">c</span><span class="p">;</span> <span class="c1">// true</span>
+<span class="nx">b</span> <span class="o">==</span> <span class="nx">c</span><span class="p">;</span> <span class="c1">// true</span>
+<span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">// false</span>
+</code></pre></div></div>
+
+<p>references가 매칭되는지를 확인하기 때문이라고 한다.
+위에서 배열과 string이 같은 부분은,
+array 요소가 쉼표로 묶이고 최종적으로 String화 되는 부분과 같다는 걸 알 수 있다.</p>
+
+<ol>
+  <li>Function Scopes(함수 기반 스코프)</li>
+</ol>
+
+<ul>
+  <li>
+    <dl>
+      <dt>호이스팅</dt>
+      <dd>호이스팅은 둘러싸는 범위의 위로 이동될 때를 말한다.
+var의 경우만 나타나있는데, let/const는 TDZ에 의해서 초기화 전에 액세스하려고 하면 에러가 발생한다.
+let/const의 호이스팅은 나중에 알면 좋을 것 같다.</dd>
+    </dl>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="nx">foo</span><span class="p">();</span>
+<span class="c1">// declaration 전에 사용 가능됨을 알 수 있는데,</span>
+<span class="c1">// 호이스팅되었음을 알 수 있다.</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 3</span>
+
+  <span class="kd">var</span> <span class="nx">a</span><span class="p">;</span>
+  <span class="c1">// foo() scope위로</span>
+  <span class="c1">// declaration이 호이스팅되었음을 알 수 있다.</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 2</span>
+</code></pre></div></div>
+
+<p>함수 기반 scope 예제를 보자.
+var a는 함수 안에만 있기 때문에
+함수 밖에서는 값이 안 나타남을 알 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// `a` not formally declared</span>
+<span class="p">}</span>
+
+<span class="nx">foo</span><span class="p">();</span>
+<span class="nx">a</span><span class="p">;</span> <span class="c1">// []</span>
+</code></pre></div></div>
+
+<ol>
+  <li>블록 기반 scope</li>
+</ol>
+
+<p>var 대신 let을 사용하면 어떨까?<br />
+let은 아래 예제를 보면 while{}안에 있다.<br />
+그래서 let c는 가장 가까운 {}문, whild문에서만 사용할 수 있음을 볼 수 있다.</p>
+
+<p>그래서 let, const는 블록기반 scope이다</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="nx">b</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">b</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// 4, 6, 8</span>
+      <span class="nx">b</span><span class="o">++</span><span class="p">;</span> <span class="c1">// 3, 4, 5 -&gt; 멈춤</span>
+
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">+</span> <span class="nx">c</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">foo</span><span class="p">();</span>
+<span class="c1">// 5 7 9</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Strict Mode</li>
+</ol>
+
+<p>ES5에서는 “strict mode”가 추가되었는데,<br />
+rule을 더 타이트하게 함을 알 수 있다.</p>
+
+<p>더 안전하고, 가이드라인에 더 적합하고,
+더 안전한 방식을 고수하게 하며 최적화에 도움을 주므로<br />
+많이 사용되어야 함을 알 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// turn on strict mode</span>
+  <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// `var` missing, ReferenceError</span>
+<span class="p">}</span>
+
+<span class="nx">foo</span><span class="p">();</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Functions As Values</li>
+</ol>
+
+<p>아래와 같은 구조를 많이 볼 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 익명함수..</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">bar</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 명명된 함수 표현식..</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>function 결과값을 변수에 할당한다.</p>
+
+<ol>
+  <li>즉시 호출된 함수 표현식 (IIFEs)</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="nx">IIFE</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">})();</span> <span class="c1">// "Hello!"</span>
+
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+
+<span class="p">(</span><span class="kd">function</span> <span class="nx">IIFE</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 10</span>
+<span class="p">})();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 42</span>
+</code></pre></div></div>
+
+<p>})();줄은 바로 앞에 참조된 함수 표현식을 실제로 실행함을 알 수 있다.
+() 안에서 함수가 진행되기 때문에 주변 코드에 영향이 가지 않는다.</p>
+
+<ol>
+  <li>*Closure(클로저)</li>
+</ol>
+
+<p>클로저는 진짜 중요한 개념이다.<br />
+이 책에서는 깊게 파고들진 않지만 scope&amp;Closure를 언급한다고 한다.</p>
+
+<p>closure은 “remember”로 생각할 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">makeAdder</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// x는 내부 변수이고</span>
+  <span class="c1">// inner 함수인 add는 x를 사용하기 때문에</span>
+  <span class="c1">// 클로저를 가진다.</span>
+  <span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">y</span> <span class="o">+</span> <span class="nx">x</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">add</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// add(..) inner 함수에 대한 reference를 가진다.</span>
+<span class="kd">var</span> <span class="nx">plusOne</span> <span class="o">=</span> <span class="nx">makeAdder</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// y -&gt; 1</span>
+<span class="kd">var</span> <span class="nx">plusTen</span> <span class="o">=</span> <span class="nx">makeAdder</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// y -&gt; 10</span>
+
+<span class="nx">plusOne</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// 4  &lt;-- 1 + 3</span>
+<span class="nx">plusOne</span><span class="p">(</span><span class="mi">41</span><span class="p">);</span> <span class="c1">// 42 &lt;-- 1 + 41</span>
+
+<span class="nx">plusTen</span><span class="p">(</span><span class="mi">13</span><span class="p">);</span> <span class="c1">// 23 &lt;-- 10 + 13</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Module</li>
+</ol>
+
+<p>클로저의 일반적인 사용은 모듈 패턴이다.<br />
+모듈은 외부로부터 숨겨진 private implementation details(변수, 함수) 뿐만 아니라<br />
+외부로부터 접근 가능한 Public API도 정의하도록 한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">User</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">username</span><span class="p">,</span> <span class="nx">password</span><span class="p">;</span>
+  <span class="kd">function</span> <span class="nx">doLogin</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">pw</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">username</span> <span class="o">=</span> <span class="nx">user</span><span class="p">;</span>
+    <span class="nx">password</span> <span class="o">=</span> <span class="nx">pw</span><span class="p">;</span>
+    <span class="c1">// do the rest of the login work</span>
+  <span class="p">}</span>
+
+  <span class="kd">var</span> <span class="nx">publicAPI</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">login</span><span class="p">:</span> <span class="nx">doLogin</span><span class="p">,</span>
+  <span class="p">};</span>
+  <span class="k">return</span> <span class="nx">publicAPI</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// create a `User` module instance</span>
+<span class="kd">var</span> <span class="nx">fred</span> <span class="o">=</span> <span class="nx">User</span><span class="p">();</span>
+<span class="nx">fred</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span><span class="dl">"</span><span class="s2">fred</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">12Battery34!</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>User가 클래스가 아닌 함수로써 사용됨을 알 수 있다.<br />
+<code class="language-plaintext highlighter-rouge">User</code>모듈의 인스턴스를 생성함을 알 수 있고,<br />
+inner 변수/함수 각각을 새로 copy함을 알 수 있다.</p>
+
+<p>내부 함수 doLogin은 username과 password에 대한 클로저를 가진다.<br />
+그래서 User()가 running이 끝난 후에도 2개 변수에 대한 access를 지속한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">publicAPI</code>는 object로, login: doLogin 형태를 리턴한다.
+그래서 User().login으로 User()함수는 실행을 끝내고<br />
+username, password는 날아가지만,<br />
+doLogin에는 클로저를 가지고 있기 때문에 username, password가 살아있다.<br />
+그래서 계속 내부 변수에 대해 접근할 수 있다.</p>
+
+<ol>
+  <li>this Identifier</li>
+</ol>
+
+<p>this는 객체 지향 패턴과 관련 있어 보이지만,<br />
+자바스크립트에서는 다른 메커니즘을 가진다고 한다.</p>
+
+<p>만약 함수가 this reference를 내부에 가진다면<br />
+이 this는 object를 주로 가리킨다고 한다.<br />
+하지만 object가 가리키는 것은 함수가 어떻게 호출되었는지에 달려 있다.</p>
+
+<p>가장 큰 오해로, this가 함수 그자체를 refer하지 않는다는 것을 깨닫는 것이 중요하다고 한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">bar</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">global</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">bar</span><span class="p">:</span> <span class="dl">"</span><span class="s2">obj1</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">foo</span><span class="p">:</span> <span class="nx">foo</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">bar</span><span class="p">:</span> <span class="dl">"</span><span class="s2">obj2</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="c1">// --------</span>
+
+<span class="nx">foo</span><span class="p">();</span> <span class="c1">// "global" - 글로벌 object의 bar</span>
+<span class="nx">obj1</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span> <span class="c1">// "obj1" - obj1의 bar</span>
+<span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj2</span><span class="p">);</span> <span class="c1">// "obj2" - 이 예제는 this를 obj2로 세팅한다.</span>
+<span class="k">new</span> <span class="nx">foo</span><span class="p">();</span> <span class="c1">// undefined - 새로운 빈 object를 this로 삼기 때문에 undefined이다.</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Prototypes</li>
+</ol>
+
+<p>자바스크립트에서 프로토타입은 복잡하다.<br />
+객체 속성을 참조할 때 해당 속성이 없으면<br />
+자동으로 해당 객체의 내부 프로토타입 참조를 사용하여 속성을 찾을 다른 객체를 찾는다.<br />
+속성이 누락된 경우 이를 거의 fallback으로 생각한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">a</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="c1">// create `bar` and link it to `foo`</span>
+<span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span>
+
+<span class="nx">bar</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello world</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">bar</span><span class="p">.</span><span class="nx">b</span><span class="p">;</span> <span class="c1">// "hello world"</span>
+<span class="nx">bar</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span> <span class="c1">// 42 &lt;-- delegated to `foo`</span>
+</code></pre></div></div>
+
+<ol>
+  <li>newer JavaScript: polyfilling and transpiling</li>
+</ol>
+
+<p>자바스크립트를 구형 브라우저에 가져오는데 사용 할 수 있는<br />
+<code class="language-plaintext highlighter-rouge">polyfilling</code>과 <code class="language-plaintext highlighter-rouge">transpiling</code>이 있다.</p>
+
+<ul>
+  <li>
+    <p>polyfilling: 이전 JS 환경에서 실행할 수 있는 코드 조각</p>
+  </li>
+  <li>
+    <p>transpiling: 최신 코드를 이전 코드로 변환하는 도구로,
+transfer + compile이 합쳐진 단어</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// newer</span>
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// older</span>
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!==</span> <span class="k">void</span> <span class="mi">0</span> <span class="p">?</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>transpiler는 JS 개발 ecosystem 및 프로세스의 표준 부분으로 간주되어야 한다.<br />
+JS는 이전보다 훨씬 더 빠르게 계속 발전할 것이므로<br />
+몇 개월마다 새로운 구문과 새로운 기능이 추가될 것이라고 한다.</p>
+
+<p>기본적으로 트랜스파일러를 사용하는 경우<br />
+오늘날의 브라우저가 단계적으로 사라질 때까지 몇 년을 기다리지 않고<br />
+유용하다고 생각될 때마다 항상 새 구문으로 전환할 수 있다.</p>
+
+<p>이러한 예로는 Babel(ES6+ -&gt; ES5로 변환),<br />
+Traceur(ES6,7 -&gt; ES5)로 변환한다.</p>
+
+<ol>
+  <li>Non-JavaScript</li>
+</ol>
+
+<p>Non-JavaScript로는 DOM API가 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>또 입/출력이 있다.</p>
+
+<ol>
+  <li>Hoisting 호이스팅</li>
+</ol>
+
+<p>위에서 호이스팅을 잠시 짚고 넘어갔다.<br />
+호이스팅은 함수 먼저 호이스팅된다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">foo</span><span class="p">();</span> <span class="c1">// 1</span>
+
+<span class="kd">var</span> <span class="nx">foo</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="마지막-소감">마지막 소감</h4>
+
+<p>와 정말 챕터 1,2만 하는데도 힘든 것 같다.<br />
+영어라서 그런가..<br />
+호이스팅과 클로저는 좀더 알아봐야 될 것 같지만,<br />
+이 책에서는<br />
+호이스팅 - 속해있는{}의 위로 끌어올리는 것
+클로저 - remember!</p>
+
+<p>다음에 더 읽어야겠돠..</p>
+
+<p>출처: https://github.com/getify/You-Dont-Know-JS/tree/1st-ed</p>
+:ET

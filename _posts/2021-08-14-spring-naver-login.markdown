@@ -12,14 +12,14 @@ tags:
   - 소셜로그인
 ---
 
-### 스프링부트 Naver Login 구현하기
+## 스프링부트 Naver Login 구현하기
 
 출처:
 
 - 이동욱 님의 스프링 부트와 AWS로 혼자 구현하는 웹 서비스
-- [스프링 부트와 OAuth2 Naver](https://velog.io/@guswns3371/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-OAuth2-Naver))
+- [스프링 부트와 OAuth2 Naver](https://velog.io/@guswns3371/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-OAuth2-Naver)
 
-#### 사용한 방식
+## 사용한 방식
 
 저번에 카카오 로그인을 구현하였을 때는 restTemplate을 사용했었다.
 그런데 이번에는 `spring-security-oauth2` 부분을 알아보고 사용해보고자 했다.
@@ -41,7 +41,7 @@ tags:
 2. spring-security-oauth2-autoconfigure 라이브러리를 사용했는지
    에 대한 의문을 가질 수 있다.
 
-#### 의문점 해결하기
+## 의문점 해결하기
 
 1. application.properties 혹은 application.yml
 
@@ -81,18 +81,18 @@ tags:
             username: SA
    ```
 
-   ##### application.yml의 이점
+   - application.yml의 이점
 
-   둘이 어떤 케이스에 각각 사용되는지가 제일 궁금해서 검색을 해보았는데,
-   그 내용은 아래와 같다.
+     둘이 어떤 케이스에 각각 사용되는지가 제일 궁금해서 검색을 해보았는데,
+     그 내용은 아래와 같다.
 
-   - application.yml 파일이 각종 설정값을 관리하는데 더 편하고,
-     YAML은 JSON의 확장판과 같기 때문에 가독성 측면에서 좋다
-   - properties 파일을 많이 사용하였지만 표현의 한계로 yaml 파일을 더 많이 사용하게 되었다.
+     - application.yml 파일이 각종 설정값을 관리하는데 더 편하고,
+       YAML은 JSON의 확장판과 같기 때문에 가독성 측면에서 좋다
+     - properties 파일을 많이 사용하였지만 표현의 한계로 yaml 파일을 더 많이 사용하게 되었다.
 
-   위의 이유로 yml 파일을 주로 사용함을 알 수 있다.
+     위의 이유로 yml 파일을 주로 사용함을 알 수 있다.
 
-#### 실습 시작!
+## 실습 시작!
 
 우선 build.gradle로 가서 의존성 하나를 추가해준다.
 
@@ -106,7 +106,7 @@ implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
 `config/auth`패키지를 생성해준다.
 
-#### SecurityConfig(저는 생략합니다!)
+## SecurityConfig
 
 ```
 @RequiredArgsConstructor
@@ -154,7 +154,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   소셜 로그인 성공 시 후속 조치 진행. 추가로 진행하고자 하는 기능 명시 가능
   > OAuth2UserService 인터페이스의 추상메서드인 loadUser를 사용
 
-#### resources/application-oauth.yml
+## resources/application-oauth.yml
 
 resources에 application.yml 파일이 있을텐데,
 resources/application-oauth.yml 파일 또한 만들어준다.
@@ -200,7 +200,7 @@ include: oauth
 
 ```
 
-#### user/entity
+## user/entity
 
 아래처럼 userEntity가 있다고 가정한다.
 
@@ -273,7 +273,7 @@ public enum Role {
 
 스프링 security에서는 권한 코드에 항상 'ROLE\_'이 앞에 있어야 한다.
 
-#### user/repository/UserRepository
+## user/repository/UserRepository
 
 ```java
 /**
@@ -287,7 +287,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 원하는 걸 사용할 수 있는데,
 책의 예제에서는 findByEmail을 하였음을 알 수 있다.
 
-#### config/auth/CustomOAuth2UserService
+## config/auth/CustomOAuth2UserService
 
 ```java
 /**
@@ -349,7 +349,9 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 - RequiredArgsConstructor: 초기화 되지않은 final 필드나, @NonNull 이 붙은 필드에 대해 생성자를 생성
 - 'CustomOAuth2UserService 클래스까지 생성되었다면 OAuthAttributes 클래스를 생성
 
-#### config/auth/dto/OAuthAttributes
+## config/auth/dto/OAuthAttributes
+
+OAuthAttributes를 봐보자.
 
 ```java
 @Getter
@@ -400,7 +402,7 @@ public class OAuthAttributes {
 }
 ```
 
-#### config/auth/dto/SessionUser
+## config/auth/dto/SessionUser
 
 ```java
 @Getter

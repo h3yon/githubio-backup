@@ -30,14 +30,14 @@ tags:
 
 ### RestController
 
-: 1. Slf4j: redirect logging
+1. Slf4j: redirect logging
 
 - @Controller 어노테이션과 @ResponseBody 어노테이션을 합쳐놓은 어노테이션,
 - 메서드마다 @ResponseBody를 붙여주지 않아도 된다.
 
 ### RequiredArgsConstructor
 
-: 초기화 되지않은 final 필드나, @NonNull 이 붙은 필드에 대해 생성자를 생성
+초기화 되지않은 final 필드나, @NonNull 이 붙은 필드에 대해 생성자를 생성
 
 <script src="https://gist.github.com/h3yon/ca42231b6561feb843581b42ba8638f3.js"></script>
 

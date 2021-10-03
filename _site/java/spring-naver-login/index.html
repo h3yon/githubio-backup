@@ -306,21 +306,21 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#스프링부트-naver-login-구현하기">스프링부트 Naver Login 구현하기</a><ul><li><a href="#사용한-방식">사용한 방식</a></li><li><a href="#의문점-해결하기">의문점 해결하기</a><ul><li><a href="#applicationyml의-이점">application.yml의 이점</a></li></ul></li><li><a href="#실습-시작">실습 시작!</a></li><li><a href="#securityconfig저는-생략합니다">SecurityConfig(저는 생략합니다!)</a></li><li><a href="#resourcesapplication-oauthyml">resources/application-oauth.yml</a></li><li><a href="#userentity">user/entity</a></li><li><a href="#userrepositoryuserrepository">user/repository/UserRepository</a></li><li><a href="#configauthcustomoauth2userservice">config/auth/CustomOAuth2UserService</a></li><li><a href="#configauthdtooauthattributes">config/auth/dto/OAuthAttributes</a></li><li><a href="#configauthdtosessionuser">config/auth/dto/SessionUser</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#스프링부트-naver-login-구현하기">스프링부트 Naver Login 구현하기</a></li><li><a href="#사용한-방식">사용한 방식</a></li><li><a href="#의문점-해결하기">의문점 해결하기</a></li><li><a href="#실습-시작">실습 시작!</a></li><li><a href="#securityconfig">SecurityConfig</a></li><li><a href="#resourcesapplication-oauthyml">resources/application-oauth.yml</a></li><li><a href="#userentity">user/entity</a></li><li><a href="#userrepositoryuserrepository">user/repository/UserRepository</a></li><li><a href="#configauthcustomoauth2userservice">config/auth/CustomOAuth2UserService</a></li><li><a href="#configauthdtooauthattributes">config/auth/dto/OAuthAttributes</a></li><li><a href="#configauthdtosessionuser">config/auth/dto/SessionUser</a></li></ul>
 
             </nav>
           </aside>
         
-        <h3 id="스프링부트-naver-login-구현하기">스프링부트 Naver Login 구현하기</h3>
+        <h2 id="스프링부트-naver-login-구현하기">스프링부트 Naver Login 구현하기</h2>
 
 <p>출처:</p>
 
 <ul>
   <li>이동욱 님의 스프링 부트와 AWS로 혼자 구현하는 웹 서비스</li>
-  <li><a href="https://velog.io/@guswns3371/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-OAuth2-Naver">스프링 부트와 OAuth2 Naver</a>)</li>
+  <li><a href="https://velog.io/@guswns3371/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-OAuth2-Naver">스프링 부트와 OAuth2 Naver</a></li>
 </ul>
 
-<h4 id="사용한-방식">사용한 방식</h4>
+<h2 id="사용한-방식">사용한 방식</h2>
 
 <p>저번에 카카오 로그인을 구현하였을 때는 restTemplate을 사용했었다.
 그런데 이번에는 <code class="language-plaintext highlighter-rouge">spring-security-oauth2</code> 부분을 알아보고 사용해보고자 했다.</p>
@@ -346,7 +346,7 @@
 에 대한 의문을 가질 수 있다.</li>
 </ol>
 
-<h4 id="의문점-해결하기">의문점 해결하기</h4>
+<h2 id="의문점-해결하기">의문점 해결하기</h2>
 
 <ol>
   <li>
@@ -386,22 +386,26 @@ spring:
          username: SA
 </code></pre></div>    </div>
 
-    <h5 id="applicationyml의-이점">application.yml의 이점</h5>
+    <ul>
+      <li>
+        <p>application.yml의 이점</p>
 
-    <p>둘이 어떤 케이스에 각각 사용되는지가 제일 궁금해서 검색을 해보았는데,
+        <p>둘이 어떤 케이스에 각각 사용되는지가 제일 궁금해서 검색을 해보았는데,
 그 내용은 아래와 같다.</p>
 
-    <ul>
-      <li>application.yml 파일이 각종 설정값을 관리하는데 더 편하고,
+        <ul>
+          <li>application.yml 파일이 각종 설정값을 관리하는데 더 편하고,
 YAML은 JSON의 확장판과 같기 때문에 가독성 측면에서 좋다</li>
-      <li>properties 파일을 많이 사용하였지만 표현의 한계로 yaml 파일을 더 많이 사용하게 되었다.</li>
-    </ul>
+          <li>properties 파일을 많이 사용하였지만 표현의 한계로 yaml 파일을 더 많이 사용하게 되었다.</li>
+        </ul>
 
-    <p>위의 이유로 yml 파일을 주로 사용함을 알 수 있다.</p>
+        <p>위의 이유로 yml 파일을 주로 사용함을 알 수 있다.</p>
+      </li>
+    </ul>
   </li>
 </ol>
 
-<h4 id="실습-시작">실습 시작!</h4>
+<h2 id="실습-시작">실습 시작!</h2>
 
 <p>우선 build.gradle로 가서 의존성 하나를 추가해준다.</p>
 
@@ -414,7 +418,7 @@ implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
 <p><code class="language-plaintext highlighter-rouge">config/auth</code>패키지를 생성해준다.</p>
 
-<h4 id="securityconfig저는-생략합니다">SecurityConfig(저는 생략합니다!)</h4>
+<h2 id="securityconfig">SecurityConfig</h2>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@RequiredArgsConstructor
 @EnableWebSecurity
@@ -466,7 +470,7 @@ oAuth2 로그인 성공 이후 사용자 정보를 가져올 때의 설정 담�
   </li>
 </ul>
 
-<h4 id="resourcesapplication-oauthyml">resources/application-oauth.yml</h4>
+<h2 id="resourcesapplication-oauthyml">resources/application-oauth.yml</h2>
 
 <p>resources에 application.yml 파일이 있을텐데,
 resources/application-oauth.yml 파일 또한 만들어준다.</p>
@@ -510,7 +514,7 @@ include: oauth
 
 </code></pre></div></div>
 
-<h4 id="userentity">user/entity</h4>
+<h2 id="userentity">user/entity</h2>
 
 <p>아래처럼 userEntity가 있다고 가정한다.</p>
 
@@ -581,7 +585,7 @@ Role.java 파일을 만들어준다.</p>
 
 <p>스프링 security에서는 권한 코드에 항상 ‘ROLE_‘이 앞에 있어야 한다.</p>
 
-<h4 id="userrepositoryuserrepository">user/repository/UserRepository</h4>
+<h2 id="userrepositoryuserrepository">user/repository/UserRepository</h2>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * user/repository/UserRepository.java
@@ -594,7 +598,7 @@ Role.java 파일을 만들어준다.</p>
 <p>원하는 걸 사용할 수 있는데,
 책의 예제에서는 findByEmail을 하였음을 알 수 있다.</p>
 
-<h4 id="configauthcustomoauth2userservice">config/auth/CustomOAuth2UserService</h4>
+<h2 id="configauthcustomoauth2userservice">config/auth/CustomOAuth2UserService</h2>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * config/auth/CustomOAuth2UserService.java
@@ -657,7 +661,9 @@ Role.java 파일을 만들어준다.</p>
   <li>‘CustomOAuth2UserService 클래스까지 생성되었다면 OAuthAttributes 클래스를 생성</li>
 </ul>
 
-<h4 id="configauthdtooauthattributes">config/auth/dto/OAuthAttributes</h4>
+<h2 id="configauthdtooauthattributes">config/auth/dto/OAuthAttributes</h2>
+
+<p>OAuthAttributes를 봐보자.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Getter</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">OAuthAttributes</span> <span class="o">{</span>
@@ -707,7 +713,7 @@ Role.java 파일을 만들어준다.</p>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h4 id="configauthdtosessionuser">config/auth/dto/SessionUser</h4>
+<h2 id="configauthdtosessionuser">config/auth/dto/SessionUser</h2>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Getter</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SessionUser</span> <span class="kd">implements</span> <span class="nc">Serializable</span> <span class="o">{</span>
@@ -816,6 +822,126 @@ Role.java 파일을 만들어준다.</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/java/TIL%EC%A0%95%EB%A6%AC/" rel="permalink">[TIL]스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[TIL] 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/javascript/you-dont-know-js/" rel="permalink">You dont know js up &amp; going 정복하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">You dont know js 1st Edition up &amp; going 정복하기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jenkins/h2-error/" rel="permalink">h2 database 에러 해결하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">h2 Database not found
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/jenkins/jenkins-ec2/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
 </a>
       
@@ -842,126 +968,6 @@ Role.java 파일을 만들어준다.</p>
 
 
     <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/jenkins/jenkins-ec2-master/" rel="permalink">[Jenkins]AWS EC2 Ubuntu에 Jenkins 연동하기
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">AWS EC2와 Jenkins를 연동해보자
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/javascript/javascript-again2/" rel="permalink">[Javascript]자바스크립트 Again2
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          5 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again2
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/javascript/javascript-again/" rel="permalink">[Javascript]자바스크립트 Again
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          4 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Javascript]자바스크립트 Again
 </p>
   </article>
 </div>
