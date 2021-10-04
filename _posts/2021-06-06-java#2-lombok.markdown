@@ -1,5 +1,5 @@
 ---
-title: "JAVA#2 Lambok"
+title: "JAVA#2 Lombok"
 excerpt: "Lombok이란"
 
 toc: true
