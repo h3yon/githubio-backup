@@ -1,5 +1,5 @@
 ---
-title: "[스프링 핵심 원리 - 기본편] 복습 일지2(싱글톤)"
+title: "[스프링 핵심 원리 - 기본편] 복습 일지2 (싱글톤)"
 
 toc: true
 toc_sticky: true
@@ -11,7 +11,7 @@ tags:
   - java
 ---
 
-## [스프링 핵심 원리 - 기본편] 복습일지2(싱글톤)
+## [스프링 핵심 원리 - 기본편] 복습일지2 (싱글톤)
 
 ### 싱글톤 패턴
 
@@ -44,7 +44,7 @@ public class SingleService {
 싱글톤의 경우 `무상태`로 설계함을 중요시 여기자  
 (자세한 내용은 나중에 필요하면 또 정리!)  
 
-# Configuration과 싱글톤?
+###z Configuration과 싱글톤?
 
 Config class에 @Configuration을 넣었었다.  
 그럼 스프링이 `CGLIB`이라는 바이트코드 조작 라이브러리로   
