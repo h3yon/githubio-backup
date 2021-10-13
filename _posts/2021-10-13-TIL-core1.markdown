@@ -99,5 +99,6 @@ BeanDefinition에 대해서도 더 중요성을 느끼면 한번 더 정리해�
 ### 핵심 요약
 
 1. 역할과 구현을 분리하자
-2. ApplicationContext -> Bean 관리
+2. ApplicationContext -> 스프링 컨테이너
 3. 객체 지향의 원리
+4. Bean!
