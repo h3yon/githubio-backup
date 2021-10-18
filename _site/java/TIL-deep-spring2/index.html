@@ -1,0 +1,763 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[TIL] Spring 심화반 2주차 복습일지 - 개구리의 깃허브 블로그</title>
+<meta name="description" content="[TIL] Spring 심화반 2주차 복습일지">
+
+
+  <meta name="author" content="🐸 SW developer">
+  
+  <meta property="article:author" content="🐸 SW developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="개구리의 깃허브 블로그">
+<meta property="og:title" content="[TIL] Spring 심화반 2주차 복습일지">
+<meta property="og:url" content="https://h3yon.github.io/java/TIL-deep-spring2/">
+
+
+  <meta property="og:description" content="[TIL] Spring 심화반 2주차 복습일지">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-10-03T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://h3yon.github.io/java/TIL-deep-spring2/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "h3yon Developer",
+      "url": "https://h3yon.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개구리의 깃허브 블로그 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+<link rel="manifest" href="/assets/favicon/site.webmanifest" />
+<link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color" content="#ffffff" />
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개구리의 깃허브 블로그
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://h3yon.github.io/">블로그 방문하기</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/Java/">Java</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://h3yon.github.io/">
+        <img src="/assets/images/profile.jpeg" alt="🐸 SW developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://h3yon.github.io/" itemprop="url">🐸 SW developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>🌿성장하는 개구리 개발자 h3yon입니다!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="khykhy1006@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://h3yon.shop" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[TIL] Spring 심화반 2주차 복습일지">
+    <meta itemprop="description" content="[TIL] Spring 심화반 2주차 복습일지">
+    <meta itemprop="datePublished" content="2021-10-03T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://h3yon.github.io/java/TIL-deep-spring2/" class="u-url" itemprop="url">[TIL] Spring 심화반 2주차 복습일지
+</a>
+          </h1>
+          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 
+            Updated: 
+            <time datetime="2021-10-03T00:00:00+09:00">October 03, 2021</time>
+          </p>
+          <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#til-spring-심화반-2주차-복습일지">[TIL] Spring 심화반 2주차 복습일지</a></li><li><a href="#-인증과-인가">* 인증과 인가!</a></li><li><a href="#-스프링-시큐리티">* 스프링 시큐리티?</a></li><li><a href="#-스프링-시큐리티-과정-살펴보기">** 스프링 시큐리티 과정 살펴보기</a></li><li><a href="#-회원가입에서-enum">* 회원가입에서 enum</a></li><li><a href="#-비밀번호-암호화">* 비밀번호 암호화</a></li><li><a href="#-인가-과정">** 인가 과정!</a></li><li><a href="#-그-외-다룬-부분">** 그 외 다룬 부분</a></li><li><a href="#소감">소감!!</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="til-spring-심화반-2주차-복습일지">[TIL] Spring 심화반 2주차 복습일지</h2>
+
+<p>2주차때 배운 내용을 복습해보려고 한다~!<br />
+간단한 목차는 아래와 같다!</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/135745966-83843040-7929-4c2e-a179-85de4b5464f9.png" /></p>
+
+<h2 id="-인증과-인가">* 인증과 인가!</h2>
+
+<p>인증은 신원 확인!<br />
+인가는 사용자 권한을 확인한다는 의미</p>
+
+<h2 id="-스프링-시큐리티">* 스프링 시큐리티?</h2>
+
+<p>인증 및 인가를 위해 많은 기능 제공!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">implementation</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">:</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">security</span><span class="err">'</span>
+</code></pre></div></div>
+
+<h2 id="-스프링-시큐리티-과정-살펴보기">** 스프링 시큐리티 과정 살펴보기</h2>
+
+<p>아래처럼 UserDetails 관련해서 뭔가 작용하는 구조임을 알 수 있다!</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/135748176-b70c0e20-c4e2-4b9c-aebe-9434ce0a81de.jpeg" /></p>
+
+<p>아래 2개 구현을 해준다.</p>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">UserDetailsService</code> 인터페이스 → <code class="language-plaintext highlighter-rouge">UserDetailsServiceImpl</code> 클래스</p>
+
+    <p>UserDetailsServiceImpl에서는 해당하는 유저 이름을 리턴해주도록 구현한다.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">UserDetails</code> 인터페이스 → <code class="language-plaintext highlighter-rouge">UserDetailsImpl</code> 클래스</p>
+
+    <p>UserDetailsImpl에서는 User를 가지고 있도록 한다.</p>
+  </li>
+</ol>
+
+<p>스프링 시큐리티를 사용했기 때문에<br />
+<code class="language-plaintext highlighter-rouge">@AuthenticationPrincipal</code> 어노테이션을 통해 User 정보가 들어옴을 알 수 있다!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">Product</span> <span class="nf">createProduct</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="nc">ProductRequestDto</span> <span class="n">requestDto</span><span class="o">,</span> <span class="nd">@AuthenticationPrincipal</span> <span class="nc">UserDetailsImpl</span> <span class="n">userDetails</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 로그인 되어 있는 ID</span>
+        <span class="nc">Long</span> <span class="n">userId</span> <span class="o">=</span> <span class="n">userDetails</span><span class="o">.</span><span class="na">getUser</span><span class="o">().</span><span class="na">getId</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>참고로, <code class="language-plaintext highlighter-rouge">AuthenticationManager</code>은<br />
+OAuth2 때 config 파일에 추가해준다.<br />
+(이 부분 더 복습하기!!)</p>
+
+<h2 id="-회원가입에서-enum">* 회원가입에서 enum</h2>
+
+<p>아래처럼 일단 default role을 잡아놓고,
+검증한 후 맞으면 맞는 role을 설정해준다</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">User</span><span class="o">&gt;</span> <span class="n">found</span> <span class="o">=</span> <span class="n">userRepository</span><span class="o">.</span><span class="na">findByUsername</span><span class="o">(</span><span class="n">username</span><span class="o">);</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">found</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">에러</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="c1">// 사용자 ROLE 확인</span>
+<span class="nc">UserRole</span> <span class="n">role</span> <span class="o">=</span> <span class="nc">UserRole</span><span class="o">.</span><span class="na">USER</span><span class="o">;</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">requestDto</span><span class="o">.</span><span class="na">isAdmin</span><span class="o">())</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(!</span><span class="n">검증검증</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">에러</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">role</span> <span class="o">=</span> <span class="nc">UserRole</span><span class="o">.</span><span class="na">ADMIN</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="-비밀번호-암호화">* 비밀번호 암호화</h2>
+
+<p>OOP가 정말 중요하다고 한번 더 느낀 게,<br />
+나는 비밀번호를 암호화한다고 하면 Service에서 길게 처리할 거 같았다<br />
+근데 Config에 Bean을 주입시켜서 처리를 하는 걸 보고,<br />
+OOP의 중요성을 한번 더 깨달았다!</p>
+
+<h2 id="-인가-과정">** 인가 과정!</h2>
+
+<p>스프링 시큐리티가 로그인한 회원의 권한을 인식하도록 UserDetailsImpl을 수정한 부분이 있는데, 그 부분이 진짜 어려운 것 같다. <br />
+SimpleGrantedAuthority 클래스를 사용해서 권한을 인식한다.</p>
+
+<p>config 파일에서는 <code class="language-plaintext highlighter-rouge">@EnableGlobalMethodSecurity(securedEnabled = true)</code>를 추가해준다.<br />
+또, <code class="language-plaintext highlighter-rouge">@EnableWebSecurity</code>를 추가해준다.</p>
+
+<p>그래서 컨트롤러에서 인가가 필요한 API에 <br />
+<code class="language-plaintext highlighter-rouge">@Secured("{ROLDE 이름}")</code>을 추가해준다.</p>
+
+<h2 id="-그-외-다룬-부분">** 그 외 다룬 부분</h2>
+
+<ul>
+  <li>
+    <p>OAuth2로 카카오 로그인
+  카카오 로그인을 하고, 로그인 처리 과정 부분이 어려웠다.<br />
+  (카카오 로그인은 구현해본 경험 있으니 패스!)</p>
+
+    <p>스프링 시큐리티를 사용하기 때문에<br />
+  <code class="language-plaintext highlighter-rouge">UsernamePasswordAuthenticationToken</code>와 <code class="language-plaintext highlighter-rouge">authenticationManager</code>가 사용된다.<br />
+  <code class="language-plaintext highlighter-rouge">SecurityContextHolder</code>에서 getContext를 하고 authentication을 set해주는데,<br />
+  그 부분을 한번 더 봐야될 것 같다ㅎㅎ</p>
+  </li>
+</ul>
+
+<h2 id="소감">소감!!</h2>
+
+<p>이번 2주차가 진짜 어려웠던 것 같다.<br />
+정말 공부할 부분은 끊임 없는 것 같다ㅎㅎ</p>
+
+<p>카카오 로그인은 좀 구현해본 적이 있어서 <br />
+쉽게 쉽게 생각했는데 다시 복습해보니 어려운 부분이 수두룩하다</p>
+
+<p>한번 더 복습해봐야겠다!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#java" class="page__taxonomy-item p-category" rel="tag">Java</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#java" class="page__taxonomy-item p-category" rel="tag">Java</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-10-03T00:00:00+09:00">October 3, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BTIL%5D+Spring+%EC%8B%AC%ED%99%94%EB%B0%98+2%EC%A3%BC%EC%B0%A8+%EB%B3%B5%EC%8A%B5%EC%9D%BC%EC%A7%80%20https%3A%2F%2Fh3yon.github.io%2Fjava%2FTIL-deep-spring2%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fh3yon.github.io%2Fjava%2FTIL-deep-spring2%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fh3yon.github.io%2Fjava%2FTIL-deep-spring2%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/java/TIL-deep-spring1/" class="pagination--pager" title="[TIL] Spring 심화반 1주차 복습일지
+">Previous</a>
+    
+    
+      <a href="/java/TIL-deep-spring3/" class="pagination--pager" title="[TIL] Spring 심화반 3주차 복습일지
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/spring/TIL-sia2/" rel="permalink">[스프링 인 액션5] Chapter4~6 내용 정리
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> October 18 2021</p>
+    
+    <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+    <p class="archive__item-excerpt" itemprop="description">Chapter4 스프링 시큐리티
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/spring/TIL-sia1/" rel="permalink">[스프링 인 액션5] Chapter1~3 내용 정리
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> October 14 2021</p>
+    
+    <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+    <p class="archive__item-excerpt" itemprop="description">[스프링 인 액션5] Chapter1~3 내용 정리
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/spring/TIL-core3/" rel="permalink">[스프링 핵심 원리 - 기본편] 복습일지3 (컴포넌트 스캔)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> October 13 2021</p>
+    
+    <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+    <p class="archive__item-excerpt" itemprop="description">[스프링 핵심 원리 - 기본편] 복습일지3 (컴포넌트 스캔)
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/spring/TIL-core2/" rel="permalink">[스프링 핵심 원리 - 기본편] 복습 일지2 (싱글톤)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> October 13 2021</p>
+    
+    <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+    <p class="archive__item-excerpt" itemprop="description">[스프링 핵심 원리 - 기본편] 복습일지2 (싱글톤)
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 h3yon Developer. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://h3yon.github.io/java/TIL-deep-spring2/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/java/TIL-deep-spring2"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://h3yon-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

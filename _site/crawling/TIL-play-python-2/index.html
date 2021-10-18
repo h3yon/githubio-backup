@@ -1,0 +1,745 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 2주차 개발일지 - 개구리의 깃허브 블로그</title>
+<meta name="description" content="[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 2주차 개발일지">
+
+
+  <meta name="author" content="🐸 SW developer">
+  
+  <meta property="article:author" content="🐸 SW developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="개구리의 깃허브 블로그">
+<meta property="og:title" content="[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 2주차 개발일지">
+<meta property="og:url" content="https://h3yon.github.io/crawling/TIL-play-python-2/">
+
+
+  <meta property="og:description" content="[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 2주차 개발일지">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-10-03T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://h3yon.github.io/crawling/TIL-play-python-2/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "h3yon Developer",
+      "url": "https://h3yon.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개구리의 깃허브 블로그 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+<link rel="manifest" href="/assets/favicon/site.webmanifest" />
+<link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color" content="#ffffff" />
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개구리의 깃허브 블로그
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://h3yon.github.io/">블로그 방문하기</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/Java/">Java</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://h3yon.github.io/">
+        <img src="/assets/images/profile.jpeg" alt="🐸 SW developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://h3yon.github.io/" itemprop="url">🐸 SW developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>🌿성장하는 개구리 개발자 h3yon입니다!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="khykhy1006@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://h3yon.shop" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 2주차 개발일지">
+    <meta itemprop="description" content="[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 2주차 개발일지">
+    <meta itemprop="datePublished" content="2021-10-03T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://h3yon.github.io/crawling/TIL-play-python-2/" class="u-url" itemprop="url">[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 2주차 개발일지
+</a>
+          </h1>
+          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 
+            Updated: 
+            <time datetime="2021-10-03T00:00:00+09:00">October 03, 2021</time>
+          </p>
+          <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#til-힙한취미코딩-파이썬-혼자놀기-패키지-2주차-개발일지">[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 2주차 개발일지</a></li><li><a href="#오늘의-목표">오늘의 목표</a></li><li><a href="#사용-모듈">사용 모듈!</a></li><li><a href="#방법">방법</a><ul><li><a href="#엑셀-파일-만들어보기">엑셀 파일 만들어보기!</a></li><li><a href="#메일-보내보기">메일 보내보기!</a></li></ul></li><li><a href="#후기">후기</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="til-힙한취미코딩-파이썬-혼자놀기-패키지-2주차-개발일지">[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 2주차 개발일지</h2>
+
+<p>스파르타코딩클럽에서<br />
+파이썬 혼자놀기 패키지가 있어서 2주차를 들어보았다!</p>
+
+<h2 id="오늘의-목표">오늘의 목표</h2>
+
+<p>아래처럼 썸네일을 포함해 
+기사를 크롤링해서 자신에게 메일 보내기!</p>
+
+<ul>
+  <li>정리한 코드: <a href="https://github.com/h3yon/Crawling-TEST/commit/8c01f5f86e3a491f3f7395c9b8537b89cf0358a0">코드</a></li>
+</ul>
+
+<h2 id="사용-모듈">사용 모듈!</h2>
+
+<p>사용 모듈은 아래와 같다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 이메일 관련 모듈
+</span><span class="kn">import</span> <span class="nn">smtplib</span>
+<span class="kn">from</span> <span class="nn">email.mime.multipart</span> <span class="kn">import</span> <span class="n">MIMEMultipart</span>
+<span class="kn">from</span> <span class="nn">email.mime.base</span> <span class="kn">import</span> <span class="n">MIMEBase</span>
+<span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
+<span class="kn">from</span> <span class="nn">email</span> <span class="kn">import</span> <span class="n">encoders</span>
+
+<span class="c1"># 크롤링 및 엑셀 변환 모듈
+</span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+</code></pre></div></div>
+
+<p>모듈의 쓰임을 간단하게 살펴보면,<br />
+이메일 관련이기 때문에 smtplib를 사용하는 걸 알 수 있고</p>
+
+<p>openpyxl은 py -&gt; xlsx 관련 모듈임을 알 수 있다.
+webdriver과 BeautifulSoup을 통해 크롤링함을 알 수 있다.</p>
+
+<h2 id="방법">방법</h2>
+
+<h3 id="엑셀-파일-만들어보기">엑셀 파일 만들어보기!</h3>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/135744342-3d75a703-2063-4d05-b718-b7274405184f.png" /></p>
+
+<p>네이버로 추석을 검색하고<br />
+그 부분의 코드를 보면 경로를 알 수 있다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">articles</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">'#main_pack &gt; section.sc_new.sp_nnews._prs_nws &gt; div &gt; div.group_news &gt; ul &gt; li'</span><span class="p">)</span>
+
+<span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
+<span class="n">ws1</span> <span class="o">=</span> <span class="n">wb</span><span class="p">.</span><span class="n">active</span>
+<span class="n">ws1</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="s">"articles"</span>
+<span class="n">ws1</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="s">"제목"</span><span class="p">,</span> <span class="s">"링크"</span><span class="p">,</span> <span class="s">"신문사"</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">article</span> <span class="ow">in</span> <span class="n">articles</span><span class="p">:</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">article</span><span class="p">.</span><span class="n">select_one</span><span class="p">(</span><span class="s">'div.news_area &gt; a'</span><span class="p">).</span><span class="n">text</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">article</span><span class="p">.</span><span class="n">select_one</span><span class="p">(</span><span class="s">'div.news_area &gt; a'</span><span class="p">)[</span><span class="s">'href'</span><span class="p">]</span>
+    <span class="n">comp</span> <span class="o">=</span> <span class="n">article</span><span class="p">.</span><span class="n">select_one</span><span class="p">(</span><span class="s">'a.info.press'</span><span class="p">).</span><span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="s">'언론사'</span><span class="p">,</span> <span class="s">''</span><span class="p">)</span>
+
+    <span class="n">ws1</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="n">title</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">comp</span><span class="p">,</span> <span class="n">thumbnail</span><span class="p">])</span>
+
+<span class="n">driver</span><span class="p">.</span><span class="n">quit</span><span class="p">()</span>
+<span class="n">wb</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">'articles.xlsx'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>그래서 엑셀 부분 컬럼명을 ‘[“제목”, “링크”, “신문사”, “썸네일”]’으로 잡아놓고<br />
+articles를 돌면서 title, url, comp를 뽑아옴을 알 수 있다!</p>
+
+<h3 id="메일-보내보기">메일 보내보기!</h3>
+
+<p>smtplib 라이브러리를 사용해서 로그인을 하고<br />
+받는 사람 정보, 메일 기본 정보, 내용을 설정해준다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 로그인하기
+</span><span class="n">s</span> <span class="o">=</span> <span class="n">smtplib</span><span class="p">.</span><span class="n">SMTP_SSL</span><span class="p">(</span><span class="s">'smtp.gmail.com'</span><span class="p">)</span>
+<span class="n">s</span><span class="p">.</span><span class="n">login</span><span class="p">(</span><span class="n">me</span><span class="p">,</span> <span class="n">my_password</span><span class="p">)</span>
+
+<span class="c1"># 받는 사람 정보
+</span><span class="n">emails</span> <span class="o">=</span> <span class="p">[</span><span class="s">'my@email.com'</span><span class="p">]</span>
+
+<span class="c1"># ... 생략
+</span>
+<span class="c1"># 메일 보내고 서버 끄기
+</span><span class="n">s</span><span class="p">.</span><span class="n">sendmail</span><span class="p">(</span><span class="n">me</span><span class="p">,</span> <span class="n">you</span><span class="p">,</span> <span class="n">msg</span><span class="p">.</span><span class="n">as_string</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>위의 코드처럼 해서 메일이 보내짐을 확인했다!
+(‘‘안에 있는 내용은 각자 넣어주어야 한다!)</p>
+
+<h2 id="후기">후기</h2>
+
+<p>기사 크롤링이 좀 까다로웠는데,<br />
+혼자 계속 고민해보고 해결해볼 수 있어서 좋았다.</p>
+
+<p>게다가 xlsx 파일로도 변환해보고<br />
+메일로도 보내보는 경험이 흔하진 않은데<br />
+이번 경험으로 한번 해봐서 즐거웠다!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#crawling" class="page__taxonomy-item p-category" rel="tag">Crawling</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#crawling" class="page__taxonomy-item p-category" rel="tag">Crawling</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-10-03T00:00:00+09:00">October 3, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BTIL%5D+%ED%9E%99%ED%95%9C%EC%B7%A8%EB%AF%B8%EC%BD%94%EB%94%A9%21+%ED%8C%8C%EC%9D%B4%EC%8D%AC+%ED%98%BC%EC%9E%90%EB%86%80%EA%B8%B0+%ED%8C%A8%ED%82%A4%EC%A7%80+2%EC%A3%BC%EC%B0%A8+%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80%20https%3A%2F%2Fh3yon.github.io%2Fcrawling%2FTIL-play-python-2%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fh3yon.github.io%2Fcrawling%2FTIL-play-python-2%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fh3yon.github.io%2Fcrawling%2FTIL-play-python-2%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/crawling/TIL-play-python-1/" class="pagination--pager" title="[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 1주차 개발일지
+">Previous</a>
+    
+    
+      <a href="/crawling/TIL-play-python-3/" class="pagination--pager" title="[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 3주차 개발일지
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/spring/TIL-sia2/" rel="permalink">[스프링 인 액션5] Chapter4~6 내용 정리
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> October 18 2021</p>
+    
+    <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+    <p class="archive__item-excerpt" itemprop="description">Chapter4 스프링 시큐리티
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/spring/TIL-sia1/" rel="permalink">[스프링 인 액션5] Chapter1~3 내용 정리
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> October 14 2021</p>
+    
+    <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+    <p class="archive__item-excerpt" itemprop="description">[스프링 인 액션5] Chapter1~3 내용 정리
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/spring/TIL-core3/" rel="permalink">[스프링 핵심 원리 - 기본편] 복습일지3 (컴포넌트 스캔)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> October 13 2021</p>
+    
+    <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+    <p class="archive__item-excerpt" itemprop="description">[스프링 핵심 원리 - 기본편] 복습일지3 (컴포넌트 스캔)
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/spring/TIL-core2/" rel="permalink">[스프링 핵심 원리 - 기본편] 복습 일지2 (싱글톤)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> October 13 2021</p>
+    
+    <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+    <p class="archive__item-excerpt" itemprop="description">[스프링 핵심 원리 - 기본편] 복습일지2 (싱글톤)
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 h3yon Developer. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://h3yon.github.io/crawling/TIL-play-python-2/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/crawling/TIL-play-python-2"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://h3yon-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

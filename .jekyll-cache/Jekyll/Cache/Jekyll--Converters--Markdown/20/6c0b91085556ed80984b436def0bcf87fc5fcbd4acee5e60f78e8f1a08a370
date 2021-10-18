@@ -1,0 +1,97 @@
+I"�<h2 id="til-힙한취미코딩-파이썬-혼자놀기-패키지-2주차-개발일지">[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 2주차 개발일지</h2>
+
+<p>스파르타코딩클럽에서<br />
+파이썬 혼자놀기 패키지가 있어서 2주차를 들어보았다!</p>
+
+<h2 id="오늘의-목표">오늘의 목표</h2>
+
+<p>아래처럼 썸네일을 포함해 
+기사를 크롤링해서 자신에게 메일 보내기!</p>
+
+<ul>
+  <li>정리한 코드: <a href="https://github.com/h3yon/Crawling-TEST/commit/8c01f5f86e3a491f3f7395c9b8537b89cf0358a0">코드</a></li>
+</ul>
+
+<h2 id="사용-모듈">사용 모듈!</h2>
+
+<p>사용 모듈은 아래와 같다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 이메일 관련 모듈
+</span><span class="kn">import</span> <span class="nn">smtplib</span>
+<span class="kn">from</span> <span class="nn">email.mime.multipart</span> <span class="kn">import</span> <span class="n">MIMEMultipart</span>
+<span class="kn">from</span> <span class="nn">email.mime.base</span> <span class="kn">import</span> <span class="n">MIMEBase</span>
+<span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
+<span class="kn">from</span> <span class="nn">email</span> <span class="kn">import</span> <span class="n">encoders</span>
+
+<span class="c1"># 크롤링 및 엑셀 변환 모듈
+</span><span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+</code></pre></div></div>
+
+<p>모듈의 쓰임을 간단하게 살펴보면,<br />
+이메일 관련이기 때문에 smtplib를 사용하는 걸 알 수 있고</p>
+
+<p>openpyxl은 py -&gt; xlsx 관련 모듈임을 알 수 있다.
+webdriver과 BeautifulSoup을 통해 크롤링함을 알 수 있다.</p>
+
+<h2 id="방법">방법</h2>
+
+<h3 id="엑셀-파일-만들어보기">엑셀 파일 만들어보기!</h3>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/135744342-3d75a703-2063-4d05-b718-b7274405184f.png" /></p>
+
+<p>네이버로 추석을 검색하고<br />
+그 부분의 코드를 보면 경로를 알 수 있다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">articles</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">'#main_pack &gt; section.sc_new.sp_nnews._prs_nws &gt; div &gt; div.group_news &gt; ul &gt; li'</span><span class="p">)</span>
+
+<span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
+<span class="n">ws1</span> <span class="o">=</span> <span class="n">wb</span><span class="p">.</span><span class="n">active</span>
+<span class="n">ws1</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="s">"articles"</span>
+<span class="n">ws1</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="s">"제목"</span><span class="p">,</span> <span class="s">"링크"</span><span class="p">,</span> <span class="s">"신문사"</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">article</span> <span class="ow">in</span> <span class="n">articles</span><span class="p">:</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">article</span><span class="p">.</span><span class="n">select_one</span><span class="p">(</span><span class="s">'div.news_area &gt; a'</span><span class="p">).</span><span class="n">text</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">article</span><span class="p">.</span><span class="n">select_one</span><span class="p">(</span><span class="s">'div.news_area &gt; a'</span><span class="p">)[</span><span class="s">'href'</span><span class="p">]</span>
+    <span class="n">comp</span> <span class="o">=</span> <span class="n">article</span><span class="p">.</span><span class="n">select_one</span><span class="p">(</span><span class="s">'a.info.press'</span><span class="p">).</span><span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="s">'언론사'</span><span class="p">,</span> <span class="s">''</span><span class="p">)</span>
+
+    <span class="n">ws1</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="n">title</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">comp</span><span class="p">,</span> <span class="n">thumbnail</span><span class="p">])</span>
+
+<span class="n">driver</span><span class="p">.</span><span class="n">quit</span><span class="p">()</span>
+<span class="n">wb</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">'articles.xlsx'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>그래서 엑셀 부분 컬럼명을 ‘[“제목”, “링크”, “신문사”, “썸네일”]’으로 잡아놓고<br />
+articles를 돌면서 title, url, comp를 뽑아옴을 알 수 있다!</p>
+
+<h3 id="메일-보내보기">메일 보내보기!</h3>
+
+<p>smtplib 라이브러리를 사용해서 로그인을 하고<br />
+받는 사람 정보, 메일 기본 정보, 내용을 설정해준다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 로그인하기
+</span><span class="n">s</span> <span class="o">=</span> <span class="n">smtplib</span><span class="p">.</span><span class="n">SMTP_SSL</span><span class="p">(</span><span class="s">'smtp.gmail.com'</span><span class="p">)</span>
+<span class="n">s</span><span class="p">.</span><span class="n">login</span><span class="p">(</span><span class="n">me</span><span class="p">,</span> <span class="n">my_password</span><span class="p">)</span>
+
+<span class="c1"># 받는 사람 정보
+</span><span class="n">emails</span> <span class="o">=</span> <span class="p">[</span><span class="s">'my@email.com'</span><span class="p">]</span>
+
+<span class="c1"># ... 생략
+</span>
+<span class="c1"># 메일 보내고 서버 끄기
+</span><span class="n">s</span><span class="p">.</span><span class="n">sendmail</span><span class="p">(</span><span class="n">me</span><span class="p">,</span> <span class="n">you</span><span class="p">,</span> <span class="n">msg</span><span class="p">.</span><span class="n">as_string</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>위의 코드처럼 해서 메일이 보내짐을 확인했다!
+(‘‘안에 있는 내용은 각자 넣어주어야 한다!)</p>
+
+<h2 id="후기">후기</h2>
+
+<p>기사 크롤링이 좀 까다로웠는데,<br />
+혼자 계속 고민해보고 해결해볼 수 있어서 좋았다.</p>
+
+<p>게다가 xlsx 파일로도 변환해보고<br />
+메일로도 보내보는 경험이 흔하진 않은데<br />
+이번 경험으로 한번 해봐서 즐거웠다!</p>
+:ET

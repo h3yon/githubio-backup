@@ -1,0 +1,1114 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[스프링 인 액션5] Chapter4~6 내용 정리 - 개구리의 깃허브 블로그</title>
+<meta name="description" content="Chapter4 스프링 시큐리티">
+
+
+  <meta name="author" content="🐸 SW developer">
+  
+  <meta property="article:author" content="🐸 SW developer">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="개구리의 깃허브 블로그">
+<meta property="og:title" content="[스프링 인 액션5] Chapter4~6 내용 정리">
+<meta property="og:url" content="https://h3yon.github.io/spring/TIL-sia2/">
+
+
+  <meta property="og:description" content="Chapter4 스프링 시큐리티">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-10-18T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://h3yon.github.io/spring/TIL-sia2/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "h3yon Developer",
+      "url": "https://h3yon.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개구리의 깃허브 블로그 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+<link rel="manifest" href="/assets/favicon/site.webmanifest" />
+<link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color" content="#ffffff" />
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개구리의 깃허브 블로그
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://h3yon.github.io/">블로그 방문하기</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/Java/">Java</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://h3yon.github.io/">
+        <img src="/assets/images/profile.jpeg" alt="🐸 SW developer" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://h3yon.github.io/" itemprop="url">🐸 SW developer</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>🌿성장하는 개구리 개발자 h3yon입니다!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="khykhy1006@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://h3yon.shop" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[스프링 인 액션5] Chapter4~6 내용 정리">
+    <meta itemprop="description" content="Chapter4 스프링 시큐리티">
+    <meta itemprop="datePublished" content="2021-10-18T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://h3yon.github.io/spring/TIL-sia2/" class="u-url" itemprop="url">[스프링 인 액션5] Chapter4~6 내용 정리
+</a>
+          </h1>
+          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 
+            Updated: 
+            <time datetime="2021-10-18T00:00:00+09:00">October 18, 2021</time>
+          </p>
+          <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#chapter4-스프링-시큐리티">Chapter4 스프링 시큐리티</a><ul><li><a href="#421인메모리-사용자-스토어">4.2.1인메모리 사용자 스토어</a></li><li><a href="#422-jdbc-기반의-사용자-스토어">4.2.2 JDBC 기반의 사용자 스토어</a></li><li><a href="#423-ldap-기반-사용자-스토어">4.2.3 LDAP 기반 사용자 스토어</a></li><li><a href="#424-사용자-인증의-커스터마이징">4.2.4 사용자 인증의 커스터마이징</a></li><li><a href="#432-커스텀-로그인-페이지">4.3.2 커스텀 로그인 페이지</a></li><li><a href="#44-사용자-인지하기">4.4 사용자 인지하기</a></li></ul></li><li><a href="#chapter5-구성-속성-사용하기">Chapter5 구성 속성 사용하기</a><ul><li><a href="#51-자동-구성-세부-조정추상화의-개념과-yml">5.1 자동 구성 세부 조정(추상화의 개념과 yml)</a></li><li><a href="#52-페이징--구성-속성-생성하기">5.2 페이징 &amp; 구성 속성 생성하기</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="chapter4-스프링-시큐리티">Chapter4 스프링 시큐리티</h2>
+
+<p>사용 예시로 알아보기</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@EnableWebSecurity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecurityConfig</span> <span class="kd">extends</span> <span class="nc">WebSecurityConfigurerAdapter</span> <span class="o">{</span>
+
+
+	<span class="c1">//HTTP 보안 구성</span>
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">HttpSecurity</span> <span class="n">http</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span> 
+        <span class="n">http</span>
+                <span class="o">.</span><span class="na">authorizeRequests</span><span class="o">()</span>										<span class="c1">// ExpressionInterceptUrlRegistry 객체 반환</span>
+                <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/design"</span><span class="o">,</span> <span class="s">"/orders"</span><span class="o">)</span> 					<span class="c1">// 이 부분은</span>
+                <span class="o">.</span><span class="na">access</span><span class="o">(</span><span class="s">"hasRole('ROLE_USER')"</span><span class="o">)</span> 					<span class="c1">// 인가 과정</span>
+                <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/"</span><span class="o">,</span> <span class="s">"/**"</span><span class="o">).</span><span class="na">access</span><span class="o">(</span><span class="s">"permitAll"</span><span class="o">)</span> 		<span class="c1">// 이 부분은 누구나 접속 가능</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">httpBasic</span><span class="o">();</span>
+    <span class="o">}</span>
+
+	<span class="c1">//사용자 인증 정보 구성</span>
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">AuthenticationManager</span> <span class="n">auth</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+        <span class="n">auth</span><span class="o">.</span><span class="na">inMemoryAuthentication</span><span class="o">()</span>
+				<span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>여러가지 사용자 스토어 구성 방법 4가지</p>
+
+<ul>
+  <li>인메모리 사용자 스토어</li>
+  <li>JDBC 기반 사용자 스토어</li>
+  <li>LDAP 기반 사용자 스토어</li>
+  <li>커스텀 사용자 명세 서비스</li>
+</ul>
+
+<h3 id="421인메모리-사용자-스토어">4.2.1인메모리 사용자 스토어</h3>
+
+<p>메모리 = 사용자 정보를 유지, 관리할 수 있는 곳 중 하나</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@EnableWebSecurity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecurityConfig</span> <span class="kd">extends</span> <span class="nc">WebSecurityConfigurerAdapter</span> <span class="o">{</span>
+
+
+	<span class="o">...</span>
+
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">AuthenticationManager</span> <span class="n">auth</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+        <span class="n">auth</span><span class="o">.</span><span class="na">inMemoryAuthentication</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">withUser</span><span class="o">(</span><span class="s">"user1"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">password</span><span class="o">(</span><span class="s">"{noop}password1"</span><span class="o">)</span> 		<span class="c1">//{noop} 비밀번호 암호화X</span>
+                <span class="o">.</span><span class="na">authorities</span><span class="o">(</span><span class="s">"ROLE_USER"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">withUser</span><span class="o">(</span><span class="s">"user2"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">password</span><span class="o">(</span><span class="s">"{noop}password2"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">authorities</span><span class="o">(</span><span class="s">"ROLE_USER"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>withUser로 사용자 구성 시작 -&gt; 이름, 비밀번호, 권한을 인자로 전달한다.
+ex) withUser(“name).password(“pw”).authorities(“ROLE_USER”)</p>
+<ul>
+  <li>authorities(“ROLE_USER”) 대신 .roles(“USER”)를 사용해도 O</li>
+  <li>password() 메서드 호출하여 암호화 하지 않으면 HTTP 403/500 에러(접근 거부/Internal Server Error)</li>
+</ul>
+
+<h3 id="422-jdbc-기반의-사용자-스토어">4.2.2 JDBC 기반의 사용자 스토어</h3>
+<p>사용자 정보는 관계형 데이터베이스로 유지, 관리되는 경우가 많아 JDBC 기반 사용자 스토어가 적합</p>
+
+<p>이 부분도 마찬가지로 PasswordEncoder를 사용해서 비밀번호 암호화 필요</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@EnableWebSecurity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecurityConfig</span> <span class="kd">extends</span> <span class="nc">WebSecurityConfigurerAdapter</span> <span class="o">{</span>
+
+
+	<span class="o">...</span>
+
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">AuthenticationManager</span> <span class="n">auth</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+         <span class="n">auth</span>
+            <span class="o">.</span><span class="na">jdbcAuthentication</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">dataSource</span><span class="o">(</span><span class="n">dataSource</span><span class="o">)</span>
+            <span class="c1">// 스프링 시큐리티와 다른 데이터베이스(테이블이나 열의 이름이 다를 때)를 사용할 경우</span>
+            <span class="o">.</span><span class="na">usersByUsernameQuery</span><span class="o">(</span><span class="s">"select username, password, enabled, from users where username=?"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">authoritiesByUsernameQuery</span><span class="o">(</span><span class="s">"select username, authority from authorities where username=?"</span><span class="o">)</span>
+			<span class="o">.</span><span class="na">passwordEncoder</span><span class="o">(</span><span class="k">new</span> <span class="nc">BCryptPasswordEncoder</span><span class="o">());</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>스프링 시큐리티의 내부 코드에서는</p>
+
+<p>DEF_USERS_BY_USERNAME_QUERY = “select username ,password, enabled from users where username = ?”
+DEF_AUTHORITIES_BY_USERNAME_QUERY = “select username, authority from authorities where username = ?”
+DEF_GROUP_AUTHORITIES_BY_USERNAME_QUERY = “select g.id, g.group_name, ga.authority from authorities g, group_members gm, group_authorities ga where gm.username = ? and g.id = ga.group_id and g.id = gm.group_id”;
+를 사용하고 위에 코드처럼 custom SQL 쿼리로 대체할 수 있다.</p>
+
+<p>→ 조건의 경우, where절에 사용되는 매개변수는 하나이며, username이어야 한다. 사용자 정보 인증 쿼리에서 username, password, enabled 열 값을 반환해야 한다.</p>
+
+<h3 id="423-ldap-기반-사용자-스토어">4.2.3 LDAP 기반 사용자 스토어</h3>
+
+<p>LDAP(Lightweight Directory Access Protocol) 기반 인증은 <code class="language-plaintext highlighter-rouge">ldapAuthentication()</code> 메서드를 사용할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@EnableWebSecurity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecurityConfig</span> <span class="kd">extends</span> <span class="nc">WebSecurityConfigurerAdapter</span> <span class="o">{</span>
+
+
+	<span class="o">...</span>
+
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">AuthenticationManager</span> <span class="n">auth</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+			<span class="n">auth</span><span class="o">.</span><span class="na">ldapAuthentication</span><span class="o">()</span>
+				<span class="c1">// .userSearchBase("ou=people") 					&lt;- 이렇게 기준점 쿼리를 지정 가능(구성 단위)</span>
+    	   	 	<span class="o">.</span><span class="na">userSearchFilter</span><span class="o">(</span><span class="s">"(uid={0})"</span><span class="o">)</span>
+        		<span class="o">.</span><span class="na">groupSearchFilter</span><span class="o">(</span><span class="s">"member={0}"</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>LDAP의 기본 인증 전략은 사용자가 직접 LDAP 서버에서 인증받도록 하는 것.
+외에도 비밀번호를 비교하는 방법도 O
+입력된 비밀번호를 LDAP 디렉토리에 전송한 후, 비밀번호를 비밀번호 속성 값과 비교하도록 LDAP 서버에 요청한다.(이 비교는 LDAP 서버에서 수행)</p>
+
+<p>→ 비교 시 passwordCompare() 메서드 호출하면 된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@EnableWebSecurity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecurityConfig</span> <span class="kd">extends</span> <span class="nc">WebSecurityConfigurerAdapter</span> <span class="o">{</span>
+
+
+	<span class="o">...</span>
+
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">AuthenticationManager</span> <span class="n">auth</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+			<span class="n">auth</span><span class="o">.</span><span class="na">ldapAuthentication</span><span class="o">()</span>
+    	   	 	<span class="o">.</span><span class="na">userSearchFilter</span><span class="o">(</span><span class="s">"(uid={0})"</span><span class="o">)</span>
+        		<span class="o">.</span><span class="na">groupSearchFilter</span><span class="o">(</span><span class="s">"member={0}"</span><span class="o">);</span>
+				<span class="o">.</span><span class="na">passwordCompare</span><span class="o">()</span> 													<span class="c1">// 비교하고</span>
+				<span class="o">.</span><span class="na">passwordEncoder</span><span class="o">(</span><span class="k">new</span> <span class="nc">BCryptPasswordEncoder</span><span class="o">())</span> 		<span class="c1">//암호화하고</span>
+				<span class="o">.</span><span class="na">passwordAttribute</span><span class="o">(</span><span class="s">"userPassword"</span><span class="o">);</span> 							<span class="c1">// password 대신 userPassword로 지정해놔서 그걸로 진행</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>LDAP 서버?</p>
+
+<p>기본적으로 localhost:33389.
+contextSource메서드로 서버 위치 구성 가능 → ContextSourceBuilder 반환</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@EnableWebSecurity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecurityConfig</span> <span class="kd">extends</span> <span class="nc">WebSecurityConfigurerAdapter</span> <span class="o">{</span>
+
+
+	<span class="o">...</span>
+
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">AuthenticationManager</span> <span class="n">auth</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+		<span class="o">...</span>
+        <span class="o">.</span><span class="na">passwordCompare</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">passwordEncoder</span><span class="o">(</span><span class="k">new</span> <span class="nc">BCryptPasswordEncoder</span><span class="o">())</span>
+        <span class="o">.</span><span class="na">passwordAttribute</span><span class="o">(</span><span class="s">"userPassword"</span><span class="o">);</span>
+        <span class="o">.</span><span class="na">contextSource</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">root</span><span class="o">(</span><span class="s">"dc=tacocloud,dc=com"</span><span class="o">)</span>			<span class="c1">//url도 가능</span>
+        <span class="o">.</span><span class="na">ldif</span><span class="o">(</span><span class="s">"classpath:users.ldif"</span><span class="o">)</span>        			<span class="c1">//LDAP 데이터를 나타내는 표준화된 방법. 자동으로 users.ldif 로드</span>
+
+
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>로그인이 되게 하려면 미리 정해둔 비밀번호를 암호화한 결과값을 알아낸 후</p>
+
+<p>LDIF 파일 사용자의 passCode 값으로 교체하고 application 다시 시작</p>
+
+<h3 id="424-사용자-인증의-커스터마이징">4.2.4 사용자 인증의 커스터마이징</h3>
+<p>(이건 코드로 보기)</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="kd">implements</span> <span class="nc">UserDetails</span> <span class="o">{</span>
+	<span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>스프링 시큐리티의 UserDetails를 구현하면</p>
+
+<p>getAuthorities() → 부여된 권한 저장한 컬렉션 반환</p>
+
+<p>외에도 is → AccountNonExpired()/NonLocked()/CredentialsNonExpired()/isEnabled() 존재</p>
+
+<ul>
+  <li>내장된 UserDetailsService.</li>
+</ul>
+
+<p>→ User에서는 UserDetails를 구현. UserRepository에서는 findByUsername()을 제공하므로 UserDetailsService 구현 클래스에서 사용해야 하는 모든 것이 준비된 상태</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserDetailsService</span><span class="o">{</span>
+	<span class="nc">UserDetails</span> <span class="nf">loadUserByUsername</span><span class="o">(</span><span class="nc">String</span> <span class="n">username</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">UsernameNotFoundException</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>그럼 UserDetailsService를 구현하는 클래스!</p>
+
+<h3 id="432-커스텀-로그인-페이지">4.3.2 커스텀 로그인 페이지</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">http</span>
+            <span class="o">.</span><span class="na">authorizeRequests</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/design"</span><span class="o">,</span> <span class="s">"/orders"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">access</span><span class="o">(</span><span class="s">"hasRole('ROLE_USER')"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/"</span><span class="o">,</span> <span class="s">"/**"</span><span class="o">).</span><span class="na">access</span><span class="o">(</span><span class="s">"permitAll"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">and</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">formLogin</span><span class="o">()</span>      								<span class="c1">//이 부분 추가</span>
+            <span class="o">.</span><span class="na">loginPage</span><span class="o">(</span><span class="s">"/login"</span><span class="o">);</span>
+			<span class="o">.</span><span class="na">dafaultSuccessUrl</span><span class="o">(</span><span class="s">"/design"</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>		<span class="c1">// 로그인 후 이동할 페이지</span>
+			<span class="o">.</span><span class="na">loginProcessingUrl</span><span class="o">(</span><span class="s">"/authenticate"</span><span class="o">)</span>		<span class="c1">//해당 요청으로 로그인 처리	</span>
+			<span class="o">.</span><span class="na">usernameParameter</span><span class="o">(</span><span class="s">"user"</span><span class="o">)</span> 				<span class="c1">//필요할 경우 이렇게 필드 이름도 설정 가능</span>
+</code></pre></div></div>
+
+<p>→ WebConfig에도 뷰만 뿌려주면 되기 때문에 /login 페이지 추가</p>
+
+<p>로그아웃하기</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">http</span><span class="o">.</span>
+			<span class="o">...</span>
+			<span class="o">.</span><span class="na">and</span><span class="o">()</span>
+			<span class="o">.</span><span class="na">logout</span><span class="o">()</span>
+			<span class="o">.</span><span class="na">logoutSuccessUrl</span><span class="o">(</span><span class="s">"/"</span><span class="o">);</span>	
+</code></pre></div></div>
+
+<h3 id="44-사용자-인지하기">4.4 사용자 인지하기</h3>
+
+<p>사용자 인지하는 방법 중 많이 사용되는 방법은 아래와 같다</p>
+
+<p>Principal 객체를 컨트롤러 메서드에 주입
+Authentication 객체를 컨트롤러 메서드에 주입
+SecurityContextHolder를 사용해서 보안 컨텍스트를 얻기
+@AuthenticationPrincipal 애노테이션을 메서드에 저장</p>
+
+<p>@AuthenticationPrincipal로 사용자 인지</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@PostMapping</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">processOrder</span><span class="o">(</span><span class="nd">@Valid</span> <span class="nc">Order</span> <span class="n">order</span><span class="o">,</span> <span class="o">...</span>
+        <span class="o">,</span> <span class="nd">@AuthenticationPrincipal</span> <span class="nc">User</span> <span class="n">user</span> 
+<span class="o">)</span> <span class="o">{</span>
+    <span class="n">order</span><span class="o">.</span><span class="na">setUser</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+
+	<span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>장점: 타입 변환이 필요없고 Authentication과 동일하게 보안 특정 코드만 가진다.</p>
+
+<p>SecurityContextHolder로 할 경우</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Authentication</span> <span class="n">authentication</span> <span class="o">=</span> <span class="nc">SecurityContextHolder</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">getAuthentication</span><span class="o">();</span>
+<span class="nc">User</span> <span class="n">user</span> <span class="o">=</span> <span class="o">(</span><span class="nc">User</span><span class="o">)</span> <span class="n">authentication</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">();</span>
+</code></pre></div></div>
+<p>SecurityContextHolder는 Context를 get하고 Authentication을 get한 후 Principal을 get해서 User에 담는다.</p>
+
+<h2 id="chapter5-구성-속성-사용하기">Chapter5 구성 속성 사용하기</h2>
+
+<ul>
+  <li>빈 연결: 스프링 애플리케이션 컨텍스트에서 빈으로 생성되는 애플리케이션 컴포넌트 및 상호 간에 주입되는 방법을 선언하는 구성</li>
+  <li>속성 주입: 스프링 애플리케이션 컨텍스트에서 빈의 속성값을 설정하는구성
+ex) @Bean 애노테이션이 지정된 메서드는 사용하는 빈의 인스턴스를 생성하고 속성값도 설정한다.</li>
+</ul>
+
+<p>DataSource 메서드로 사용할 경우 <code class="language-plaintext highlighter-rouge">EmbeddedDatabaseType</code>으로 Type(h2)을 정한 후 SQL이 실행되어 DB에 적용해도 된다.</p>
+
+<p>그러나 스프링부트를 사용중일 때는 자동-구성이 DataSource 빈을 구성해주므로 dataSource()메서드가 필요없다.</p>
+
+<p>H2 의존성 라이브러리를 classpath에서 찾아 사용할 수 있다면 빈을 자동으로 찾아 애플리케이션 컨텍스트에 생성하고
+schema.sql, data.sql을 실행하여 DB에 적용시킨다.
+어쩔 때(이름을 다르게 지정하고 싶거나 3개 이상을 지정해야 할 때)에는 구성 속성을 사용할 수 있다.</p>
+
+<h3 id="51-자동-구성-세부-조정추상화의-개념과-yml">5.1 자동 구성 세부 조정(추상화의 개념과 yml)</h3>
+
+<p>추상화는 구성 가능한 모든 속성을 한 곳에서 관리하는 개념.
+추상화함으로써 빈이 스프링 자체에서 해당 속성을 사용할 수 있게 해준다.</p>
+
+<p>아래 속성 근원으로부터 원천 속성을 가져온다.</p>
+
+<ul>
+  <li>JVM 시스템 속성</li>
+  <li>운영체제의 환경 변수</li>
+  <li>명령행 인자</li>
+  <li>애플리케이션의 속성 구성 파일</li>
+</ul>
+
+<p>또, YML 파일에서 아래처럼 진행해놓으면,
+톰캣의 JDBC 커넥션 풀을 classpath에서 자동으로 찾을 수 있다면 DataSource 빈이 그걸 사용한다.
+그렇지 않다면 다른 커넥션 풀을 classpath에서 찾아 사용한다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring:
+  datasource:
+    url: jdbc:mysql://localhost/tacocloud
+    username: tacodb
+    password: tacopassword
+
+
+	schema:
+		- 내가 원하는 스키마 이름.sql
+	data:
+		- ingredients.sql
+</code></pre></div></div>
+
+<p>원하는 경우 이렇게 schema, data도 사용 가능하다.
+이런 명시적인 데이터 소스 구성 대신 JNDI(Java Naming and Directory Interface)에 구성하는 것을 원할 수도 있다.
+→ 이걸 하면 다른 데이터 소스 구성 속성은 무시된다.</p>
+
+<p>해당 yml 파일에서 HTTPS를 활성화하기 위해 server: ssl: key-store/key-store-password/key-password 도 사용 가능하다.</p>
+
+<p>로깅하는 방법의 경우, logback.xml 파일을 사용할 수도 있지만,
+application.yml에 logging 항목을 지정할 수 있다.
+(기본 로그 파일 10MB)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>logging:
+	path: /var/logs/
+	file: TacoLogs.log
+	level:
+		root: WARN
+		org.springframework.security: DEBUG
+</code></pre></div></div>
+
+<p>yml파일에서 다른 속성의 값도 가져올 수 있다.</p>
+
+<p>ex) greeting.welcome: ${spring.application.name}</p>
+
+<h3 id="52-페이징--구성-속성-생성하기">5.2 페이징 &amp; 구성 속성 생성하기</h3>
+
+<p>페이징</p>
+
+<p>Paging이 어떻게 되는지 볼 수 있다.</p>
+
+<p>스프링 데이터의 Pageable 인터페이스를 사용하면 페이지 번호와 크기로 결과의 일부분을 선택할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@GetMapping</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">ordersForUser</span><span class="o">(</span><span class="nd">@AuthenticationPrincipal</span> <span class="nc">User</span> <span class="n">user</span><span class="o">,</span> <span class="nc">Model</span> <span class="n">model</span><span class="o">){</span>
+    <span class="nc">Pageable</span> <span class="n">pageable</span> <span class="o">=</span> <span class="nc">PageRequest</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+    <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"orders"</span><span class="o">,</span> <span class="n">orderRepo</span><span class="o">.</span><span class="na">findByUserOrderByPlacedAtDesc</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="n">pageable</span><span class="o">));</span>
+    <span class="k">return</span> <span class="s">"orderList"</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>근데 이렇게 20으로 하드코딩하면 좋지 않아서
+아래처럼 코드가 변경된다. (기본값 = 20)</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ConfigurationProperties</span><span class="o">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">"taco.orders"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderController</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">pageSize</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPageSize</span><span class="o">(</span><span class="kt">int</span> <span class="n">pageSize</span><span class="o">){</span><span class="k">this</span><span class="o">.</span><span class="na">pageSize</span> <span class="o">=</span> <span class="n">pageSize</span><span class="o">;}</span>
+	<span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>변경하고 싶을 때엔 아래처럼 yml에서 변경하면 된다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>taco:
+  orders:
+    pageSize:10
+</code></pre></div></div>
+
+<p>@ConfigurationProperties</p>
+
+<p>구성 속성의 올바른 주입을 지원하기 위해 @ConfigurationProperties 어노테이션을 지원한다.
+이 어노테이션은 구성 데이터의 홀더로 사용되는 빈에 지정되는 경우가 많고, 이렇게 사용하면
+컨트롤러와 그 외 클래스 외부에 구성 관련 정보를 따로 유지할 수 있다.
+여러 빈에 공통적인 구성 속성을 쉽게 공유할 수 있다.</p>
+
+<p>그 예제를 한번 봐보자!</p>
+
+<p>먼저 속성을 정의한 클래스를 만든다.
+추가적으로 Validated 어노테이션을 사용해서 검증도 한번에 가능하다!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Component</span>
+<span class="nd">@ConfigurationProperties</span><span class="o">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">"taco.orders"</span><span class="o">)</span>
+<span class="nd">@Data</span>
+<span class="nd">@Validated</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderProps</span> <span class="o">{</span>
+    
+    <span class="nd">@Min</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="o">,</span> <span class="n">message</span><span class="o">=</span><span class="s">"must be between 5 and 25"</span><span class="o">)</span>
+    <span class="nd">@Max</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="mi">25</span><span class="o">,</span> <span class="n">message</span><span class="o">=</span><span class="s">"must be between 5 and 25"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">pageSize</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>이 빈을 Controller에 주입한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/orders"</span><span class="o">)</span>
+<span class="nd">@SessionAttributes</span><span class="o">(</span><span class="s">"order"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderController</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">OrderRepository</span> <span class="n">orderRepo</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">OrderProps</span> <span class="n">props</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">OrderController</span><span class="o">(</span><span class="nc">OrderRepository</span> <span class="n">orderRepo</span><span class="o">,</span> <span class="nc">OrderProps</span> <span class="n">props</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">orderRepo</span> <span class="o">=</span> <span class="n">orderRepo</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">props</span> <span class="o">=</span> <span class="n">props</span><span class="o">;</span>
+    <span class="o">}</span>
+	<span class="o">...</span>
+	<span class="nd">@GetMapping</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">ordersForUser</span><span class="o">(</span><span class="nd">@AuthenticationPrincipal</span> <span class="nc">User</span> <span class="n">user</span><span class="o">,</span> <span class="nc">Model</span> <span class="n">model</span><span class="o">){</span>
+    	<span class="nc">Pageable</span> <span class="n">pageable</span> <span class="o">=</span> <span class="nc">PageRequest</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">props</span><span class="o">.</span><span class="na">getPageSize</span><span class="o">());</span>			<span class="c1">// 하드코딩 X</span>
+		<span class="o">...</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>그래서 저렇게 Props 부분에 공통 속성들을 다 넣을 수 있다!!</p>
+
+<p>(신기!)</p>
+
+<p>구성 속성 메타데이터 선언</p>
+
+<p>yml 파일의 taco: 부분에서 taco를 인식하지 못하면</p>
+
+<p>해당 속성에 관한 메타데이터를 생성하는 것이 좋다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">configuration</span><span class="o">-</span><span class="n">processor</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+</code></pre></div></div>
+<p>해당 의존성을 우선 추가해준다.</p>
+
+<p>spring-boot-configuration-processor는 @ConfigurationProperties 어노테이션이 지정된 애플리케이션 클래스에 관한 메타데이터를 생성하는 어노테이션 처리기이다.</p>
+
+<p>생성된 메타데이터는 yml 파일에서 자동완성 기능을 제공하고 속성의 문서를 보여주기 위해 사용된다.</p>
+
+<p>커스텀 구성 속성에 관한 메타데이터를 생성하려면 json 파일을 생성하도록 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// additional-spring-configuration-metadata.json</span>
+<span class="o">{</span>
+  <span class="s">"properties"</span><span class="o">:</span> <span class="o">[{</span>
+    <span class="s">"name"</span><span class="o">:</span> <span class="s">"taco.orders.page-size"</span><span class="o">,</span>
+    <span class="s">"type"</span><span class="o">:</span> <span class="s">"int"</span><span class="o">,</span>
+    <span class="s">"description"</span><span class="o">:</span> <span class="s">"Sets the maximum number of orders to display in a list"</span>
+  <span class="o">}]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>yml Profile</li>
+</ul>
+
+<p>빈에 따른 활성화가 필요할 때는 @Profile을 사용한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
+<span class="nd">@Profile</span><span class="o">({</span><span class="s">"dev"</span><span class="o">,</span> <span class="err">"</span><span class="n">qa</span><span class="o">})</span>
+<span class="kd">public</span> <span class="nc">CommandLineRunner</span> <span class="nf">dataLoader</span><span class="o">(){</span> <span class="o">...</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Chapter6 REST 서비스</p>
+
+<p>지금까지 한 부분은 스프링 MVC를 활용해서 MPA(Multi Page Application)을 사용했다.</p>
+
+<p>이제는 SPA(Single Page Application)로 프론트엔드를 구축할 것이라고 한다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#java" class="page__taxonomy-item p-category" rel="tag">java</a><span class="sep">, </span>
+    
+      <a href="/tags/#spring" class="page__taxonomy-item p-category" rel="tag">spring</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%8A%A4%ED%94%84%EB%A7%81%EC%9D%B8%EC%95%A1%EC%85%98" class="page__taxonomy-item p-category" rel="tag">스프링인액션</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#spring" class="page__taxonomy-item p-category" rel="tag">Spring</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-10-18T00:00:00+09:00">October 18, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%8A%A4%ED%94%84%EB%A7%81+%EC%9D%B8+%EC%95%A1%EC%85%985%5D+Chapter4~6+%EB%82%B4%EC%9A%A9+%EC%A0%95%EB%A6%AC%20https%3A%2F%2Fh3yon.github.io%2Fspring%2FTIL-sia2%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fh3yon.github.io%2Fspring%2FTIL-sia2%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fh3yon.github.io%2Fspring%2FTIL-sia2%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/spring/TIL-sia1/" class="pagination--pager" title="[스프링 인 액션5] Chapter1~3 내용 정리
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/spring/TIL-sia1/" rel="permalink">[스프링 인 액션5] Chapter1~3 내용 정리
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> October 14 2021</p>
+    
+    <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+    <p class="archive__item-excerpt" itemprop="description">[스프링 인 액션5] Chapter1~3 내용 정리
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/spring/TIL-core3/" rel="permalink">[스프링 핵심 원리 - 기본편] 복습일지3 (컴포넌트 스캔)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> October 13 2021</p>
+    
+    <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+    <p class="archive__item-excerpt" itemprop="description">[스프링 핵심 원리 - 기본편] 복습일지3 (컴포넌트 스캔)
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/spring/TIL-core2/" rel="permalink">[스프링 핵심 원리 - 기본편] 복습 일지2 (싱글톤)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> October 13 2021</p>
+    
+    <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+    <p class="archive__item-excerpt" itemprop="description">[스프링 핵심 원리 - 기본편] 복습일지2 (싱글톤)
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/spring/TIL-core1/" rel="permalink">[스프링 핵심 원리 - 기본편] 복습 일지1 (빈)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> October 13 2021</p>
+    
+    <!-- 
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+ -->
+    <p class="archive__item-excerpt" itemprop="description">[스프링 핵심 원리 - 기본편] 복습일지1 (빈)
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/h3yon" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 h3yon Developer. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://h3yon.github.io/spring/TIL-sia2/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/spring/TIL-sia2"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://h3yon-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

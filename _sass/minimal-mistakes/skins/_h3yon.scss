@@ -1,0 +1,24 @@
+/* ==========================================================================
+   h3yon skin
+   ========================================================================== */
+
+/* Colors */
+$lightest-green: #dfedc8;
+$light-green: #85be62;
+$green: #549c26;
+$dark-green: #5d9f36;
+
+/* Settings */
+$footer-background-color: $lightest-green !default; // footer 마지막 배경색
+$link-color: $light-green !default; // 링크 색깔, 글 리스트 제목 링크
+
+/* TOC setting */
+$toc-nav-title-color: $light-green;
+$toc-nav-active-color: mix(#fff, $light-green, 80%);
+
+/* navigation menu */
+$nav-menu-item-underline-color: $lightest-green;
+
+.page__title {
+  color: $dark-green; // 포스트 제목 색
+}

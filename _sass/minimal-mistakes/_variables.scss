@@ -14,7 +14,8 @@ $indent-var: 1.3em !default;
 
 /* system typefaces */
 $serif: Georgia, Times, serif !default;
-$sans-serif: -apple-system, BlinkMacSystemFont, "Nanum Gothic", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
+$sans-serif: -apple-system, BlinkMacSystemFont, "Nanum Gothic", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande",
+  Arial, sans-serif !default;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 
 /* sans serif typefaces */
@@ -108,6 +109,11 @@ $vimeo-color: #1ab7ea !default;
 $vine-color: #00bf8f !default;
 $youtube-color: #bb0000 !default;
 $xing-color: #006567 !default;
+
+/* (h3yon) default colors for added variables */
+$toc-nav-title-color: $primary-color !default;
+$toc-nav-active-color: $active-color !default;
+$nav-menu-item-underline-color: $primary-color !default;
 
 /* links */
 $link-color: mix(#000, $info-color, 20%) !default;

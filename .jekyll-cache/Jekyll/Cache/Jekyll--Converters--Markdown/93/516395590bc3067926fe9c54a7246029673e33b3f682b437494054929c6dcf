@@ -1,0 +1,73 @@
+I"�<h2 id="til-힙한취미코딩-파이썬-혼자놀기-패키지-3주차-개발일지">[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 3주차 개발일지</h2>
+
+<p>스파르타코딩클럽에서<br />
+파이썬 혼자놀기 패키지가 있어서 3주차를 들어보았다!</p>
+
+<h2 id="오늘의-목표">오늘의 목표</h2>
+
+<p>word 클라우드를<br />
+아래처럼 만들어보기다!</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/135745005-99546f43-d069-47cf-a406-368fafaf9f0c.png" /></p>
+
+<p>정리 코드: <a href="https://github.com/h3yon/Crawling-TEST/commit/1a99597756722fab7a4597e952f69d917419ac3f">코드</a></p>
+
+<h2 id="사용-모듈-살펴보기">사용 모듈 살펴보기</h2>
+
+<p>wordcloud, random, Image 등의<br />
+라이브러리를 사용함을 알 수 있다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">random</span>
+</code></pre></div></div>
+
+<h2 id="방법">방법</h2>
+
+<p>일단 아무거나 카카오톡에서 csv를 추출한다.<br />
+나는 이모지가 많고 예쁜 스파르타코딩클럽과의 톡으로 해봤다!</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/135745117-5dfc4d1e-0d9f-4496-a325-7966cfdf1ffe.png" /></p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"kakao.csv"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">',"'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">+=</span> <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="s">'ㅋ'</span><span class="p">,</span><span class="s">''</span><span class="p">).</span><span class="n">replace</span><span class="p">(</span><span class="s">'ㅠ'</span><span class="p">,</span><span class="s">''</span><span class="p">).</span><span class="n">replace</span><span class="p">(</span><span class="s">'채널추가하고'</span><span class="p">,</span><span class="s">''</span><span class="p">).</span><span class="n">replace</span><span class="p">(</span><span class="s">'ㅜ'</span><span class="p">,</span><span class="s">''</span><span class="p">).</span><span class="n">replace</span><span class="p">(</span><span class="s">'이모티콘'</span><span class="p">,</span><span class="s">''</span><span class="p">).</span><span class="n">replace</span><span class="p">(</span><span class="s">'사진'</span><span class="p">,</span><span class="s">''</span><span class="p">).</span><span class="n">replace</span><span class="p">(</span><span class="s">'"'</span><span class="p">,</span><span class="s">''</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>저장한 csv파일을 불러오고,<br />
+line을 하나하나 읽으면서<br />
+replace로 제외하고 싶은 부분은 제외했다</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">grey_color_func</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">font_size</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">orientation</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                    <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">"hsl(0, 0%%, %d%%)"</span> <span class="o">%</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># mask = np.array(Image.open('cloud.png'))
+</span><span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="s">'sherlock.png'</span><span class="p">))</span>
+<span class="n">wc</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">font_path</span><span class="o">=</span><span class="s">'/Users/we/Library/Fonts/SCDream5.otf'</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s">"Black"</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">max_font_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">wc</span><span class="p">.</span><span class="n">generate</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="n">wc</span><span class="p">.</span><span class="n">recolor</span><span class="p">(</span><span class="n">color_func</span><span class="o">=</span><span class="n">grey_color_func</span><span class="p">)</span>
+<span class="n">wc</span><span class="p">.</span><span class="n">to_file</span><span class="p">(</span><span class="s">"sherlock_masked.png"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>원하는 색상을 넣고,<br />
+셜록 png를 넣었다!</p>
+
+<h2 id="후기">후기</h2>
+
+<p>이번 파이썬 혼자놀기로 정말 재밌게 혼자 놀았다!</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/135745117-5dfc4d1e-0d9f-4496-a325-7966cfdf1ffe.png" /></p>
+
+<p>추석연휴 때 뭐할까 고민했었는데,<br />
+이렇게 재밌게 보내서 너무 즐거웠다!</p>
+
+<p>워드 클라우드도 만들고,<br />
+크롤링도 해보고 바쁜 일상을 보내기 전에<br />
+자기계발도 하고 힐링도 했다!<br />
+최고최고~!</p>
+:ET
