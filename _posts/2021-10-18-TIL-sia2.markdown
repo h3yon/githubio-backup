@@ -117,9 +117,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 스프링 시큐리티의 내부 코드에서는
 
+```
 DEF_USERS_BY_USERNAME_QUERY = "select username ,password, enabled from users where username = ?"
 DEF_AUTHORITIES_BY_USERNAME_QUERY = "select username, authority from authorities where username = ?"
 DEF_GROUP_AUTHORITIES_BY_USERNAME_QUERY = "select g.id, g.group_name, ga.authority from authorities g, group_members gm, group_authorities ga where gm.username = ? and g.id = ga.group_id and g.id = gm.group_id";
+```
+
 를 사용하고 위에 코드처럼 custom SQL 쿼리로 대체할 수 있다.
 
 → 조건의 경우, where절에 사용되는 매개변수는 하나이며, username이어야 한다. 사용자 정보 인증 쿼리에서 username, password, enabled 열 값을 반환해야 한다.
