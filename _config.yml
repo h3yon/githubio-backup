@@ -20,7 +20,7 @@ title: "개구리의 깃허브 블로그"
 title_separator: "-"
 subtitle: # site tagline that appears below site title in masthead
 name: "h3yon Developer"
-description: "🌿성장하는 개구리 개발자 h3yon 블로그입니다"
+description: "🌿 성장하는 개구리 h3yon 블로그입니다"
 url: "https://h3yon.github.io"
 baseurl: # the subpath of your site, e.g. "/blog"
 repository: # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -102,7 +102,7 @@ analytics:
 author:
   name: "🐸 SW developer"
   avatar: "/assets/images/profile.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio: "🌿성장하는 개구리 h3yon입니다!"
+  bio: "🌿 성장하는 개구리 h3yon입니다!"
   location: "South Korea"
   # email            : "khykhy1006@gmail.com"
   links:
