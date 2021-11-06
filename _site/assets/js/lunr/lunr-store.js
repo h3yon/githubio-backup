@@ -23,16 +23,16 @@ var store = [{
         "url": "/java/java-4-swagger/",
         "teaser": null
       },{
-        "title": "[Springboot] kakao api 구현",
-        "excerpt":"스프링부트로 kakao API 구현해보기 https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api 일단, 위의 사이트에서 kakao API의 흐름을 살펴보자. 보면 인가코드를 우선 받아야 함을 알 수 있다. 일단 그러면 어플리케이션 키를 받아야 한다. 위의 이미지처럼 상단의 ‘내 애플리케이션’ 버튼을 누른다. 아무 애플리케이션이나 만들고, 원하는 앱키를 복사해놓는다. 또 옆에 플랫폼으로 들어가, 원하는 플랫폼에 대한 플랫폼을 등록한다. 위처럼 등록해도...","categories": ["Java"],
-        "tags": ["소셜로그인"],
-        "url": "/java/java-5-kakao-api/",
-        "teaser": null
-      },{
         "title": "정보처리기사 실기 벼락치기",
         "excerpt":"정보처리기사 실기 벼락치기 시도해보기 요구사항 확인 현행 시스템 파악: 현재 개발하고자 하는 시스템의 개발 범위를 설정하기 위해 구성과 기능, 연계 정보, 소프트웨어, 하드웨어, 네트워크 구성을 파악하는 과정 현행시스템 파악 절차 현행 시스템 구성 파악: 기간 업무, 지원 업무 현행 시스템 기능 파악: 제공 기능 파악, 계층형 표시 인터페이스 현황 평가:...","categories": ["IT"],
         "tags": ["정보처리기사"],
         "url": "/it/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EB%B2%BC%EB%9D%BD%EC%B9%98%EA%B8%B0-%EC%8B%9C%EB%8F%84/",
+        "teaser": null
+      },{
+        "title": "[Springboot] kakao api 구현",
+        "excerpt":"스프링부트로 kakao API 구현해보기 https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api 일단, 위의 사이트에서 kakao API의 흐름을 살펴보자. 보면 인가코드를 우선 받아야 함을 알 수 있다. 일단 그러면 어플리케이션 키를 받아야 한다. 위의 이미지처럼 상단의 ‘내 애플리케이션’ 버튼을 누른다. 아무 애플리케이션이나 만들고, 원하는 앱키를 복사해놓는다. 또 옆에 플랫폼으로 들어가, 원하는 플랫폼에 대한 플랫폼을 등록한다. 위처럼 등록해도...","categories": ["Java"],
+        "tags": ["소셜로그인"],
+        "url": "/java/java-5-kakao-api/",
         "teaser": null
       },{
         "title": "MySQL User 추가 및 권한 부여하기",
