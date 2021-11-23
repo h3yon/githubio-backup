@@ -5,7 +5,7 @@ var store = [{
         "url": "/java/java-1_orm-jpa-rest-api/",
         "teaser": null
       },{
-        "title": "JAVA#2 Lambok",
+        "title": "JAVA#2 Lombok",
         "excerpt":"Lombok   Lombok : Getter/Setter 그리고 생성자들을 어노테이션으로 간편하게 사용할 수 있게 해주는 플러그인   setter 메서드가 필요 없는 필드에 대해서도 setter 메서드를 강제로 생성하게 되므로, 필드 값이 변경될 위험이 생김   -&gt; 나중에 리팩토링 대상이 될 수 있다     출처: http://wonit.tistory.com/38?category=738059  ","categories": ["Java"],
         "tags": ["Java"],
         "url": "/java/java-2-lombok/",
@@ -23,16 +23,16 @@ var store = [{
         "url": "/java/java-4-swagger/",
         "teaser": null
       },{
-        "title": "[Springboot] kakao api 구현",
-        "excerpt":"스프링부트로 kakao API 구현해보기 https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api 일단, 위의 사이트에서 kakao API의 흐름을 살펴보자. 보면 인가코드를 우선 받아야 함을 알 수 있다. 일단 그러면 어플리케이션 키를 받아야 한다. 위의 이미지처럼 상단의 ‘내 애플리케이션’ 버튼을 누른다. 아무 애플리케이션이나 만들고, 원하는 앱키를 복사해놓는다. 또 옆에 플랫폼으로 들어가, 원하는 플랫폼에 대한 플랫폼을 등록한다. 위처럼 등록해도...","categories": ["Java"],
-        "tags": ["소셜로그인"],
-        "url": "/java/java-5-kakao-api/",
-        "teaser": null
-      },{
         "title": "정보처리기사 실기 벼락치기",
         "excerpt":"정보처리기사 실기 벼락치기 시도해보기 요구사항 확인 현행 시스템 파악: 현재 개발하고자 하는 시스템의 개발 범위를 설정하기 위해 구성과 기능, 연계 정보, 소프트웨어, 하드웨어, 네트워크 구성을 파악하는 과정 현행시스템 파악 절차 현행 시스템 구성 파악: 기간 업무, 지원 업무 현행 시스템 기능 파악: 제공 기능 파악, 계층형 표시 인터페이스 현황 평가:...","categories": ["IT"],
         "tags": ["정보처리기사"],
         "url": "/it/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EB%B2%BC%EB%9D%BD%EC%B9%98%EA%B8%B0-%EC%8B%9C%EB%8F%84/",
+        "teaser": null
+      },{
+        "title": "[Springboot] kakao api 구현",
+        "excerpt":"스프링부트로 kakao API 구현해보기 https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api 일단, 위의 사이트에서 kakao API의 흐름을 살펴보자. 보면 인가코드를 우선 받아야 함을 알 수 있다. 일단 그러면 어플리케이션 키를 받아야 한다. 위의 이미지처럼 상단의 ‘내 애플리케이션’ 버튼을 누른다. 아무 애플리케이션이나 만들고, 원하는 앱키를 복사해놓는다. 또 옆에 플랫폼으로 들어가, 원하는 플랫폼에 대한 플랫폼을 등록한다. 위처럼 등록해도...","categories": ["Java"],
+        "tags": ["소셜로그인"],
+        "url": "/java/java-5-kakao-api/",
         "teaser": null
       },{
         "title": "MySQL User 추가 및 권한 부여하기",
@@ -161,9 +161,81 @@ var store = [{
         "url": "/javascript/you-dont-know-js/",
         "teaser": null
       },{
+        "title": "[TIL] Spring 심화반 1주차 복습일지",
+        "excerpt":"[TIL] Spring 심화반 1주차 복습일지 1주차때 배운 내용을 복습해보려고 한다~! 간단한 목차는 아래와 같다! 세팅 관련 preference에서 auto import 입력 Insert imports on paste: Always Add unambiguous imports on the fly: v로 바꾸기 의존성 주입 생성자 주입 방식으로 의존성 주입하는 부분임을 알 수 있다. @Controller public class MyController{ private final...","categories": ["Java"],
+        "tags": ["Java"],
+        "url": "/java/TIL-deep-spring1/",
+        "teaser": null
+      },{
+        "title": "[TIL] Spring 심화반 2주차 복습일지",
+        "excerpt":"[TIL] Spring 심화반 2주차 복습일지 2주차때 배운 내용을 복습해보려고 한다~! 간단한 목차는 아래와 같다! * 인증과 인가! 인증은 신원 확인! 인가는 사용자 권한을 확인한다는 의미 * 스프링 시큐리티? 인증 및 인가를 위해 많은 기능 제공! implementation 'org.springframework.boot:spring-boot-starter-security' ** 스프링 시큐리티 과정 살펴보기 아래처럼 UserDetails 관련해서 뭔가 작용하는 구조임을 알 수...","categories": ["Java"],
+        "tags": ["Java"],
+        "url": "/java/TIL-deep-spring2/",
+        "teaser": null
+      },{
+        "title": "[TIL] Spring 심화반 3주차 복습일지",
+        "excerpt":"[TIL] Spring 심화반 3주차 복습일지   ","categories": ["Java"],
+        "tags": ["Java"],
+        "url": "/java/TIL-deep-spring3/",
+        "teaser": null
+      },{
+        "title": "[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 1주차 개발일지",
+        "excerpt":"[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 1주차 개발일지 스파르타코딩클럽에서 파이썬 혼자놀기 패키지가 있길래 한번 들어보았다! 오늘의 목표 아래처럼 연예인 사진을 검색해서 저장해보는 게 오늘의 목표이다!! 정리한 코드: 코드 사용 모듈! 사용 모듈은 아래와 같다. from bs4 import BeautifulSoup from selenium import webdriver import dload import time 일단 chrome driver를 사용해서 검색을...","categories": ["Crawling"],
+        "tags": ["Crawling"],
+        "url": "/crawling/TIL-play-python-1/",
+        "teaser": null
+      },{
+        "title": "[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 2주차 개발일지",
+        "excerpt":"[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 2주차 개발일지 스파르타코딩클럽에서 파이썬 혼자놀기 패키지가 있어서 2주차를 들어보았다! 오늘의 목표 아래처럼 썸네일을 포함해 기사를 크롤링해서 자신에게 메일 보내기! 정리한 코드: 코드 사용 모듈! 사용 모듈은 아래와 같다. # 이메일 관련 모듈 import smtplib from email.mime.multipart import MIMEMultipart from email.mime.base import MIMEBase from email.mime.text import...","categories": ["Crawling"],
+        "tags": ["Crawling"],
+        "url": "/crawling/TIL-play-python-2/",
+        "teaser": null
+      },{
+        "title": "[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 3주차 개발일지",
+        "excerpt":"[TIL] 힙한취미코딩! 파이썬 혼자놀기 패키지 3주차 개발일지 스파르타코딩클럽에서 파이썬 혼자놀기 패키지가 있어서 3주차를 들어보았다! 오늘의 목표 word 클라우드를 아래처럼 만들어보기다! 정리 코드: 코드 사용 모듈 살펴보기 wordcloud, random, Image 등의 라이브러리를 사용함을 알 수 있다. from wordcloud import WordCloud from PIL import Image import numpy as np import random 방법...","categories": ["Crawling"],
+        "tags": ["Crawling"],
+        "url": "/crawling/TIL-play-python-3/",
+        "teaser": null
+      },{
         "title": "[TIL]스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술",
         "excerpt":"[TIL] 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술 (주의) 주관적으로 정리하고 싶은 부분만 정리했습니다! 요약본을 보고 싶으신 분은 다른 게시글을 보시는 걸 추천합니다~! 본 강의: 인프런 - 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술 객체를 계속 생성하는 것보다는 의존성 주입으로...","categories": ["Java"],
         "tags": ["Java"],
-        "url": "/java/TIL%EC%A0%95%EB%A6%AC/",
+        "url": "/java/TIL-spring-basic/",
+        "teaser": null
+      },{
+        "title": "[TIL]인텔리제이 단축키 정리해보기",
+        "excerpt":"[TIL] 인텔리제이 단축키 정리해보기   (해오기) 인텔리제이 디렉토리 펼치기 알아오기  커맨드 + E 커맨드 + 옵션 + M: 중복 처리     ","categories": ["Intellij"],
+        "tags": ["Intellij"],
+        "url": "/intellij/TIL-intellij/",
+        "teaser": null
+      },{
+        "title": "[스프링 핵심 원리 - 기본편] 복습 일지1 (빈)",
+        "excerpt":"[스프링 핵심 원리 - 기본편] 복습일지1 (빈) 원래 설정 파일 즉, AppConfig에서 memberService -&gt; memberRepository -&gt; MemoryMemberRepository 이런 식으로 사용했었다. 근데 AppConfig를 @Configuration으로 해주고, 각각 memberService, memberRepository, MemoryMemberRepository에 @Bean으로 등록해주면 어떻게 되는지 보자. @Configuration, @Bean으로 등록했을 때 원래 기존 방식은 아래와 같다. AppConfig appConfig = new AppConfig(); MemberService memberService =...","categories": ["Spring"],
+        "tags": ["spring","java"],
+        "url": "/spring/TIL-core1/",
+        "teaser": null
+      },{
+        "title": "[스프링 핵심 원리 - 기본편] 복습 일지2 (싱글톤)",
+        "excerpt":"[스프링 핵심 원리 - 기본편] 복습일지2 (싱글톤) 싱글톤 패턴 클래스의 인스턴스가 딱 1개만 생성되는 것을 보장하는 디자인패턴! public class SingleService { private static final SingleService instance = new SingleService(); private SingleService() {} public static SingleService getInstance(){ return instance; } } 이 상태로 single.getInstance를 2번 사용했을 때 같은 객체가 나옴을 알...","categories": ["Spring"],
+        "tags": ["spring","java"],
+        "url": "/spring/TIL-core2/",
+        "teaser": null
+      },{
+        "title": "[스프링 핵심 원리 - 기본편] 복습일지3 (컴포넌트 스캔)",
+        "excerpt":"[스프링 핵심 원리 - 기본편] 복습일지3 (컴포넌트 스캔) 컴포넌트 스캔? 컴포넌트 스캔은 스프링이 설정 정보가 없어도 자동으로 스프링 빈을 등록하는 기능이다 컴포넌트 스캔을 사용하려면 아래처럼 @ComponentScan을 설정 정보에 붙여준다. 아래처럼 제외도 가능하다. @Configuration @ComponentScan( excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class) ) public class AutoAppConfig { } 컴포넌트 스캔은...","categories": ["Spring"],
+        "tags": ["spring","java"],
+        "url": "/spring/TIL-core3/",
+        "teaser": null
+      },{
+        "title": "[스프링 인 액션5] Chapter1~3 내용 정리",
+        "excerpt":"[스프링 인 액션5] Chapter1~3 내용 정리 스프링 인 액션에 대한 내용을 읽으면서 중요 내용, 한번 더 짚고 넘어가면 좋을 내용에 대해서 써보려고 한다. Chapter1 SpringBootApplication 애플리케이션의 부트스트랩 클래스에, SpringBootApplication이 있다는 건 다들 봤을 것이다. 이 SpringBootApplication이 어떤 어노테이션이 결합한 것인지 보자 SpringBootConfiguration 현재 클래스를 구성 클래스로 지정한다.(@Configuration)의 특화된 형태 EnableAutoConfiguration...","categories": ["Spring"],
+        "tags": ["스프링인액션","java","spring"],
+        "url": "/spring/TIL-sia1/",
+        "teaser": null
+      },{
+        "title": "[스프링 인 액션5] Chapter4~6 내용 정리",
+        "excerpt":"Chapter4 스프링 시큐리티 사용 예시로 알아보기 @EnableWebSecurity public class SecurityConfig extends WebSecurityConfigurerAdapter { //HTTP 보안 구성 @Override protected void configure(HttpSecurity http) throws Exception{ http .authorizeRequests() // ExpressionInterceptUrlRegistry 객체 반환 .antMatchers(\"/design\", \"/orders\") // 이 부분은 .access(\"hasRole('ROLE_USER')\") // 인가 과정 .antMatchers(\"/\", \"/**\").access(\"permitAll\") // 이 부분은 누구나 접속 가능 .and() .httpBasic(); } //사용자...","categories": ["Spring"],
+        "tags": ["스프링인액션","java","spring"],
+        "url": "/spring/TIL-sia2/",
         "teaser": null
       }]

@@ -1,0 +1,82 @@
+I"<h2 id="til-spring-심화반-1주차-복습일지">[TIL] Spring 심화반 1주차 복습일지</h2>
+
+<p>1주차때 배운 내용을 복습해보려고 한다~!
+간단한 목차는 아래와 같다!</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/135743751-a179239f-1fa6-42dd-81a2-dae0e3d15526.png" /></p>
+
+<h3 id="세팅-관련">세팅 관련</h3>
+
+<ul>
+  <li>preference에서 auto import 입력
+    <ul>
+      <li>Insert imports on paste: Always</li>
+      <li>Add unambiguous imports on the fly: v로 바꾸기</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="의존성-주입">의존성 주입</h3>
+
+<p>생성자 주입 방식으로 의존성 주입하는 부분임을 알 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyController</span><span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">MyService</span> <span class="n">myService</span><span class="o">;</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">public</span> <span class="nf">MyController</span><span class="o">(</span><span class="nc">MyService</span> <span class="n">myService</span><span class="o">){</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">myService</span> <span class="o">=</span> <span class="n">myService</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="생성자-직접-생성">생성자 직접 생성</h3>
+
+<p>entity에서는 AllArgsConstructor를 사용 X, 아래처럼 진행<br />
+DTO에서는 AllArgsConstructor를 사용 O</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nf">Product</span><span class="o">(</span><span class="nc">ProductRequestDto</span> <span class="n">requestDto</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">title</span> <span class="o">=</span> <span class="n">requestDto</span><span class="o">.</span><span class="na">getTitle</span><span class="o">();</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">image</span> <span class="o">=</span> <span class="n">requestDto</span><span class="o">.</span><span class="na">getImage</span><span class="o">();</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="timestamped-클래스">Timestamped 클래스</h3>
+
+<p>Timestamped 클래스에는<br />
+@MappedSuperclass, @EntityListeners(AuditingEntityListener.class)<br />
+어노테이션이 사용되고 추상 클래스가 사용된다.</p>
+
+<p>SpringcoreApplication에는 <br />
+@EnableJpaAuditing를 추가해주어야 한다.</p>
+
+<h3 id="요청-처리">요청 처리</h3>
+
+<p>아래와 같은 구조를 가짐을 알 수 있다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/135742638-94f35011-489e-4e10-a669-f4d2275ea90d.jpeg" /></p>
+
+<h3 id="di-ioc">DI, IoC</h3>
+
+<ul>
+  <li>DI(Dependency Injection) 이미 생성된 객체를 가져오는 작업</li>
+  <li>IoC(Inversion of Control) 보통 자신이 필요한 객체를 생성해서 
+사용하는 것이 일반적인데, 필요한 객체 요청하면 쥐어지는 것</li>
+</ul>
+
+<h3 id="빈-컨테이너">빈, 컨테이너</h3>
+
+<ul>
+  <li>빈: 스프링이 생성해주는 객체</li>
+  <li>스프링 IoC 컨테이너: 빈을 모아둔 통</li>
+</ul>
+
+<h3 id="그-외-배운-부분">그 외 배운 부분</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 역할 분리
+- query
+</code></pre></div></div>
+:ET

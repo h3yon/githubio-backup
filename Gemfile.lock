@@ -107,6 +107,7 @@ GEM
     webrick (1.7.0)
 
 PLATFORMS
+  universal-darwin-19
   universal-darwin-20
 
 DEPENDENCIES

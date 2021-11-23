@@ -1,0 +1,115 @@
+I"o<h2 id="til-spring-심화반-2주차-복습일지">[TIL] Spring 심화반 2주차 복습일지</h2>
+
+<p>2주차때 배운 내용을 복습해보려고 한다~!<br />
+간단한 목차는 아래와 같다!</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/135745966-83843040-7929-4c2e-a179-85de4b5464f9.png" /></p>
+
+<h2 id="-인증과-인가">* 인증과 인가!</h2>
+
+<p>인증은 신원 확인!<br />
+인가는 사용자 권한을 확인한다는 의미</p>
+
+<h2 id="-스프링-시큐리티">* 스프링 시큐리티?</h2>
+
+<p>인증 및 인가를 위해 많은 기능 제공!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">implementation</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">:</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">security</span><span class="err">'</span>
+</code></pre></div></div>
+
+<h2 id="-스프링-시큐리티-과정-살펴보기">** 스프링 시큐리티 과정 살펴보기</h2>
+
+<p>아래처럼 UserDetails 관련해서 뭔가 작용하는 구조임을 알 수 있다!</p>
+
+<p><img src="https://user-images.githubusercontent.com/46602874/135748176-b70c0e20-c4e2-4b9c-aebe-9434ce0a81de.jpeg" /></p>
+
+<p>아래 2개 구현을 해준다.</p>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">UserDetailsService</code> 인터페이스 → <code class="language-plaintext highlighter-rouge">UserDetailsServiceImpl</code> 클래스</p>
+
+    <p>UserDetailsServiceImpl에서는 해당하는 유저 이름을 리턴해주도록 구현한다.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">UserDetails</code> 인터페이스 → <code class="language-plaintext highlighter-rouge">UserDetailsImpl</code> 클래스</p>
+
+    <p>UserDetailsImpl에서는 User를 가지고 있도록 한다.</p>
+  </li>
+</ol>
+
+<p>스프링 시큐리티를 사용했기 때문에<br />
+<code class="language-plaintext highlighter-rouge">@AuthenticationPrincipal</code> 어노테이션을 통해 User 정보가 들어옴을 알 수 있다!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">Product</span> <span class="nf">createProduct</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="nc">ProductRequestDto</span> <span class="n">requestDto</span><span class="o">,</span> <span class="nd">@AuthenticationPrincipal</span> <span class="nc">UserDetailsImpl</span> <span class="n">userDetails</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 로그인 되어 있는 ID</span>
+        <span class="nc">Long</span> <span class="n">userId</span> <span class="o">=</span> <span class="n">userDetails</span><span class="o">.</span><span class="na">getUser</span><span class="o">().</span><span class="na">getId</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>참고로, <code class="language-plaintext highlighter-rouge">AuthenticationManager</code>은<br />
+OAuth2 때 config 파일에 추가해준다.<br />
+(이 부분 더 복습하기!!)</p>
+
+<h2 id="-회원가입에서-enum">* 회원가입에서 enum</h2>
+
+<p>아래처럼 일단 default role을 잡아놓고,
+검증한 후 맞으면 맞는 role을 설정해준다</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">User</span><span class="o">&gt;</span> <span class="n">found</span> <span class="o">=</span> <span class="n">userRepository</span><span class="o">.</span><span class="na">findByUsername</span><span class="o">(</span><span class="n">username</span><span class="o">);</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">found</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">에러</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="c1">// 사용자 ROLE 확인</span>
+<span class="nc">UserRole</span> <span class="n">role</span> <span class="o">=</span> <span class="nc">UserRole</span><span class="o">.</span><span class="na">USER</span><span class="o">;</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">requestDto</span><span class="o">.</span><span class="na">isAdmin</span><span class="o">())</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(!</span><span class="n">검증검증</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">에러</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">role</span> <span class="o">=</span> <span class="nc">UserRole</span><span class="o">.</span><span class="na">ADMIN</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="-비밀번호-암호화">* 비밀번호 암호화</h2>
+
+<p>OOP가 정말 중요하다고 한번 더 느낀 게,<br />
+나는 비밀번호를 암호화한다고 하면 Service에서 길게 처리할 거 같았다<br />
+근데 Config에 Bean을 주입시켜서 처리를 하는 걸 보고,<br />
+OOP의 중요성을 한번 더 깨달았다!</p>
+
+<h2 id="-인가-과정">** 인가 과정!</h2>
+
+<p>스프링 시큐리티가 로그인한 회원의 권한을 인식하도록 UserDetailsImpl을 수정한 부분이 있는데, 그 부분이 진짜 어려운 것 같다. <br />
+SimpleGrantedAuthority 클래스를 사용해서 권한을 인식한다.</p>
+
+<p>config 파일에서는 <code class="language-plaintext highlighter-rouge">@EnableGlobalMethodSecurity(securedEnabled = true)</code>를 추가해준다.<br />
+또, <code class="language-plaintext highlighter-rouge">@EnableWebSecurity</code>를 추가해준다.</p>
+
+<p>그래서 컨트롤러에서 인가가 필요한 API에 <br />
+<code class="language-plaintext highlighter-rouge">@Secured("{ROLDE 이름}")</code>을 추가해준다.</p>
+
+<h2 id="-그-외-다룬-부분">** 그 외 다룬 부분</h2>
+
+<ul>
+  <li>
+    <p>OAuth2로 카카오 로그인
+  카카오 로그인을 하고, 로그인 처리 과정 부분이 어려웠다.<br />
+  (카카오 로그인은 구현해본 경험 있으니 패스!)</p>
+
+    <p>스프링 시큐리티를 사용하기 때문에<br />
+  <code class="language-plaintext highlighter-rouge">UsernamePasswordAuthenticationToken</code>와 <code class="language-plaintext highlighter-rouge">authenticationManager</code>가 사용된다.<br />
+  <code class="language-plaintext highlighter-rouge">SecurityContextHolder</code>에서 getContext를 하고 authentication을 set해주는데,<br />
+  그 부분을 한번 더 봐야될 것 같다ㅎㅎ</p>
+  </li>
+</ul>
+
+<h2 id="소감">소감!!</h2>
+
+<p>이번 2주차가 진짜 어려웠던 것 같다.<br />
+정말 공부할 부분은 끊임 없는 것 같다ㅎㅎ</p>
+
+<p>카카오 로그인은 좀 구현해본 적이 있어서 <br />
+쉽게 쉽게 생각했는데 다시 복습해보니 어려운 부분이 수두룩하다</p>
+
+<p>한번 더 복습해봐야겠다!</p>
+:ET
