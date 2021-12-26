@@ -238,4 +238,22 @@ var store = [{
         "tags": ["스프링인액션","java","spring"],
         "url": "/spring/TIL-sia2/",
         "teaser": null
+      },{
+        "title": "[토비의 스프링] 정리",
+        "excerpt":"토비의 스프링 2차 정리 관심사의 분리? 관심이 같은 것끼리는 하나의 객체 안으로 또는 친한 객체로 모이게 하고 관심이 다른 것은 가능한 한 따로 덜어져서 서로 영향을 주지 않도록 분리하는 것 템플릿 메소드 패턴 슈퍼클래스에 기본적인 로직의 흐름을 만들고 기능의 일부를 추상 메소드나 오버라이딩이 가능한 protected 메소드 등으로 만든 뒤 서브...","categories": ["Spring"],
+        "tags": ["토비의스프링","java","spring"],
+        "url": "/spring/TIL-ts1/",
+        "teaser": null
+      },{
+        "title": "스프링 mvc 1편 정리",
+        "excerpt":"스프링 mvc 1편을 듣고 정리한 내용입니다. 1 Servlet이해하기 서블릿을 자동 등록하는 경우, @ServletComponentScan어노테이션을 사용한다. 예제를 보면서 이해해보자 @WebServlet(name = \"helloServlet\", urlPatterns = \"/hello\") public class HelloServlet extends HttpServlet { @Override protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { System.out.println(\"request = \" + request); System.out.println(\"response = \" + response);...","categories": ["Spring"],
+        "tags": ["spring"],
+        "url": "/spring/springmvc1/",
+        "teaser": null
+      },{
+        "title": "테스트코드의 Mock, MockBean, Autowired, Spy 이해하기",
+        "excerpt":"Test code +mock과 stub의 차이? 행위 검증을 추구한다는 것. mock은 행위검증을 추구하고, stub은 그렇지 않다 1. MockBean, Mock, Autowired target(mock)으로 보면 되겠다! 예를 들어서 controller 생성자에 service가 필요하다고 가정하면, controller(service)이므로 controller에 @InjectMocks, service에 @Mock을 해준다 아래를 보면 알겠지만, MockBean/SpyBean은 Autowired로 기억됨을 알 수 있다 @MockBean: mock객체를 스프링 컨텍스트에 등록 @Autowired:...","categories": ["Spring"],
+        "tags": ["테스트코드"],
+        "url": "/spring/testcode1/",
+        "teaser": null
       }]

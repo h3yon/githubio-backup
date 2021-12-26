@@ -1,0 +1,85 @@
+I"�<h1 id="test-code">Test code</h1>
+
+<p>+mock과 stub의 차이? 행위 검증을 추구한다는 것. mock은 행위검증을 추구하고, stub은 그렇지 않다</p>
+
+<p><strong>1. MockBean, Mock, Autowired</strong></p>
+
+<p><img src="/Users/we/Documents/user/TMP/h3yon.github.io/_posts/testcode/test-code1/2021-12-26-testcode1/Untitled.png" alt="Untitled" /></p>
+
+<p>target(mock)으로 보면 되겠다!
+예를 들어서 controller 생성자에 service가 필요하다고 가정하면,
+controller(service)이므로 controller에 @InjectMocks, service에 @Mock을 해준다</p>
+
+<p>아래를 보면 알겠지만,</p>
+
+<p>MockBean/SpyBean은 Autowired로 기억됨을 알 수 있다</p>
+
+<p><code class="language-plaintext highlighter-rouge">@MockBean</code>: mock객체를 스프링 컨텍스트에 등록</p>
+
+<p><code class="language-plaintext highlighter-rouge">@Autowired</code>: @MockBean으로 등록한 mock 객체를 주입 받아서 의존성 해결</p>
+
+<p>@MockBean의 의존성 주입 Target을 @InjectMocks로 하려고 하면 실패한다</p>
+
+<p><strong>2. SpyBean</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">@SpyBean</code>: spy 객체를 스프링 context에 등록</p>
+
+<p><code class="language-plaintext highlighter-rouge">@Autowired</code>: @SpyBean으로 등록한 spy 객체를 주입 받아서 의존성 해결</p>
+
+<p>=&gt; SpyBean</p>
+
+<p>이 인터페이스일 경우에는 해당 인터페이스를 구현하는 <code class="language-plaintext highlighter-rouge">실제 구현체가 스프링 컨텍스트가 등록되어 있어야</code> 함</p>
+
+<p><strong>3. Spy</strong></p>
+
+<p>실제 기능을 그대로 사용하고 싶을 때, @Spy로 spy객체 주입</p>
+
+<p>ex) 예를 들어 orderService의 createOrder는</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">orderRepository.findOrderList()</code>를 하고 그 결과의 size가 0보다 크면 exception을 throw해준다.</li>
+  <li>예외가 없다면 order.Repository의 <code class="language-plaintext highlighter-rouge">createOrder</code>를 해준다.</li>
+  <li>isNotify가 있다면 notificationClient의 <code class="language-plaintext highlighter-rouge">notifyToMobible</code>을 해준다.</li>
+</ul>
+
+<p>이에 대해 테스트하는 코드를 보자</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ExtendWith</span><span class="o">(</span><span class="nc">MockitoExtension</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderServiceTest</span><span class="o">{</span>
+	<span class="nd">@Spy</span>
+	<span class="kd">private</span> <span class="nc">OrderRepository</span> <span class="n">orderRepository</span><span class="o">;</span>
+	<span class="nd">@Spy</span>
+	<span class="kd">private</span> <span class="nc">NotificationnClient</span> <span class="n">notificationClient</span><span class="o">;</span>
+	<span class="nd">@InjectMocks</span>
+	<span class="kd">private</span> <span class="nc">OrderService</span> <span class="n">orderService</span><span class="o">;</span>
+
+	<span class="nd">@Test</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">createOrderTest</span><span class="o">(){</span>
+		<span class="c1">//given</span>
+		<span class="nc">Mockto</span><span class="o">.</span><span class="na">doAnswer</span><span class="o">(</span><span class="n">invocation</span> <span class="o">-&gt;</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"createOrderrr"</span><span class="o">);</span>
+			<span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+		<span class="o">}).</span><span class="na">when</span><span class="o">(</span><span class="n">orderRepository</span><span class="o">).</span><span class="na">createOrder</span><span class="o">();</span>
+		<span class="nc">Mockto</span><span class="o">.</span><span class="na">doAnswer</span><span class="o">(</span><span class="n">invocation</span> <span class="o">-&gt;</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"notifyToMobilee"</span><span class="o">);</span>
+			<span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+		<span class="o">}).</span><span class="na">when</span><span class="o">(</span><span class="n">notificationClient</span><span class="o">).</span><span class="na">notifyToMobile</span><span class="o">();</span>
+
+		<span class="c1">//when</span>
+		<span class="n">orderService</span><span class="o">.</span><span class="na">createOrder</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+		<span class="c1">//then</span>
+		<span class="nc">Mockito</span><span class="o">.</span><span class="na">verify</span><span class="o">(</span><span class="n">orderRepository</span><span class="o">,</span> <span class="n">times</span><span class="o">(</span><span class="mi">1</span><span class="o">)).</span><span class="na">createOrder</span><span class="o">();</span>
+		<span class="nc">Mockito</span><span class="o">.</span><span class="na">verify</span><span class="o">(</span><span class="n">notificationCliennt</span><span class="o">,</span> <span class="n">times</span><span class="o">(</span><span class="mi">1</span><span class="o">)).</span><span class="na">notifyToMobile</span><span class="o">();</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>보면 테스트 코드에 createOrder, notifyToMobile이 호출되면 할 부분은 명시되어 있는데,</p>
+
+<p>findOrderList()는 보이지 않는다. 이러면 에러가 나타나야 하지만,</p>
+
+<p>Spy로 되어 있기 때문에 기존기능을 사용함을 알 수 있다.</p>
+
+<p>Spy는 이처럼 실제 기능을 사용하고 싶을 때 사용한다.</p>
+
+<p><a href="https://cobbybb.tistory.com/16">https://cobbybb.tistory.com/16</a></p>
+:ET
