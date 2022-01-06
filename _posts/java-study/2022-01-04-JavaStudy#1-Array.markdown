@@ -88,7 +88,12 @@ int[] score = new int[5];
 
 3.  그냥 초기화
     선언과 초기화가 따로 이루어질 경우, new int[]는 생략할 수 없다. 메서드 인자로 배열을 넘길 때도 생략 불가능하다.
-    `java //배열의 생성과 초기화 동시에, 길이를 안 적어주어도 됨 int[] score = new int[]{50, 40, 30}; //new int[]생략 가능 int[] score = {50, 40, 30}; `
+        ```java
+        //배열의 생성과 초기화 동시에, 길이를 안 적어주어도 됨
+        int[] score = new int[]{50, 40, 30};
+        //new int[]생략 가능
+        int[] score = {50, 40, 30};
+        ```
 
 퀴즈
 
@@ -294,7 +299,7 @@ Tv[] tvArr = { new Tv(), new Tv(), new Tv() };
 
 2.  클래스: 사용자 정의 타입
     서로 관련된 변수들을 묶어서 하나의 타입으로 새로 추가하는 것
-    ![Untitled](%E1%84%8C%E1%85%A1%E1%84%87%E1%85%A1%E1%84%8B%E1%85%B4%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%89%E1%85%A5%E1%86%A8%20Chapter5,6%2001f8339305ec43cea4e7d846a911e854/Untitled%2010.png)
+        ![Untitled](%E1%84%8C%E1%85%A1%E1%84%87%E1%85%A1%E1%84%8B%E1%85%B4%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%89%E1%85%A5%E1%86%A8%20Chapter5,6%2001f8339305ec43cea4e7d846a911e854/Untitled%2010.png)
 
         ex) 아래로 갈수록 시분초, 시분초 각 3개, 시분초 각 n개를 다룸을 알수 O. 오른쪽으로 갈수록 비객체지향적코드 → 객체지향적코드
 
@@ -355,12 +360,156 @@ Tv[] tvArr = { new Tv(), new Tv(), new Tv() };
 
 ![Untitled](%E1%84%8C%E1%85%A1%E1%84%87%E1%85%A1%E1%84%8B%E1%85%B4%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%89%E1%85%A5%E1%86%A8%20Chapter5,6%2001f8339305ec43cea4e7d846a911e854/Untitled%2018.png)
 
-/
+- 여기서 퀴즈! 틀린 부분은?
+  배열을 넣어도 값이 잘 바뀌는 걸 알 수 있다. Data클래스 타입도 참조 변수로 같은 결과를 얻는다. 간단히 처리할 때는 별도의 클래스를 선언하는 것보다 이렇게 배열을 사용할 수 있다
+  ```java
+  class ReferenceParamEx2 {
+  	public static void main(String[] args)
+    {
+  		int[] x = {10};
+  		System.out.println("main() : x = " + x[0]); //10
 
-array와 arrayList의 차이점은?
+  		change(x);
+  		System.out.println("After change(x)");
+  		System.out.println("main() : x = " + x[0]); //1000
+  	}
 
-ArrayList와 LinkedList의 차이가 무엇인가요?
+  	void change(int[] x) {
+  		x[0] = 1000;
+  		System.out.println("change() : x = " + x[0]); //1000
+  	}
+  }
+  ```
+  _static void change void 앞에 static이 사용되어야 함. static void main에서 사용되기 때문.
+  (뒤에서 더 자세히 다룰 예정)_
+  실행결과: [https://ideone.com/xUVB0h](https://ideone.com/xUVB0h)
+  ![Untitled](%E1%84%8C%E1%85%A1%E1%84%87%E1%85%A1%E1%84%8B%E1%85%B4%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%89%E1%85%A5%E1%86%A8%20Chapter5,6%2001f8339305ec43cea4e7d846a911e854/Untitled%2019.png)
 
-Array와 LinkedList의 차이가 무엇인가요?
+## 재귀 호출(recursive call)
 
-출처: [https://velog.io/@humblechoi/자료구조-Array-vs-ArrayList](https://velog.io/@humblechoi/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-Array-vs-ArrayList)
+```java
+void method(){
+	method();
+}
+```
+
+: 메서드 내에서 자기자신을 반복적으로 호출하는 것이다. `call by value`를 통해 복사된 값을 작업한다. 자기 자신을 호출하기 때문에 `조건문`이 없으면 무한루프에 빠진다. → 반복문으로 작성 가능
+
+![Untitled](%E1%84%8C%E1%85%A1%E1%84%87%E1%85%A1%E1%84%8B%E1%85%B4%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%89%E1%85%A5%E1%86%A8%20Chapter5,6%2001f8339305ec43cea4e7d846a911e854/Untitled%2020.png)
+
+반복문은 같은 문장을 계속 반복하는거지만, 메서드를 호출하는 건 매개변수 복사, 복귀할 주소 저장 등의 과정이 추가로 필요해서 시간이 더 걸린다. `비효율적이지만 간결함` 때문에 사용
+
+- 퀴즈
+  근데 만약에 factorial(0)이 호출되면 어떻게 될까? 또는 100,000과 같은 큰 수이면 어떻게 될까?
+  _0인 경우 1이 아니니까 else문으로 빠지니까 계속 재귀호출만 일어날 것. 그래서 메서드가 종료되지 않으므로 스택에 계속 데이터가 쌓인다. → `스택 오버플로우 에러`가 발생한다. 유효성 검사 필요_
+- 아래의 결과가 나오도록 하려면 하는 코드 한줄을 짜보자!
+  [https://ideone.com/Mtlq0x](https://ideone.com/Mtlq0x)
+  ```java
+  a =    1
+  a =   10
+  a =  100
+  a = 1000
+  ```
+  ```java
+  for(int i = 0; i < 4; i++){
+  	//
+  }
+  ```
+
+## 클래스 메서드(static)와 인스턴스 메서드
+
+메서드 앞에 static이 붙어있는 건? 클래스 메서드
+
+붙어있지 않은 건? 인스턴스 메서드
+
+- 클래스 메서드(static)
+  ‘클래스이름.메서드이름’을 통해 호출이 가능하다. 인스턴스변수나 인스턴스메서드와 관련없는 작업을 하며 메서드 내에서 `인스턴스변수를 사용할 수 없`다. 아래 예시를 보면 `인스턴스 메서드를 호출할 수 없`다는 것이 보인다.
+- 인스턴스 메서드
+  인스턴스 생성 후, ‘참조변수.메서드이름()’으로 호출한다. 인스턴스변수나 인스턴스메서드와 관련된 작업을 하며, `메서드 내에서 인스턴스 변수를 사용할 수 있`다. 아래 예시를 보면 `static, 인스턴스 메서드 모두 호출 가능`하다.
+
+      ![Untitled](%E1%84%8C%E1%85%A1%E1%84%87%E1%85%A1%E1%84%8B%E1%85%B4%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%89%E1%85%A5%E1%86%A8%20Chapter5,6%2001f8339305ec43cea4e7d846a911e854/Untitled%2021.png)
+
+      ![Untitled](%E1%84%8C%E1%85%A1%E1%84%87%E1%85%A1%E1%84%8B%E1%85%B4%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%89%E1%85%A5%E1%86%A8%20Chapter5,6%2001f8339305ec43cea4e7d846a911e854/Untitled%2022.png)
+
+- 멤버 변수 중 모든 인스턴스에 공통으로 사용되는 것에는 static을 붙인다.
+- 클래스 변수(static 변수)는 인스턴스를 생성하지 않아도 사용할 수 O
+- 이유? 클래스변수는 클래스가 메모리에 올라갈 때 이미 자동적으로 생성되기 때문
+- 클래스 메서드(static 메서드)는 인스턴스 변수 사용 불가능
+  ```java
+  int iv = 10;
+  static int cv2 = iv; //에러! 인스턴스 변수 사용 불가능!
+
+  static void staticMethod1(){
+  	System.out.println(iv); //에러! 인스턴스변수 사용 불가능
+  	Member m = new Member();
+  	System.out.println(m.iv); //가능. 객체 생성 후 호출했기 때문에
+  }
+  ```
+  - 이유? 인스턴스 변수는 인스턴스가 있어야 사용할 수 있는데 클래스 메서드는 인스턴스 생성 없이 사용할 수 있으므로!
+- 메서드 내에서 인스턴스 변수를 사용하지 않는다면 static 붙이는 걸 고려한다.
+- 이유? 메서드 호출시간이 짧아진다. 호출되어야 할 메서드를 찾는 과정 때문에 시간이 더 걸릴 수 있다. static을 붙이면 그 시간을 줄일 수 있다.
+
+## 오버로딩
+
+하나의 클래스에 같은 이름의 메서드를 여러 개 정의하는 것.
+overload - vt. 과적하다. 부담을 많이 지우다.
+
+조건
+
+- 메서드 이름이 같아야 한다.
+- 매개변수의 개수 또는 타입이 달라야 한다.
+- `반환타입은 오버로딩을 구현하는데에 아무런 영향을 주지 않`는다. 이런 경우 00 is already defined 메시지가 나타나며 오버로딩으로 간주되지 않는다.
+
+퀴즈
+
+- add(int a, long b), add(long a, int b)는 오버로딩으로 간주될까? _O_
+
+### 오버로딩의 장점
+
+![Untitled](%E1%84%8C%E1%85%A1%E1%84%87%E1%85%A1%E1%84%8B%E1%85%B4%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%89%E1%85%A5%E1%86%A8%20Chapter5,6%2001f8339305ec43cea4e7d846a911e854/Untitled%2023.png)
+
+오버로딩의 예시로는 println메서드가 있다. 그런데 오버로딩 대신 println, printlnBoolean, printlnChar, printDouble, ... 이런 식으로 사용한다고 가정해보자. 그럼 메서드를 사용하는 입장에서는 저걸 다 기억해야돼서 부담이 된다. 이 때문에 오버로딩의 경우 기억하기 쉽고 이름도 짧게 할 수 있어서 오류의 가능성을 줄일 수 있다. 그리고, 메서드의 이름을 절약할 수 있다.
+
+퀴즈
+”결과: ” + 6L을 println하면 어떻게 될까?
+
+```java
+int result = mm.add(3, 3); //6L
+System.out.println("결과: " + result); //결과: 6
+```
+
+### 가변인자와 오버로딩
+
+JDK1.5부터 매개변수 인자를 동적으로 지정해줄 수 있게 되었다. 가변인자는 매개변수 중, 제일 마짖막에 선언해야 한다. 안 그러면 컴파일 에러가 발생하는데, 가변인자인지 아닌지를 구분할 방법이 없기 때문에 허용하지 않는다.
+
+```java
+//가변인자
+public PrintStream printf(String format, Object... args) {...}
+//에러
+public PrintStream printf(Object... args, String format) {...} //ERROR!
+```
+
+문자열을 하나로 결합할 때에는 아래처럼 사용할 수 있다. 가변인자는 내부적으로 배열을 이용한다. 가변인자가 선언된 메서드를 호출할 때마다 배열이 새로 생성되기 때문에 꼭 필요한 경우에만 가변인자를 사용하자.
+
+```java
+//문자열을 하나로 결합
+System.out.println(cancatenate("a"));
+System.out.println(cancatenate("a", "b"));
+System.out.println(cancatenate(new String[]{"A", "B"}));
+
+//구분자 사용
+System.out.println(cancatenate("-", new String[]{"100", "200", "300"}));
+// **여기서 new String[]은 생략 불가능하다 ** "-", "100", "200" 도 컴파일 에러가 발생한다.
+// 오버로딩된 메서드가 구분되지 않아서이다.
+
+그런데 String.join(", ", arr); 을 사용하는 게 나을 수도 있을 것 같다.
+```
+
+# 생성자
+
+인스턴스가 생성될 때마다 호출되는 ‘**인스턴스 초기화 메서드**’이다. 인스턴스 변수의 초기화 또는 인스턴스 생성시 수행할 작업에 사용한다.
+
+1. 생성자의 이름은 클래스 이름과 같아야 한다.
+2. 생성자는 리턴값이 없다.
+
+![Untitled](%E1%84%8C%E1%85%A1%E1%84%87%E1%85%A1%E1%84%8B%E1%85%B4%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%89%E1%85%A5%E1%86%A8%20Chapter5,6%2001f8339305ec43cea4e7d846a911e854/Untitled%2024.png)
