@@ -1,5 +1,5 @@
 current directory: /Users/dongjukang/Desktop/class/project/h3yon.github.io/vendor/bundle/ruby/2.6.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
-/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /Library/Ruby/Site/2.6.0 -r ./siteconf20220106-4273-op3ayw.rb extconf.rb
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /Library/Ruby/Site/2.6.0 -r ./siteconf20220109-24679-tg4unh.rb extconf.rb
 creating Makefile
 
 current directory: /Users/dongjukang/Desktop/class/project/h3yon.github.io/vendor/bundle/ruby/2.6.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
@@ -14,4 +14,4 @@ ld: warning: directory not found for option '-L/Applications/Xcode.app/Contents/
 
 current directory: /Users/dongjukang/Desktop/class/project/h3yon.github.io/vendor/bundle/ruby/2.6.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 ruby_http_parser.bundle ./.gem.20220106-4273-hindgf
+/usr/bin/install -c -m 0755 ruby_http_parser.bundle ./.gem.20220109-24679-tqzm2c

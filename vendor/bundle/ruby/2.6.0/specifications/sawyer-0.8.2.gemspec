@@ -12,21 +12,18 @@ Gem::Specification.new do |s|
   s.email = "technoweenie@gmail.com".freeze
   s.homepage = "https://github.com/lostisland/sawyer".freeze
   s.licenses = ["MIT".freeze]
-  s.rubygems_version = "3.0.3".freeze
+  s.rubygems_version = "3.2.19".freeze
   s.summary = "Secret User Agent of HTTP".freeze
 
-  s.installed_by_version = "3.0.3" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.2.19" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 2
+  end
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<faraday>.freeze, ["> 0.8", "< 2.0"])
-      s.add_runtime_dependency(%q<addressable>.freeze, [">= 2.3.5"])
-    else
-      s.add_dependency(%q<faraday>.freeze, ["> 0.8", "< 2.0"])
-      s.add_dependency(%q<addressable>.freeze, [">= 2.3.5"])
-    end
+  if s.respond_to? :add_runtime_dependency then
+    s.add_runtime_dependency(%q<faraday>.freeze, ["> 0.8", "< 2.0"])
+    s.add_runtime_dependency(%q<addressable>.freeze, [">= 2.3.5"])
   else
     s.add_dependency(%q<faraday>.freeze, ["> 0.8", "< 2.0"])
     s.add_dependency(%q<addressable>.freeze, [">= 2.3.5"])

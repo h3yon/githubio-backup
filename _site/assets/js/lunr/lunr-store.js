@@ -256,4 +256,10 @@ var store = [{
         "tags": ["테스트코드"],
         "url": "/spring/testcode1/",
         "teaser": null
+      },{
+        "title": "[Java]자바의 정석 Chapter5-6",
+        "excerpt":"자바의 정석 Chapter5,6 생성일: 2022년 1월 4일 오후 12:46 태그: Array, Java Chapter5-1. 배열 같은 타입의 여러 변수를 하나의 묶음으로 다루는 것 배열의 선언과 생성 배열의 선언 선언 방법 선언 예 타입[] 변수이름; int[] score; String[] name;   타입 변수이름[]; int score[]; String name[];   배열의 선언과 생성 타입[] 변수이름;...","categories": ["Java"],
+        "tags": ["Java"],
+        "url": "/java/JavaStudy-1-Array/",
+        "teaser": null
       }]
