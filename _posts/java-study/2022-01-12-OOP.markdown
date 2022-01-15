@@ -12,3 +12,514 @@ tags:
 ---
 
 # 자바의 정석 Chapter7 객체 지향 프로그래밍
+
+생성일: 2022년 1월 9일 오후 12:25
+태그: Java, OOP
+
+# 상속
+
+: 기존의 클래스를 재사용하여 새로운 클래스를 작성하는 것이다. 코드의 재사용성을 높이고 코드의 중복을 제거하여 프로그램의 생산성과 유지보수에 크게 기여한다.
+
+![Untitled](/assets/images/javastudy2/Untitled.png)
+
+`extends` 를 사용하면 되며, 기본 Point를 상속받아 z를 추가함으로써 차원을 하나 더 높여 사용할 수 있다. → 이 경우는 `포함관계`
+조상 클래스가 변경되면 자손 클래스는 자동적으로 영향을 받지만 자손 클래스는 조상 클래스에 영향을 주지 못한다.
+
+<aside>
+💡 - 생성자와 초기화 블럭은 상속되지 않는다. `멤버만 상속`된다.
+- 자손 클래스의 `멤버 개수`는 조상 클래스보다 항상 같거나 많다.
+
+</aside>
+
+![Untitled](/assets/images/javastudy2/Untitled%201.png)
+
+상속 다이어그램을 보면 ‘Parent’와 ‘GrandChild’는 간접 조상의 관계! Child, Child2는 아무런 관계, 영향이 없다. 조상과 자손 클래스의 공통적인 부분은 조상클래스에서 관리한다.
+
+![Untitled](/assets/images/javastudy2/Untitled%202.png)
+
+자손 클래스의 인스턴스를 생성하면 조상 클래스의 멤버도 함께 생성되기 때문에
+조상 클래스의 인스턴스를 생성하지 않고도 `조상 클래스의 멤버들`을 `사용`할 수 있다.
+
+<aside>
+🤔 클래스간의 관계
+
+</aside>
+
+![Untitled](/assets/images/javastudy2/Untitled%203.png)
+
+왼쪽은 상속관계, 오른쪽은 포함관계.
+원은 점이다(is-A) → 상속관계
+원은 점을 가지고 있다(has-A) → 포함관계
+
+## 단일상속
+
+c++에는 다중상속이 가능하지만 자바에서는 단일 상속만을 허용한다. 다중상속 허용하면 복합적인 기능을 가진 클래스를 작성할 수 있지만, 클래스 간의 관계가 매우 복잡해지고 상속받은 멤버 간의 이름이 같은 경우 구별할 수 없다는 단점을 가지고 있다. 그래서 다중상속의 장점을 포기하고 단일상속만을 허용한다.
+
+단일 상속은 불편한 점도 있지만, 클래스 간의 관계가 보다 명확해지고 코드를 더욱 신뢰할 수 있게 만들어준다는 점에서 다중상속보다 유리하다.
+
+```java
+class TVCR extends TV,VCR{ //에러
+}
+```
+
+## Object 클래스
+
+![Untitled](/assets/images/javastudy2/Untitled%204.png)
+
+모든 클래스 상속계층도의 최상위에 있는 클래스이다. toString, equals, hashcode 같은 메서드를 사용할 수 있었던 이유는 이 메서드들이 Object 클래스에 정의된 것들이었기 때문이다.
+
+# 오버라이딩
+
+![Untitled](/assets/images/javastudy2/Untitled%205.png)
+
+조상 클래스로부터 상속받은 메서드의 내용을 변경하는 것이다.
+override - vt. ‘~위에 덮어쓰다(overwrite).’, ‘~에 우선하다.’
+
+## 오버라이딩의 조건
+
+<aside>
+💡 자손 클래스에서 오버라이딩하는 메서드는 조상 클래스의 메서드와
+- 선언부가 같아야 한다.(이름, 매개변수, 리턴타입)
+- 접근제어자를 좁은 범위로 변경할 수 없다.
+- 조상클래스의 메서드보다 많은 수의 예외를 선언할 수 없다.
+
+</aside>
+
+`오버로딩`은 기존에 없는 새로운 메서드를 정의하는 것(매개변수가 다르다던가, ...)이고 `오버라이딩`은 상속받은 메서드의 내용을 변경하는 것이다.
+
+## super
+
+자손 클래스에서 조상 클래스로부터 상속받은 멤버를 참조하는데 사용되는 참조변수이다.
+
+![Untitled](/assets/images/javastudy2/Untitled%206.png)
+
+▶ this – 인스턴스 자신을 가리키는 참조변수로, 인스턴스의 주소가 저장되어있다. 모든 인스턴스 메서드에 지역변수로 숨겨진 채로 존재한다.
+▶ super – this와 같다. 조상의 멤버와 자신의 멤버를 구별하는 데 사용한다. 특히 조상 클래스의 메서드를 자손 클래스에서 오버라이딩한 경우에 super를 사용한다.
+
+## super() - 조상 클래스의 생성자
+
+this()는 다른 생성자를 호출하는 데 사용되지만, super()는 조상 클래스의 생성자를 호출하는데 사용된다.
+
+![Untitled](/assets/images/javastudy2/Untitled%207.png)
+
+자손 클래스의 생성자에서 조상 클래스 생성자가 호출되어야 한다. 자손 클래스 멤버가 조상 클래스 멤버를 사용할 수 있으므로 `조상 멤버들이 먼저 초기화되어 있어야 하기 때문`이다. 이 super()는 Object 클래스까지 올라간다.
+
+<aside>
+💡 Object 클래스를 제외한 모든 클래스 생성자 첫줄에 생성자, this() 또는 super()를 호출해야 한다.
+그렇지 않으면 `컴파일러가 자동적으로 ‘super();’를 생성자의 첫줄에 삽입`한다.
+
+</aside>
+
+_왜?? 자손 클래스 멤버가 조상 클래스 멤버를 사용할 수 있으므로 조상 멤버 먼저 초기화해주는 것_
+
+# package와 import
+
+![Untitled](/assets/images/javastudy2/Untitled%208.png)
+
+패키지란 클래스의 묶음이다. 클래스가 물리적으로 클래스파일(\*.class)인 것처럼, 패키지는 `물리적으로 폴더`이다. 클래스의 실제 이름(full name)은 패키지명이 포함된 것이다.(String클래스의 full name은 java.lang.String)
+
+![Untitled](/assets/images/javastudy2/Untitled%209.png)
+
+import문의 경우, 사용할 클래스가 속한 패키지를 지정하는데 사용한다.
+모든 소스파일(.java)에서 import문은 패키지문 다음에, 클래스 선언문 이전에 위치해야 한다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2010.png)
+
+import 패키지명.클래스명;
+클래스 이름을 지정해주는 대신 ‘\*’를 사용하면 해당 패키지에 일치해야 하는 수고를 더 한다. 실행 시 성능상의 차이는 전혀 없다.
+
+static import문을 사용하면 Math.random() → random()으로 사용할 수 있다.
+
+# 제어자
+
+클래스, 변수, 메서드의 선언부에 함께 사용되어 부가적인 의미를 부여한다.
+
+아래처럼 접근 제어자와 그외의 제어자로 나눌 수 있다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2011.png)
+
+### static
+
+![Untitled](/assets/images/javastudy2/Untitled%2012.png)
+
+클래스와 관계된 것으로 인스턴스를 생성하지 않고도 사용 가능하다. 인스턴스 멤버를 사용하지 않는 메서드는 static을 고려해보자. 인스턴스를 생성하지 않고도 호출이 가능해서 더 편리하고 속도도 더 빠르다. 메모리에 로드될 때 사용된다.
+
+### final
+
+![Untitled](/assets/images/javastudy2/Untitled%2013.png)
+
+![Untitled](/assets/images/javastudy2/Untitled%2014.png)
+
+‘마지막의’, ‘변경될 수 없는’의 의미를 가지고 있으며 거의 모든 대상에 사용된다. 상속, 오버라이딩될 수 없고 변수도 변경될 수 없다.
+
+### 생성자를 이용한 final 멤버 변수의 초기화
+
+final이 붙은 변수는 상수이므로 일반적으로 선언과 초기화를 동시에 하지만, 인스턴스변수의 경우 생성자에서 초기화되도록 할 수 있다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2015.png)
+
+→ final int NUMBER;가 있다고 가정 Card(name, number);
+
+## abstract - 추상의, 미완성의
+
+![Untitled](/assets/images/javastudy2/Untitled%2016.png)
+
+‘미완성’의 의미를 가진다. 메서드의 선언부만 작성하고 실제 수행내용은 구현하지 않은 추상 메서드를 선언하는데 사용된다. 클래스에 사용되어 클래스 내에 추상메서드가 존재한다는 것을 쉽게 알 수 있게 한다.
+→ 클래스, 메서드에 abstract가 사용될 수 있다.
+다른 클래스가 이 클래스를 상속 받아서 일부의 원하는 메서드만 오버라이딩해도 된다는 장점이 있다. 만일 이 클래스가 없다면 아무런 내용도 없는 메서드를 잔뜩 오버라이딩해야한다.
+
+## 접근 제어자(access modifier)
+
+멤버 또는 클래스를 외부에서 접근하지 못하도록 제한하는 역할을 한다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2017.png)
+
+private은 클래스 내, default는 패키지 내, protected는 같은 패키지 그리고 자손 클래스에서, public은 접근 제한이 전혀 없다.
+
+<aside>
+💡 접근 범위 (넓은 부분) ~ (좁은 부분)
+public > protected > (default) > private
+
+</aside>
+
+→ protected!!!**\*\*\*\***혹시 모르니까 더 알아오기
+
+### 접근 제어자를 이용한 캡슐화
+
+비밀번호 같은 데이터를 외부에서 접근하지 못하도록 제한하는 것은 객체지향의 캡슐화에 해당한다. 멤버들을 private으로 지정하여 클래스 내부에 감추는 것도 캡슐화에 해당한다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2018.png)
+
+→ private을 사용하여 외부에서 직접 접근하지 못하도록 한다. → getter/setter 사용
+
+### 생성자의 접근 제어자
+
+생성자에 접근 제어자를 사용함으로써 인스턴스의 생성을 제한할 수 있다. 외부에서 생성자에 접근할 수 없어 인스턴스를 생성할 수 없다. 그래도 클래스 내부에서는 인스턴스를 생성할 수 있다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2019.png)
+
+public 메서드를 제공해줌으로써 외부에서 이 클래스의 인스턴스를 사용하도록 할 수 있다. 이렇게 하면 사용할 수 있는 인스턴스의 개수를 제한할 수 있다.
+
+퀴즈
+
+- 생성자가 private인 클래스는 다른 클래스의 자손이 될 수 있을까? _없다.
+  자손 클래스의 인스턴스를 생성할 때 조상 클래스의 생성자를 호출해야만 하는데, 생성자 접근제어자가 private이므로 호출하는 것이 불가능하기 때문이다. 그래서 클래스 앞에 final을 추가하여 상속할 수 없는 클래스라는 것을 알리는 것이 좋다._
+
+## 제어자의 조합
+
+1. 메서드에 static과 abstract를 함께 사용할 수 없다.
+
+- static메서드는 몸통(구현부)이 있는 메서드에만 사용할 수 있기 때문이다.
+
+2. 클래스에 abstract와 final을 동시에 사용할 수 없다.
+
+- 클래스에 사용되는 final은 클래스를 확장할 수 없다는 의미이고, abstract는 상속을 통해서 완성되어야 한다는 의미이므로 서로 모순되기 때문이다.
+
+3. abstract메서드의 접근제어자가 private일 수 없다.
+
+- abstract메서드는 자손클래스에서 구현해주어야 하는데 접근 제어자가 private이면, 자손클래스에서 접근할 수 없기 때문이다.
+
+4. 메서드에 private과 final을 같이 사용할 필요는 없다.
+
+- 접근 제어자가 private인 메서드는 오버라이딩될 수 없기 때문이다. 이 둘 중 하나만 사용해도 의미가 충분하다.
+
+# 다형성
+
+여러 가지 형태를 가질 수 있는 능력을 의미하며, 자바에서는 한 타입의 참조변수로 여러 타입의 객체를 참조할 수 있도록 함으로써 다형성을 프로그램적으로 구현하였다. → 그냥 조상 클래스 타입의 참조변수로 자손 클래스의 인스턴스를 참조할 수 있도록 하였다는 것
+
+![Untitled](/assets/images/javastudy2/Untitled%202.png)
+
+captionTV가 있다고 할 때, 아래처럼 조상 클래스 타입 참조변수로 자손 클래스의 인스턴스를 참조하도록 하는 것도 가능하다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2020.png)
+
+![Untitled](/assets/images/javastudy2/Untitled%2021.png)
+
+분명 둘다 같은 타입의 인스턴스지만, 참조변수의 타입에 따라 사용할 수 있는 멤버 갯수가 달라진다. 그래서 Tv t = new CaptionTv()의 경우, text와 caption()은 사용할 수 없다. (CaptionTv t = new Tv()는 불가능, captionTv 갯수가 Tv보다 더 많아서)
+
+## 참조변수의 형변환
+
+![Untitled](/assets/images/javastudy2/Untitled%2022.png)
+
+서로 상속관계에 있는 클래스 사이에서만 참조변수의 형변환이 가능하다. Object
+
+![Untitled](/assets/images/javastudy2/Untitled%2023.png)
+
+위에 부분에서 업캐스팅, 다운캐스팅 둘다 잘 되는 건 알 수 있다.
+
+그럼 아래 부분은 결과가 어떻게 될까?
+
+```java
+class CastingTest2 {
+	public static void main(String args[]) {
+		Car car = new Car();
+		Car car2 = null;
+		FireEngine fe = null;
+
+		car.drive();
+		fe = (FireEngine)car;
+		fe.drive();
+		car2 = fe;
+		car2.drive();
+	}
+}
+```
+
+fe = (FireEngine)car;에서 에러. 조상 타입(Car)의 인스턴스를 자손타입(FireEngine)의 참조변수로 참조하는 것은 허용되지 않는다. → 실행 시 ClassCastException, 그래서 참조변수가 가리키는 인스턴스의 타입을 잘 확인해야 한다.
+
+## instanceof 연산자
+
+![Untitled](/assets/images/javastudy2/Untitled%2024.png)
+
+참조변수가 참조하는 인스턴스의 실제 타입을 체크하는데 사용한다. instanceof의 연산결과가 true이면 해당 타입으로 형변환이 가능하다.
+
+## 참조변수와 인스턴스의 연결
+
+- `멤버변수가 중복정의`된 경우, `참조변수의 타입`에 따라 연결되는 멤버변수가 달라진다. (참조변수타입에 영향받음)
+- `메서드가 중복정의`된 경우, 참조변수의 타입에 관계없이 항상 `실제 인스턴스의 타입`에 정의된 메서드가 호출된다.(참조변수타입에 영향받지 않음)
+
+`초록색 상자 보지 말고 답 한번 유추해보기`
+
+![Untitled](/assets/images/javastudy2/Untitled%2025.png)
+
+연습퀴즈
+
+```java
+class BindingTest3{
+	public static void main(String[] args) {
+		Parent p = new Child();
+		Child  c = new Child();
+
+		System.out.println("p.x = " + p.x);
+		p.method();
+		System.out.println();
+		System.out.println("c.x = " + c.x);
+		c.method();
+	}
+}
+
+class Parent {
+	int x = 100;
+
+	void method() {
+		System.out.println("Parent Method");
+	}
+}
+
+class Child extends Parent {
+	int x = 200;
+
+	void method() {
+		System.out.println("x=" + x);  // this.x와 같다.
+		System.out.println("super.x=" + super.x);
+		System.out.println("this.x="  + this.x);
+	}
+}
+
+//결과
+p.x=100
+x=200
+super.x=100
+this.x=200
+
+c.x=200
+x=200
+super.x=100
+this.x=200
+```
+
+## 매개변수의 다형성
+
+buy라는 메서드가 있다고 가정한다. 원래 Tv만 살 수 있었는데 가게가 커져서 Computer, Audio도 팔게 됐다. 그러면 아래처럼 Product로 받을 수 있다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2026.png)
+
+참조형 매개변수는 메서드 호출시, 자신과 같은 타입 또는 자손타입의 인스턴스를 넘겨줄 수 있다.
+
+Product의 경우 Tv, Computer, Audio를 담을 수 있으므로, 아래처럼 참조변수 배열로 처리할 수 있다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2027.png)
+
+이 부분을 이용해서 구매하는 코드를 짤 수 있다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2028.png)
+
+11개 이상의 제품을 담고 싶을 때에는 Vector 클래스를 사용하면 된다. Vector 클래스는 내부적으로 Object타입의 배열을 가지고 있어서 이 배열에 객체를 추가하거나 제거할 수 있게 작성되어 있다. 배열의 크기를 알아서 관리해주기 때문에 저장할 인스턴스 개수에 신경쓰지 않아도 된다. → 그럼 `ArrayList와의 차이`?? 어떤 타입이든간에 객체를 담을 수 있다는 거가 차이점 끝인건가??
+
+![Untitled](/assets/images/javastudy2/Untitled%2029.png)
+
+![Untitled](/assets/images/javastudy2/Untitled%2030.png)
+
+어쨌든 기존 배열 대신 Vector를 사용함으로써 다양한 Product를 담도록 할 수 있다!
+
+# 추상클래스
+
+Quiz*추상클래스는 멤버변수, 구현부를 가진 메서드를 가질 수 있을까? //////////////////////Yes*
+
+추상메서드를 포함하고 있는 클래스로, 미완성 설계도에 비유할 수 있다. abstract를 붙이기만 하면 된다. 추상클래스로 인스턴스는 생성할 수 없다. 추상클래스는 상속을 통해 자손클래스에 의해서만 완성될 수 있다. 추상클래스는 추상메서드를 포함하고 있다는 것을 제외하고는 일반 클래스와 전혀 다르지 않다. 추상 클래스에도 생성자가 있으며, 멤버변수와 메서드도 가질 수 있다.
+
+- 추상메서드: 선언부만 있고 구현부가 없는 메서드
+
+## 추상메서드
+
+![Untitled](/assets/images/javastudy2/Untitled%2031.png)
+
+메서드는 선언부와 구현부로 구성되어 있는데, 추상메서드는 선언부만 작성하고 구현부는 작성하지 않은 채로 남겨둔 메서드이다. 그래서 미완성 메서드와 같다. 실제 내용은 상속 받는 클래스에서 구현하도록 비워둔다.
+
+퀴즈
+자손 클래스가 추상 클래스를 상속 받아 메서드를 오버라이딩해준다. 근데 하나의 메서드는 오버라이딩되어 있지 않았다고 한다. 그럼 자손클래스는 어떤 클래스일까? (자손클래스/추상클래스) ////two
+
+## 추상 클래스의 작성
+
+조상클래스로 올라갈수록 추상화 단계가 높다고 할 수 있다. 보통 여러 클래스에 공통적으로 사용될 수 있는 클래스를 바로 작성하기도 하고, 공통적인 부분을 뽑아 추상클래스로 만들어 상속하도록 하는 경우도 있다.
+
+<aside>
+💡 추상화: 클래스간의 공통점을 찾아내서 공통의 조상을 만드는 작업
+구체화: 상속을 통해 클래스를 구현, 확장하는 작업
+
+</aside>
+
+![Untitled](/assets/images/javastudy2/Untitled%2032.png)
+
+확실히 오른쪽처럼 공통 부분을 잘 뽑아서 구현함을 알 수 있다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2033.png)
+
+이렇게 공통 조상 Unit으로 다 move할 수 있다. 만약에 Unit[] group = new Unit[4] 대신 Object[] group = new Unit[4]으로 바꿔서 코드를 돌려보면 어떻게 될까?
+
+///////////////////////////////Err Object에 move 메서드는 없기 때문
+
+# 인터페이스
+
+일종의 추상 클래스로, 추상클래스보다 추상화 정도가 높다. 그래서 추상클래스와 달리, 몸통을 갖춘 일반 메서드 또는 멤버 변수를 구성원으로 가질 수 없다. 추상 클래스가 미완성 설계도라면, 인터페이스는 기본 설계도라고 할 수 있다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2034.png)
+
+<aside>
+💡 - 모든 멤버 변수는 public static final이어야 하며, 이를 생략할 수 있다.
+- 모든 메서드는 public abstract여야 하며, 이를 생략할 수 있다.(단, 1.8부터 static/default메서드는 예외)
+
+</aside>
+
+## 인터페이스의 상속과 구현
+
+인터페이스는 클래스와 달리 다중상속이 가능하다. 인터페이스도 자식클래스가 상속받아 구현해야 한다. ‘extends’대신 ‘implements’를 사용한다는 것이 다르다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2035.png)
+
+만약에 인터페이스 중 메서드 일부만 구현하면 0000000를 붙여주어야 한다. → abstract
+
+![Untitled](/assets/images/javastudy2/Untitled%2036.png)
+
+위에처럼 상속과 구현이 동시에 가능하다.
+
++오버라이딩 할 때는 조상의 메서드보다 00 범위의 접근 제어자를 지정해야 한다 → 넓은
+
+## 인터페이스를 이용한 다중상속
+
+다중상속을 하게 되면 어느 조상의 것을 상속받게 되는 것인지 알 수 없다. 어느 한쪽으로부터의 상속을 포기하던가 이름이 충돌하지 않도록 조상클래스를 변경하는 수밖에 없다. 자바도 인터페이스를 이용하면 다중 상속이 가능하다고 해서 다중상속을 위한 것이라고 오해를 사곤 하는데, 자바에서 인터페이스로 다중상속을 구현하는 경우는 거의 X
+
+인터페이스는 static 상수만 정의할 수 있으므로 멤버 변수와 충돌하는 경우가 거의 없고 충돌해도 클래스 이름 붙여서 구분이 가능하다. 추상 메서드는 구현 내용이 전혀 없으므로 조상 클래스의 메서드와 선언부가 일치하는 경우엔 당연히 조상 클래스 쪽의 메서드를 상속 받으면 돼서 문제되지 않는다.
+
+→ 상속 받는 멤버 충돌은 피할 수 있지만, 다중상속의 장점을 잃게된다.
+
+> **\*\***두 개의 클래스로부터 상속을 받아야 할 상황이라면, 두 조상 클래스 중에서 비중이 높은 쪽을 선택하고 다른 한쪽은 클래스 내부에 멤버로 포함시키는 방식으로 처리하거나 어느 한쪽의 필요한 부분을 뽑아서 인터페이스로 만든 다음 구현하도록 한다.**\*\*\***
+
+```java
+//IVCR의 추상메서드를 구현해야 함
+class TVCR extends Tv implements IVCR{
+	VCR vcr = new VCR();
+
+	public void play() { vcr.play(); }
+	public void stop() { vcr.stop(); }
+	public void reset() { vcr.reset(); }
+	//.. IVCR 추상 메서드 구현
+}
+```
+
+이렇게 TV 상속 받고, IVCR 구현해서 다중상속을 구현할 수 있다.
+
+## 인터페이스를 이용한 다형성
+
+다형성을 배울 때, 자손 클래스의 인스턴스를 조상 타입의 참조변수로 참조하는 것을 배움(ex) TV tv = new CaptionTv();) 인터페이스 역시 이를 구현한 클래스의 조상이라 할 수 있으므로 해당 인터페이스 타입의 참조변수로 이를 구현한 클래스의 인스턴스를 참조할 수 있으며, 인터페이스 타입의 형변환도 가능하다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2037.png)
+
+인터페이스는 메서드의 매개변수 타입으로 사용될 수 있다.
+
+![Untitled](/assets/images/javastudy2/Untitled%2038.png)
+
+인터페이스를 리턴 타입으로도 가능! → 해당 인터페이스를 구현한 클래스의 인스턴스 반환
+
+![Untitled](/assets/images/javastudy2/Untitled%2039.png)
+
+## 인터페이스의 장점
+
+1. 개발시간을 단축시킬 수 있다.
+
+인터페이스를 통해 프로그램을 작성하는 것이 가능하다. 메서드를 호출하는 쪽에서는 선언부만 알면 되기 때문이다. 인터페이스를 구현하는 클래스가 작성될 때까지 기다리지 않고도 양쪽에서 동시에 개발을 진행할 수 있다.
+
+2. 표준화가 가능하다.
+
+프로젝트에 사용되는 기본 틀을 인터페이스로 작성한 다음, 구현하게 함으로써 보다 일관되고 정형화된 프로그램의 개발이 가능하다.
+
+3. 서로 관계없는 클래스들에게 관계를 맺어 줄 수 있다.
+
+서로 아무런 관계도 없는 클래스들에게 하나의 인터페이스를 공통적으로 구현하도록 함으로써 관계를 맺어 줄 수 있다.
+
+4. 독립적인 프로그래밍이 가능하다.
+
+클래스와 클래스간의 직접적인 관계를 인터페이스를 이용해서 간접적인 관계로 변경하면, 한 클래스의 변경이 관련된 다른 클래스에 영향을 미치지 않는 독립적인 프로그래밍이 가능하다.
+
+## 인터페이스의 이해
+
+![Untitled](/assets/images/javastudy2/Untitled%2040.png)
+
+실제 B를 사용해도 인터페이스를 사용함으로써 B가 변경되어도 A는 변경되지 않아도 된다.
+
+- 클래스를 사용하는 쪽(User)과 클래스를 제공하는 쪽(Provider)이 있다.
+- 메서드를 사용(호출)하는 쪽(User)에서는 사용하려는 메서드(Provider)의 선언부만 알면 된다.
+
+**\***매개변수를 통해서 인터페이스 I를 구현한 클래스의 인스턴스를 동적으로 제공받아야 한다.
+
+```java
+A a = new A();
+a.autoPlay(new B()); //void autoPlay(I i) 호출
+a.autoPlay(new C()); //void autoPlay(I i) 호출
+```
+
+**\***클래스 Thread의 생성자인 Thread(Runnable target)이 이런 방식으로 되어 있다. 이렇게 동적으로 제공받을 수도 있지만 아래처럼 제공 받을 수도 있다. JDBC의 DriverManager 클래스가 이런 방식으로 되어 있다.
+
+```java
+//제 3의 클래스 메서드 통해 Interface I를 구현한 클래스의 인스턴스를 가져온다.
+I i = InstanceManager.getInstance();
+i.methodB();
+```
+
+## 디폴트 메서드와 static 메서드
+
+- 디폴트 메서드와 static 메서드가 추가된 jdk 버전은?! ////////////////////1.8
+
+→ **\***static 메서드**\*\*\***알아오기
+
+인터페이스의 모든 메서드는 추상 메서드이어야 한다는 규칙에 예외를 두지 않았다. 그래서 인터페이스와 관련된 static 메서드는 별도의 클래스에 따로 두어야 했다. 가장 대표적인 것으로 java.util.Collection 인터페이스가 있다. static 메서드들이 Collections라는 클래스에 들어가게 되었다.
+
+### 디폴트 메서드
+
+클래스와 달리 인터페이스에 새로운 메서드(추상메서드)를 추가하기 어렵다. (해당 인터페이스를 구현한 클래스가 추가된 메서드를 구현하도록 변경 필요) → 이래서 디폴트 메서드가 고안됨
+
+![Untitled](/assets/images/javastudy2/Untitled%2041.png)
+
+오른쪽으로 수정하면 기존의 MyInterface를 구현한 클래스를 변경하지 않아도 된다.
+
+디폴트 메서드가 기존 메서드와 충돌하는 경우 아래와 같이 해결 → 오버라이딩, 조상 클래스 메서드 상속
+
+![Untitled](/assets/images/javastudy2/Untitled%2042.png)
+
+# 내부 클래스
+
+![Untitled](/assets/images/javastudy2/Untitled%2043.png)
+
+클래스 안에 선언된 클래스로 특정 클래스 내에서만 주로 사용되는 클래스를 내부 클래스로 선언한다. GUI어플리케이션(AWT, Swing)의 이벤트처리에 주로 사용된다.
+
+장점으로는 아래와 같다.
